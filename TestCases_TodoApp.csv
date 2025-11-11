@@ -1,0 +1,340 @@
+Test Case ID,Module/Feature,Test Case Title,Test Description,Preconditions,Test Steps,Expected Result,Test Data,Priority,Test Type,Status
+TC_001,Add Todo Item,Add new todo item with valid input,Verify that user can successfully add a new todo item with valid text input,1. Application is loaded successfully 2. Todo list is displayed,"1. Navigate to the Todo App
+2. Locate the input field with placeholder 'Title...'
+3. Enter valid text: 'New Task Item'
+4. Click on 'Add' button
+5. Verify the todo list","1. New todo item should be added to the list
+2. New item should appear at the bottom of the existing list
+3. Input field should be cleared after adding
+4. Close button (×) should be visible on the new item",Input: 'New Task Item',High,Functional,Pending
+TC_002,Add Todo Item,Add todo item with empty input,Verify that system shows validation message when user tries to add empty todo item,1. Application is loaded successfully 2. Todo list is displayed,"1. Navigate to the Todo App
+2. Locate the input field with placeholder 'Title...'
+3. Leave the input field empty
+4. Click on 'Add' button
+5. Verify the alert message","1. Alert message should display: 'You must write something!'
+2. No new item should be added to the list
+3. Input field remains empty",Input: '' (empty string),High,Functional,Pending
+TC_003,Add Todo Item,Add todo item with special characters,Verify that user can add todo item with special characters,1. Application is loaded successfully,"1. Navigate to the Todo App
+2. Enter text with special characters: 'Buy @groceries #shopping $100!'
+3. Click on 'Add' button
+4. Verify the new item in list","1. Todo item with special characters should be added successfully
+2. Special characters should be displayed correctly
+3. Item should have close button",Input: 'Buy @groceries #shopping $100!',Medium,Functional,Pending
+TC_004,Add Todo Item,Add todo item with very long text,Verify system behavior when adding todo item with long text (more than 100 characters),1. Application is loaded successfully,"1. Navigate to the Todo App
+2. Enter text with 150 characters
+3. Click on 'Add' button
+4. Verify the display","1. Long text should be added to the list
+2. Text should be displayed properly (may wrap or truncate)
+3. Close button should be visible",Input: 'A' repeated 150 times,Low,Functional,Pending
+TC_005,Add Todo Item,Add todo item with only spaces,Verify system behavior when adding todo item with only whitespace,1. Application is loaded successfully,"1. Navigate to the Todo App
+2. Enter multiple spaces in input field: '     '
+3. Click on 'Add' button
+4. Observe the behavior","1. Item with spaces should be added (current behavior)
+2. Close button should be present
+Note: This may be a bug - empty validation might need to check trimmed value",Input: '     ' (5 spaces),Medium,Functional,Pending
+TC_006,Add Todo Item,Add todo item using Enter key,Verify if user can add todo item by pressing Enter key (keyboard accessibility),1. Application is loaded successfully,"1. Navigate to the Todo App
+2. Click on input field to focus
+3. Enter valid text: 'Task via Enter'
+4. Press Enter key
+5. Verify if item is added","Expected: Item should be added by pressing Enter key
+Actual: Feature may not be implemented - requires verification",Input: 'Task via Enter',Low,Functional,Pending
+TC_007,Delete Todo Item,Delete existing todo item,Verify that user can delete an existing todo item using close button,1. Application is loaded 2. At least one todo item exists in the list,"1. Navigate to the Todo App
+2. Locate any todo item in the list
+3. Hover over the item to see close button (×)
+4. Click on the close button (×)
+5. Verify the item is removed","1. Clicked todo item should disappear from view (display:none)
+2. Item should not be visible in the list
+3. Other items should remain unaffected",Select any existing item,High,Functional,Pending
+TC_008,Delete Todo Item,Delete newly added todo item,Verify that user can delete a newly added todo item,1. Application is loaded,"1. Add a new todo item: 'Test Delete Item'
+2. Locate the newly added item
+3. Click on close button (×) of the new item
+4. Verify deletion","1. Newly added item should be removed from view
+2. Item should disappear immediately after clicking close button",Input: 'Test Delete Item',High,Functional,Pending
+TC_009,Delete Todo Item,Hover effect on close button,Verify visual feedback when hovering over close button,1. Application is loaded 2. Todo items exist,"1. Navigate to any todo item
+2. Hover mouse over the close button (×)
+3. Observe the visual change
+4. Move mouse away
+5. Verify hover effect is removed","1. Close button background should change to red (#f44336)
+2. Text color should change to white
+3. Effect should be removed when mouse leaves",Visual verification,Medium,UI/Functional,Pending
+TC_010,Mark Todo Complete,Toggle todo item to completed state,Verify that user can mark a todo item as completed by clicking on it,1. Application is loaded 2. Uncompleted todo items exist,"1. Navigate to the Todo App
+2. Locate an uncompleted todo item (e.g., 'Git - Introduction')
+3. Click on the todo item text
+4. Verify the visual change","1. Item should toggle 'checked' class
+2. Background should change to gray (#888)
+3. Checkmark icon should appear before the text
+4. Text may have strikethrough (if completed-item class is added)
+Note: Current code has incomplete toggle implementation",Click on 'Git - Introduction',High,Functional,Pending
+TC_011,Mark Todo Complete,Toggle completed item back to uncompleted,Verify that user can unmark a completed todo item,1. Application is loaded 2. Completed todo item exists (e.g., 'KMS Next Programming Introduction'),"1. Navigate to the Todo App
+2. Locate a completed item (with gray background and checkmark)
+3. Click on the completed item
+4. Verify the toggle back to uncompleted state","1. Item should remove 'checked' class
+2. Background should change back to normal color
+3. Checkmark should disappear
+4. Item should look like uncompleted state
+Note: Current implementation needs verification",Click on completed item,High,Functional,Pending
+TC_012,Mark Todo Complete,Double click on todo item,Verify system behavior when double-clicking a todo item,1. Application is loaded 2. Todo items exist,"1. Navigate to the Todo App
+2. Locate any todo item
+3. Double-click on the item quickly
+4. Observe the behavior","1. Item should toggle checked state twice
+2. Final state depends on implementation
+3. No errors should occur",Double-click on any item,Low,Functional,Pending
+TC_013,UI Display,Verify initial page load,Verify that todo app loads correctly with default items,Browser is opened,"1. Open the Todo App URL or index.html
+2. Wait for page to load completely
+3. Verify all UI elements are displayed
+4. Check default todo items","1. Page title should be 'Todo App'
+2. Header should display 'My To Do List'
+3. Input field should be visible with placeholder 'Title...'
+4. 'Add' button should be visible
+5. 6 default todo items should be displayed
+6. First 2 items should be in completed state (checked)",Visual verification,High,UI/Functional,Pending
+TC_014,UI Display,Verify header styling,Verify header section displays with correct styling,Application is loaded,"1. Open the Todo App
+2. Locate the header section
+3. Verify background color
+4. Verify text color and alignment","1. Header background color should be blue (Note: CSS comment mentions hotfix to green)
+2. Text color should be white
+3. Text should be center-aligned
+4. Header should contain title, input, and add button",Visual verification,Medium,UI/Functional,Pending
+TC_015,UI Display,Verify todo list styling,Verify todo items display with correct styling,Application is loaded with todo items,"1. Open the Todo App
+2. Observe the todo list items
+3. Check odd/even row colors
+4. Check hover effects","1. Odd rows should have background #f9f9f9
+2. Even rows should have background #eee
+3. Hovering over item should change background to #ddd
+4. Cursor should change to pointer on hover",Visual verification,Medium,UI/Functional,Pending
+TC_016,UI Display,Verify completed item styling,Verify completed items display with correct visual indicators,Application is loaded,"1. Open the Todo App
+2. Locate completed items (first 2 items)
+3. Verify visual styling","1. Completed items should have gray background (#888)
+2. Checkmark icon should be visible on the left
+3. Text should have strikethrough decoration
+4. Text color should be black",Visual verification,High,UI/Functional,Pending
+TC_017,Input Field,Verify input field placeholder,Verify input field displays correct placeholder text,Application is loaded,"1. Open the Todo App
+2. Locate the input field
+3. Verify placeholder text
+4. Click on input field
+5. Verify placeholder behavior","1. Placeholder should display 'Title...'
+2. Placeholder should disappear when user starts typing
+3. Placeholder should reappear if field is cleared",Visual verification,Low,UI/Functional,Pending
+TC_018,Input Field,Verify input field character limit,Verify if input field has any character limit restriction,Application is loaded,"1. Open the Todo App
+2. Click on input field
+3. Paste or type very long text (500+ characters)
+4. Verify if all text is accepted
+5. Try to add the item","1. Input field should accept the text (or enforce limit)
+2. Current behavior needs to be verified
+3. Document if there's a limit",Input: 500 character string,Low,Functional,Pending
+TC_019,Input Field,Verify input field width responsiveness,Verify input field width is responsive and takes 75% width,Application is loaded,"1. Open the Todo App
+2. Observe input field width
+3. Resize browser window
+4. Verify field remains 75% of container width","1. Input field should occupy 75% width
+2. Add button should occupy 25% width
+3. Width should be maintained on resize",Visual verification,Low,UI/Functional,Pending
+TC_020,Add Button,Verify Add button styling,Verify Add button displays with correct styling,Application is loaded,"1. Open the Todo App
+2. Locate the 'Add' button
+3. Verify button styling
+4. Hover over the button","1. Button should have gray background (#d9d9d9)
+2. Text should be 'Add' with color #555
+3. On hover, background should change to #bbb
+4. Button should take 25% width",Visual verification,Medium,UI/Functional,Pending
+TC_021,Add Button,Click Add button multiple times rapidly,Verify system behavior when Add button is clicked multiple times quickly,Application is loaded with text in input,"1. Enter text in input field: 'Rapid Click Test'
+2. Click Add button 5 times rapidly
+3. Observe the list","1. Only one item should be added
+2. No duplicate items should be created
+3. Input field should be cleared after first click
+Note: Current implementation may add empty items after first click",Input: 'Rapid Click Test',Medium,Functional,Pending
+TC_022,Data Persistence,Verify data persistence after page refresh,Verify if added/deleted items persist after page refresh,1. Application is loaded 2. User has added/deleted items,"1. Open the Todo App
+2. Add a new item: 'Persistence Test'
+3. Delete an existing item
+4. Refresh the browser (F5)
+5. Observe the todo list","1. Page should reload with default items only
+2. Added item 'Persistence Test' should not persist
+3. Deleted items should reappear
+Note: App doesn't use localStorage - no persistence feature",Input: 'Persistence Test',High,Functional,Pending
+TC_023,Data Persistence,Verify data after browser close and reopen,Verify if todo list persists after closing and reopening browser,Application has been modified from default state,"1. Open the Todo App
+2. Make several changes (add/delete items)
+3. Close the browser completely
+4. Reopen browser and navigate to Todo App
+5. Verify the state","1. Application should load with default state
+2. Previous session changes should not persist
+3. Default 6 items should be displayed
+Note: No persistence mechanism implemented",Multiple changes,Low,Functional,Pending
+TC_024,Cross-browser Compatibility,Verify functionality in Chrome browser,Verify all functionalities work correctly in Chrome browser,Chrome browser is installed,"1. Open Todo App in Chrome
+2. Test add functionality
+3. Test delete functionality  
+4. Test toggle completion
+5. Verify UI styling","1. All features should work as expected
+2. UI should render correctly
+3. No console errors should appear",All test scenarios,High,Compatibility,Pending
+TC_025,Cross-browser Compatibility,Verify functionality in Firefox browser,Verify all functionalities work correctly in Firefox browser,Firefox browser is installed,"1. Open Todo App in Firefox
+2. Test add functionality
+3. Test delete functionality
+4. Test toggle completion
+5. Verify UI styling","1. All features should work as expected
+2. UI should render correctly
+3. No console errors should appear",All test scenarios,High,Compatibility,Pending
+TC_026,Cross-browser Compatibility,Verify functionality in Safari browser,Verify all functionalities work correctly in Safari browser,Safari browser is available (macOS),"1. Open Todo App in Safari
+2. Test add functionality
+3. Test delete functionality
+4. Test toggle completion
+5. Verify UI styling","1. All features should work as expected
+2. UI should render correctly
+3. Webkit-specific CSS should work properly",All test scenarios,Medium,Compatibility,Pending
+TC_027,Cross-browser Compatibility,Verify functionality in Edge browser,Verify all functionalities work correctly in Edge browser,Edge browser is installed,"1. Open Todo App in Edge
+2. Test add functionality
+3. Test delete functionality
+4. Test toggle completion
+5. Verify UI styling","1. All features should work as expected
+2. UI should render correctly
+3. No console errors should appear",All test scenarios,Medium,Compatibility,Pending
+TC_028,Responsive Design,Verify app display on mobile devices,Verify todo app is usable on mobile screen sizes,Mobile device or browser dev tools,"1. Open Todo App
+2. Switch to mobile view (375x667 iPhone size)
+3. Verify all elements are visible
+4. Test add/delete/toggle functions
+5. Check if buttons are clickable","1. All elements should be visible
+2. Input field and Add button should be usable
+3. Todo items should be readable
+4. Touch interactions should work
+Note: App may need responsive improvements",Mobile viewport,High,Responsive/UI,Pending
+TC_029,Responsive Design,Verify app display on tablet devices,Verify todo app displays correctly on tablet screen sizes,Tablet device or browser dev tools,"1. Open Todo App
+2. Switch to tablet view (768x1024 iPad size)
+3. Verify layout and spacing
+4. Test all functionalities","1. App should utilize tablet screen space effectively
+2. All features should be functional
+3. UI should look appropriate for tablet size",Tablet viewport,Medium,Responsive/UI,Pending
+TC_030,Responsive Design,Verify app display on large desktop screens,Verify todo app displays correctly on large desktop screens,Large monitor or browser at full screen,"1. Open Todo App on large screen (1920x1080+)
+2. Verify layout and element sizing
+3. Check if elements are centered or full-width
+4. Test all functionalities","1. App should display properly on large screens
+2. Elements should not be too stretched
+3. All features should work normally",Large desktop viewport,Low,Responsive/UI,Pending
+TC_031,Accessibility,Verify keyboard navigation,Verify user can navigate and use app with keyboard only,Application is loaded,"1. Open Todo App
+2. Use Tab key to navigate through elements
+3. Try to add item using keyboard
+4. Try to delete item using keyboard
+5. Test all interactive elements","1. User should be able to Tab through input and button
+2. Enter key should add todo (if implemented)
+3. Keyboard should be able to trigger delete
+4. Focus indicators should be visible
+Note: Full keyboard support may need verification",Keyboard only,High,Accessibility,Pending
+TC_032,Accessibility,Verify screen reader compatibility,Verify app is usable with screen reader software,Screen reader software is installed,"1. Enable screen reader (NVDA/JAWS/VoiceOver)
+2. Navigate through Todo App
+3. Verify if elements are announced properly
+4. Test add/delete operations with screen reader","1. Header and title should be announced
+2. Input field purpose should be clear
+3. Todo items should be read correctly
+4. Button actions should be announced
+Note: May need ARIA labels for full accessibility",Screen reader software,Medium,Accessibility,Pending
+TC_033,Performance,Verify performance with large number of items,Verify app performance when many todo items are added,Application is loaded,"1. Add 100 todo items programmatically or manually
+2. Observe page load time
+3. Test scroll performance
+4. Test add/delete operations
+5. Check browser performance metrics","1. Page should remain responsive
+2. Add/delete operations should work smoothly
+3. No significant lag or freezing
+4. Memory usage should be reasonable",100 todo items,Medium,Performance,Pending
+TC_034,Performance,Verify performance of rapid operations,Verify system handles rapid user actions without issues,Application is loaded,"1. Rapidly add multiple items consecutively
+2. Rapidly delete multiple items
+3. Rapidly toggle items
+4. Observe system behavior","1. All operations should complete
+2. UI should update correctly
+3. No JavaScript errors
+4. No memory leaks",Rapid consecutive actions,Medium,Performance,Pending
+TC_035,Error Handling,Verify behavior when JavaScript is disabled,Verify graceful degradation when JavaScript is disabled,Browser with JavaScript disable capability,"1. Open browser settings
+2. Disable JavaScript
+3. Load Todo App
+4. Observe page behavior","1. HTML content should be visible
+2. Static list should display
+3. Interactive features won't work
+4. No broken functionality should show
+Note: App is JS-dependent, consider fallback message",JavaScript disabled,Low,Error Handling,Pending
+TC_036,Error Handling,Verify behavior with CSS not loaded,Verify app functionality when CSS fails to load,Application setup,"1. Block css/main.css from loading
+2. Open Todo App
+3. Verify functionality without styling","1. Unstyled content should be visible
+2. JavaScript functionality should still work
+3. Todo items should be functional even without styling",CSS blocked,Low,Error Handling,Pending
+TC_037,Error Handling,Verify console for JavaScript errors,Verify no JavaScript errors occur during normal operations,Browser developer tools are open,"1. Open Todo App with Dev Tools
+2. Open Console tab
+3. Perform all operations (add, delete, toggle)
+4. Monitor console for errors","1. No JavaScript errors should appear
+2. No warnings should appear (or document known warnings)
+3. Console should be clean during all operations",All operations,High,Error Handling,Pending
+TC_038,Security,Verify XSS prevention with HTML in input,Verify that HTML tags in input are escaped and not executed,Application is loaded,"1. Enter HTML in input: '<script>alert(""XSS"")</script>'
+2. Click Add button
+3. Observe if script executes or displays as text","1. Script should NOT execute
+2. Text should be displayed as plain text or escaped
+3. No alert should pop up
+Current risk: App uses createTextNode which should be safe",'<script>alert(""XSS"")</script>',High,Security,Pending
+TC_039,Security,Verify XSS prevention with event handlers,Verify that event handlers in input are not executed,Application is loaded,"1. Enter: '<img src=x onerror=""alert(1)"">'
+2. Click Add button
+3. Observe behavior","1. No alert should execute
+2. Text should be safely displayed
+3. No image error event should trigger",'<img src=x onerror=""alert(1)"">',High,Security,Pending
+TC_040,Security,Verify SQL injection characters handling,Verify app handles SQL-like special characters safely (informational - no backend),Application is loaded,"1. Enter: ""'; DROP TABLE todos;--""
+2. Click Add button
+3. Verify item is added safely","1. Text should be added as-is
+2. No errors should occur
+3. Item should display correctly
+Note: No backend, but good to verify character handling","'; DROP TABLE todos;--",Medium,Security,Pending
+TC_041,Code Coverage,Verify addCloseBtnToTodoItems function,Verify close buttons are added to all initial todo items,Application is loaded,"1. Open Todo App
+2. Inspect each of the 6 default items
+3. Verify close button presence on each
+4. Check button functionality","1. All 6 default items should have close buttons
+2. Each close button should be clickable
+3. Function should execute on page load",Verify all 6 items,Medium,Functional,Pending
+TC_042,Code Coverage,Verify handleClickCloseBtn function,Verify close button click handlers are properly attached,At least one todo item with close button exists,"1. Open Todo App
+2. Click close button on any item
+3. Verify onclick handler executes
+4. Verify item is hidden (display:none)","1. Click handler should be attached
+2. Item should hide when close is clicked
+3. Parent element display should be set to 'none'",Click any close button,High,Functional,Pending
+TC_043,Code Coverage,Verify handleClickTodoItem function,Verify todo item click event listener is attached to the list,Application is loaded,"1. Open Todo App
+2. Click on any todo item (LI element)
+3. Observe if event fires
+4. Check if toggle functionality is called","1. Click event should be detected
+2. Event should propagate to UL listener
+3. Toggle functionality should execute (if implemented)
+Note: Code shows incomplete toggle implementation",Click on LI elements,High,Functional,Pending
+TC_044,Edge Cases,Add todo with numeric values only,Verify system accepts numeric values as todo item,Application is loaded,"1. Enter numeric value: '12345'
+2. Click Add button
+3. Verify item is added","1. Numeric todo item should be added successfully
+2. Number should display correctly
+3. Close button should be present",Input: '12345',Low,Functional,Pending
+TC_045,Edge Cases,Add todo with emoji characters,Verify system handles emoji characters in todo items,Application is loaded,"1. Enter emojis: '📝 Complete homework 🎯'
+2. Click Add button
+3. Verify display","1. Todo with emojis should be added
+2. Emojis should render correctly
+3. No encoding issues",Input: '📝 Complete homework 🎯',Low,Functional,Pending
+TC_046,Edge Cases,Add todo with line breaks,Verify system behavior when input contains line breaks,Application is loaded,"1. Try to enter multi-line text in input field
+2. Observe if line breaks are accepted
+3. Click Add button
+4. Verify display","1. Input field should not accept line breaks (single line input)
+2. If entered via paste, behavior should be documented
+3. Item should display inline",Try to paste multi-line text,Low,Functional,Pending
+TC_047,Edge Cases,Verify display of very first item in empty list,Verify behavior when adding first item to a cleared list,All default items have been deleted,"1. Delete all existing todo items
+2. Add a new item: 'First Item'
+3. Verify display and styling","1. New item should be added successfully
+2. Item should have proper styling
+3. Close button should be present
+4. Item should be clickable for toggle",Input: 'First Item',Medium,Functional,Pending
+TC_048,Edge Cases,Delete all items and verify empty state,Verify app behavior when all items are deleted,Application is loaded with default items,"1. Delete all 6 default todo items one by one
+2. Observe the UI
+3. Try to add a new item
+4. Verify functionality","1. All items should be hidden/removed
+2. Empty list should be displayed (no items visible)
+3. Add functionality should still work
+4. New items should be added to empty list",Delete all items,Medium,Functional,Pending
+TC_049,User Experience,Verify user flow - complete workflow,Verify complete user workflow from start to finish,Clean browser session,"1. Open Todo App
+2. Review existing items
+3. Add 2 new items
+4. Mark 1 item as complete
+5. Delete 1 item
+6. Verify final state","1. All operations should work smoothly
+2. UI should update after each action
+3. Final state should reflect all changes
+4. User experience should be intuitive",Complete workflow,High,Functional,Pending
+TC_050,User Experience,Verify visual feedback for user actions,Verify that users receive appropriate visual feedback for their actions,Application is loaded,"1. Hover over various elements
+2. Click buttons and items
+3. Observe hover effects and transitions
+4. Verify cursor changes","1. Hover effects should be visible on all interactive elements
+2. Cursor should change to pointer on clickable items
+3. Transitions should be smooth (0.2s-0.3s)
+4. Visual feedback should be immediate",Visual observation,Medium,UX/UI,Pending
