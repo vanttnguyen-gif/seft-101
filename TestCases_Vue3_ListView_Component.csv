@@ -1,0 +1,1075 @@
+Test Case ID,Module/Feature,Test Case Title,Test Description,Preconditions,Test Steps,Expected Result,Test Data,Priority,Test Type,Status
+TC_VUE_001,Search,Search with valid keyword - exact match,Verify search returns exact matching items,"1. Vue 3 list component is loaded
+2. Multiple items are displayed in the list","1. Locate the search input field
+2. Enter exact item name/keyword: 'Product A'
+3. Press Enter or click Search button
+4. Verify search results","1. Only items matching 'Product A' should be displayed
+2. Non-matching items should be hidden
+3. Result count should be updated
+4. Search term should remain in search field",Search: 'Product A',High,Functional,Pending
+TC_VUE_002,Search,Search with partial keyword,Verify search returns items with partial matches,"1. Component is loaded
+2. Multiple items exist (e.g., 'Product A', 'Product B', 'New Product')","1. Enter partial keyword: 'Product'
+2. Execute search
+3. Observe filtered results","1. All items containing 'Product' should be displayed
+2. Items: 'Product A', 'Product B', 'New Product' should show
+3. Result count should show number of matches
+4. Search should be case-insensitive (verify)",Search: 'Product',High,Functional,Pending
+TC_VUE_003,Search,Search with no matching results,Verify behavior when search returns no results,"1. Component is loaded
+2. Items are displayed","1. Enter keyword that doesn't match any item: 'XYZ123NoMatch'
+2. Execute search
+3. Verify empty state","1. No items should be displayed
+2. 'No results found' or empty state message should appear
+3. Original list should be recoverable by clearing search
+4. UI should not break",Search: 'XYZ123NoMatch',High,Functional,Pending
+TC_VUE_004,Search,Clear search and restore original list,Verify clearing search restores the original list,"1. Component is loaded
+2. Search has been performed with active filter","1. Locate search field with existing search term
+2. Clear the search field (delete text or click clear button)
+3. Verify list restoration","1. All original items should be displayed again
+2. List should return to previous state (page, view mode, etc.)
+3. Result count should show total items
+4. Filters should remain if any",Clear search field,High,Functional,Pending
+TC_VUE_005,Search,Search with special characters,Verify search handles special characters correctly,"1. Component is loaded
+2. Items may contain special characters","1. Enter search with special characters: '@Product#1'
+2. Execute search
+3. Verify results","1. Search should handle special characters safely
+2. Matching items should be displayed
+3. No JavaScript errors
+4. XSS attempts should be prevented",Search: '@Product#1',Medium,Functional,Pending
+TC_VUE_006,Search,Real-time search (debounce),Verify search executes with debounce during typing,"1. Component is loaded
+2. Real-time search is enabled","1. Start typing in search field: 'P-r-o-d-u-c-t'
+2. Observe when search executes
+3. Verify debounce behavior","1. Search should not execute on every keystroke
+2. Should wait for user to pause typing (300-500ms typical)
+3. Results should update after debounce period
+4. Performance should be optimized",Type 'Product' slowly,Medium,Functional,Pending
+TC_VUE_007,Search,Search persistence across view mode changes,Verify search results persist when switching view modes,"1. Component is loaded
+2. Search has been performed with results shown","1. Perform search: 'Product'
+2. Note the filtered results
+3. Switch from List to Grid view
+4. Switch to Compact view
+5. Verify search results","1. Same filtered results should display in all view modes
+2. Search term should remain in search field
+3. Result count should remain consistent
+4. No items should be added/removed",Search: 'Product' + switch views,High,Functional,Pending
+TC_VUE_008,Search,Search combined with filters,Verify search works correctly when combined with active filters,"1. Component is loaded
+2. Filter is already applied (e.g., Category = 'Electronics')","1. Apply a filter: Category = 'Electronics'
+2. Perform search: 'Phone'
+3. Verify combined results","1. Results should match both filter AND search criteria
+2. Only 'Phone' items in 'Electronics' category should show
+3. Both filter and search should be active
+4. Clearing one should keep the other active","Filter: Electronics, Search: Phone",High,Functional,Pending
+TC_VUE_009,Filter,Apply single filter,Verify applying a single filter correctly filters the list,"1. Component is loaded
+2. Multiple items with different attributes exist","1. Locate filter dropdown/panel
+2. Select filter: Status = 'Active'
+3. Apply filter
+4. Verify filtered list","1. Only items with Status = 'Active' should display
+2. Filter indicator should show active filter
+3. Result count should update
+4. Other items should be hidden",Filter: Status = Active,High,Functional,Pending
+TC_VUE_010,Filter,Apply multiple filters,Verify multiple filters work together (AND logic),"1. Component is loaded
+2. Items have multiple filterable attributes","1. Open filter panel
+2. Apply first filter: Category = 'Electronics'
+3. Apply second filter: Status = 'Active'
+4. Apply third filter: Price Range = '$100-$500'
+5. Verify results","1. Only items matching ALL filter criteria should display
+2. All three filters should show as active
+3. Result count should reflect combined filters
+4. Filters should use AND logic","Category: Electronics
+Status: Active
+Price: $100-$500",High,Functional,Pending
+TC_VUE_011,Filter,Remove individual filter,Verify removing one filter from multiple active filters,"1. Component is loaded
+2. Multiple filters are active","1. Apply 3 filters (Category, Status, Price)
+2. Note the filtered results
+3. Remove one filter: Status
+4. Verify updated results","1. Results should expand to include items matching remaining filters
+2. Only Status filter should be removed
+3. Other filters (Category, Price) should remain active
+4. Result count should increase",Remove Status filter,High,Functional,Pending
+TC_VUE_012,Filter,Clear all filters,Verify clearing all filters restores the complete list,"1. Component is loaded
+2. One or more filters are active","1. Apply multiple filters
+2. Locate 'Clear All Filters' button
+3. Click Clear All Filters
+4. Verify list restoration","1. All filters should be removed
+2. Complete original list should be displayed
+3. Filter indicators should be cleared
+4. Result count should show total items",Clear all filters,High,Functional,Pending
+TC_VUE_013,Filter,Filter with no matching results,Verify behavior when filter combination yields no results,"1. Component is loaded
+2. Items are displayed","1. Apply filter combination that matches no items
+2. Example: Category = 'Electronics' AND Status = 'Deleted'
+3. Verify empty state","1. No items should be displayed
+2. 'No items match the selected filters' message should appear
+3. Filter indicators should remain active
+4. User should be able to adjust filters","Category: Electronics
+Status: Deleted",Medium,Functional,Pending
+TC_VUE_014,Filter,Filter dropdown options,Verify filter dropdown shows correct available options,"1. Component is loaded
+2. Filter panel is accessible","1. Click on Category filter dropdown
+2. Verify available options
+3. Check if options are sorted
+4. Verify option counts if displayed","1. All unique category values should be listed
+2. Options should be sorted (alphabetically or by relevance)
+3. Disabled options should be indicated if applicable
+4. 'All' or 'None' option may be available",Open Category dropdown,Medium,Functional,Pending
+TC_VUE_015,Filter,Filter persistence across pagination,Verify active filters persist when navigating between pages,"1. Component is loaded
+2. Pagination is active
+3. Filters are applied","1. Apply filter: Status = 'Active'
+2. Note results on page 1
+3. Navigate to page 2
+4. Navigate back to page 1
+5. Verify filter persistence","1. Filter should remain active on all pages
+2. Only filtered items should appear on each page
+3. Page content should be correctly filtered
+4. Filter indicator should remain visible",Navigate with active filter,High,Functional,Pending
+TC_VUE_016,View Mode,Switch to List view,Verify switching to List view displays items correctly,"1. Component is loaded
+2. Currently in Grid or Compact view","1. Locate view mode selector
+2. Click 'List' view option
+3. Verify layout change","1. Items should display in vertical list format
+2. Each item should show full details (as per design)
+3. One item per row
+4. Layout should match AngularJS List view
+5. View selector should highlight 'List' as active",Switch to List view,High,Functional,Pending
+TC_VUE_017,View Mode,Switch to Grid view,Verify switching to Grid view displays items in grid layout,"1. Component is loaded
+2. Currently in List or Compact view","1. Locate view mode selector
+2. Click 'Grid' view option
+3. Verify layout change","1. Items should display in grid format (multiple columns)
+2. Grid should be responsive (columns adjust to width)
+3. Each item should show in card/tile format
+4. Layout should match AngularJS Grid view
+5. View selector should highlight 'Grid' as active",Switch to Grid view,High,Functional,Pending
+TC_VUE_018,View Mode,Switch to Compact view,Verify switching to Compact view displays condensed item list,"1. Component is loaded
+2. Currently in List or Grid view","1. Locate view mode selector
+2. Click 'Compact' view option
+3. Verify layout change","1. Items should display in condensed format
+2. Less vertical spacing between items
+3. Minimal item details shown (essential info only)
+4. Layout should match AngularJS Compact view
+5. More items visible per screen",Switch to Compact view,High,Functional,Pending
+TC_VUE_019,View Mode,View mode persistence across page reload,Verify selected view mode persists after page reload,"1. Component is loaded
+2. User has selected a specific view mode","1. Switch to Grid view
+2. Note the layout
+3. Reload/refresh the page
+4. Verify view mode on reload","1. Grid view should be retained after reload
+2. User preference should be saved (localStorage/state)
+3. Layout should render in saved view mode
+4. All data should be displayed correctly",Reload page,Medium,Functional,Pending
+TC_VUE_020,View Mode,Responsive behavior in Grid view,Verify Grid view adjusts columns based on screen width,"1. Component is loaded in Grid view
+2. Browser/viewport is resizable","1. Set Grid view
+2. Start with desktop width (1920px)
+3. Resize to tablet width (768px)
+4. Resize to mobile width (375px)
+5. Observe column adjustments","1. Desktop: 4-6 columns (as designed)
+2. Tablet: 2-3 columns
+3. Mobile: 1-2 columns
+4. Grid should reflow smoothly
+5. No horizontal scrolling",Resize viewport,High,Responsive,Pending
+TC_VUE_021,View Mode,View mode with filtered results,Verify view mode switching works correctly with filtered data,"1. Component is loaded
+2. Filters/search are active with limited results","1. Apply filter to show 10 items
+2. Switch to List view
+3. Switch to Grid view
+4. Switch to Compact view
+5. Verify display in each mode","1. All view modes should display same filtered 10 items
+2. Layout should change but data should remain consistent
+3. No items should disappear or duplicate
+4. Each view should be functional",Filter + switch views,Medium,Functional,Pending
+TC_VUE_022,View Mode,Layout matches AngularJS version - List view,Verify List view layout exactly matches AngularJS implementation,"1. Both AngularJS and Vue 3 versions are accessible
+2. Same data is loaded in both","1. Open AngularJS version in List view
+2. Open Vue 3 version in List view
+3. Compare layouts side-by-side
+4. Verify spacing, fonts, colors, alignment","1. Item spacing should match exactly
+2. Font sizes and styles should be identical
+3. Colors and borders should match
+4. Icon positions should align
+5. Overall layout should be pixel-perfect or very close",Visual comparison,High,Functional,Pending
+TC_VUE_023,View Mode,Layout matches AngularJS version - Grid view,Verify Grid view layout exactly matches AngularJS implementation,"1. Both versions are accessible
+2. Same data is loaded","1. Open AngularJS version in Grid view
+2. Open Vue 3 version in Grid view
+3. Compare layouts
+4. Check grid spacing, card design, responsiveness","1. Grid columns should match at same viewport width
+2. Card/tile design should be identical
+3. Spacing between items should match
+4. Hover effects should be same
+5. Responsive breakpoints should align",Visual comparison,High,Functional,Pending
+TC_VUE_024,View Mode,Layout matches AngularJS version - Compact view,Verify Compact view layout exactly matches AngularJS implementation,"1. Both versions are accessible
+2. Same data is loaded","1. Open AngularJS version in Compact view
+2. Open Vue 3 version in Compact view
+3. Compare layouts
+4. Verify item density and information display","1. Item height and padding should match
+2. Information displayed should be identical
+3. Row hover effects should match
+4. Font sizes should be same
+5. Overall density should match",Visual comparison,High,Functional,Pending
+TC_VUE_025,Item Spacing,Adjust item spacing in List view,Verify ability to adjust vertical spacing between items in List view,"1. Component is loaded in List view
+2. Item spacing control is available","1. Locate item spacing control (slider/dropdown)
+2. Note default spacing
+3. Increase spacing to maximum
+4. Decrease spacing to minimum
+5. Set to medium
+6. Verify visual changes","1. Spacing control should be accessible
+2. Adjusting should immediately change spacing
+3. Minimum spacing: compact (e.g., 4px)
+4. Maximum spacing: spacious (e.g., 20px)
+5. Changes should apply to all items uniformly",Adjust spacing slider,Medium,Functional,Pending
+TC_VUE_026,Item Spacing,Adjust item spacing in Grid view,Verify ability to adjust spacing between items in Grid view,"1. Component is loaded in Grid view
+2. Item spacing control is available","1. Switch to Grid view
+2. Locate item spacing control
+3. Adjust spacing from min to max
+4. Observe grid gap changes","1. Both horizontal and vertical gaps should adjust
+2. Grid should remain properly aligned
+3. Items should not overlap at minimum spacing
+4. Layout should remain responsive
+5. Setting should persist across view switches",Adjust grid spacing,Medium,Functional,Pending
+TC_VUE_027,Item Spacing,Item spacing persistence,Verify item spacing setting persists across sessions,"1. Component is loaded
+2. User has adjusted item spacing","1. Set item spacing to maximum
+2. Reload the page
+3. Verify spacing on reload","1. Custom spacing setting should be retained
+2. Should be saved in localStorage or user preferences
+3. All view modes should respect saved spacing",Reload with custom spacing,Low,Functional,Pending
+TC_VUE_028,Item Spacing,Spacing does not affect responsiveness,Verify custom spacing works correctly across different screen sizes,"1. Component is loaded
+2. Custom spacing is set","1. Set item spacing to maximum
+2. Resize browser from desktop to mobile
+3. Verify layout at each breakpoint","1. Spacing should scale appropriately for screen size
+2. Mobile view may override with optimized spacing
+3. No layout breaks should occur
+4. Content should remain accessible",Custom spacing + resize,Medium,Responsive,Pending
+TC_VUE_029,Pagination,Display pagination controls,Verify pagination controls display when items exceed page size,"1. Component is loaded
+2. Total items exceed page size (e.g., 50 items, 10 per page)","1. Load component with 50 items
+2. Set page size to 10 items
+3. Observe bottom of list
+4. Verify pagination controls","1. Pagination controls should be visible
+2. Should show: Previous, Page numbers, Next
+3. Current page should be highlighted (Page 1)
+4. Total page count should be visible (1 of 5)
+5. Previous button should be disabled on page 1",50 items with 10 per page,High,Functional,Pending
+TC_VUE_030,Pagination,Navigate to next page,Verify clicking Next button navigates to the next page,"1. Component is loaded with pagination
+2. User is on page 1","1. Note items displayed on page 1
+2. Click 'Next' button
+3. Verify page 2 loads","1. Page 2 items should be displayed
+2. Page 1 items should be hidden
+3. Current page indicator should show '2'
+4. Previous button should be enabled
+5. Scroll position should reset to top (optional)",Click Next,High,Functional,Pending
+TC_VUE_031,Pagination,Navigate to previous page,Verify clicking Previous button navigates to the previous page,"1. Component is loaded with pagination
+2. User is on page 2 or higher","1. Navigate to page 2
+2. Note items displayed
+3. Click 'Previous' button
+4. Verify page 1 loads","1. Page 1 items should be displayed
+2. Page 2 items should be hidden
+3. Current page indicator should show '1'
+4. Previous button should be disabled on page 1",Click Previous,High,Functional,Pending
+TC_VUE_032,Pagination,Navigate to specific page number,Verify clicking specific page number navigates directly to that page,"1. Component is loaded with pagination
+2. Multiple pages available (5+ pages)","1. User is on page 1
+2. Click on page number '4'
+3. Verify direct navigation","1. Page 4 should load immediately
+2. Appropriate items (31-40 if 10 per page) should display
+3. Current page indicator should show '4'
+4. Both Previous and Next should be enabled (if not last page)",Click page 4,High,Functional,Pending
+TC_VUE_033,Pagination,Navigate to first page,Verify 'First' button navigates to page 1,"1. Component is loaded with pagination
+2. User is on page 3 or higher","1. Navigate to page 3
+2. Locate 'First' button (if available)
+3. Click 'First' button
+4. Verify navigation","1. Page 1 should load
+2. First page items should display
+3. Previous button should be disabled
+4. Current page should indicate '1'",Click First page,Medium,Functional,Pending
+TC_VUE_034,Pagination,Navigate to last page,Verify 'Last' button navigates to the final page,"1. Component is loaded with pagination
+2. User is on page 1 or middle page","1. Note total page count (e.g., 5 pages)
+2. Locate 'Last' button
+3. Click 'Last' button
+4. Verify navigation","1. Last page (5) should load
+2. Final set of items should display
+3. Next button should be disabled
+4. Current page should indicate last page number",Click Last page,Medium,Functional,Pending
+TC_VUE_035,Pagination,Change items per page,Verify changing page size recalculates pagination,"1. Component is loaded
+2. Page size selector is available (10, 25, 50, 100)","1. Note current pagination (e.g., 50 items, 10 per page = 5 pages)
+2. Change page size to 25 items per page
+3. Verify pagination updates","1. Pagination should recalculate (50 items / 25 = 2 pages)
+2. More items should display on current page
+3. Total page count should decrease
+4. User should remain on page 1 or appropriate page",Change to 25 per page,High,Functional,Pending
+TC_VUE_036,Pagination,Pagination with filtered results,Verify pagination updates correctly when filters reduce item count,"1. Component is loaded
+2. Pagination is active
+3. Total items: 50 (5 pages)","1. Note initial pagination (5 pages)
+2. Apply filter that shows only 8 items
+3. Verify pagination updates","1. Pagination should recalculate (1 page if 10 per page)
+2. Only filtered items should display
+3. Page numbers should update accordingly
+4. Pagination may hide if all items fit on one page",Filter to 8 items,High,Functional,Pending
+TC_VUE_037,Pagination,Pagination controls hide with few items,Verify pagination controls hide when all items fit on one page,"1. Component is loaded
+2. Total items < page size (e.g., 5 items, 10 per page)","1. Load component with only 5 items
+2. Page size is set to 10
+3. Observe pagination area","1. Pagination controls should be hidden or disabled
+2. All 5 items should display
+3. No page numbers should show
+4. UI should be clean without unnecessary pagination",5 items total,Medium,Functional,Pending
+TC_VUE_038,Pagination,Pagination preserves view mode,Verify view mode persists when navigating between pages,"1. Component is loaded with pagination
+2. User selects Grid view","1. Switch to Grid view on page 1
+2. Navigate to page 2
+3. Navigate to page 3
+4. Verify view mode","1. Grid view should be maintained on all pages
+2. View mode should not reset to default
+3. Items on each page should display in Grid view",Grid view + pagination,Medium,Functional,Pending
+TC_VUE_039,Pagination,Ellipsis for many pages,Verify pagination shows ellipsis when page count is very high,"1. Component is loaded
+2. Many pages exist (e.g., 50 pages)","1. Load component with 500 items (10 per page = 50 pages)
+2. Observe pagination controls
+3. Navigate to middle page (25)","1. Should show: « 1 ... 24 25 26 ... 50 »
+2. Ellipsis (...) should indicate hidden page numbers
+3. Should show current page and few surrounding pages
+4. First and last page numbers should always be visible",500 items / 10 per page,Medium,Functional,Pending
+TC_VUE_040,Pagination,Pagination loading indicator,Verify loading indicator appears when loading new page,"1. Component is loaded
+2. Backend delay is possible (or simulated)","1. Click to navigate to page 2
+2. Observe loading behavior
+3. Wait for page to load","1. Loading spinner/indicator should appear briefly
+2. Previous page content may remain visible or blur
+3. New page content should replace old after loading
+4. No flash of empty content",Navigate with network delay,Low,Functional,Pending
+TC_VUE_041,Selection Mode,Single selection mode - select one item,Verify only one item can be selected at a time in single mode,"1. Component is loaded in single selection mode
+2. Multiple items are displayed","1. Verify mode indicator shows 'Single Select'
+2. Click on first item to select
+3. Verify selection (checkbox/highlight)
+4. Click on second item
+5. Verify selection changes","1. First item should be selected initially (checkbox checked/highlighted)
+2. When second item is clicked, first should be deselected
+3. Only one item should be selected at any time
+4. Selection indicator should be clear",Click items 1 and 2,High,Functional,Pending
+TC_VUE_042,Selection Mode,Multi selection mode - select multiple items,Verify multiple items can be selected simultaneously in multi mode,"1. Component is loaded in multi selection mode
+2. Multiple items are displayed","1. Verify mode indicator shows 'Multi Select'
+2. Click on first item to select
+3. Click on second item to select
+4. Click on third item to select
+5. Verify all selections","1. All three items should remain selected
+2. Checkboxes should be checked for all three
+3. Selection count should show '3 items selected'
+4. All selected items should be highlighted",Select items 1, 2, 3,High,Functional,Pending
+TC_VUE_043,Selection Mode,Toggle selection mode,Verify switching between single and multi selection modes,"1. Component is loaded
+2. Items are selected in multi mode","1. Set multi selection mode
+2. Select 3 items
+3. Switch to single selection mode
+4. Observe behavior","1. When switching to single mode, either:
+   a) All selections clear, or
+   b) Only first/last selection is retained
+2. Mode indicator should update
+3. Selection behavior should change immediately
+4. No errors should occur",Switch selection modes,Medium,Functional,Pending
+TC_VUE_044,Selection Mode,Select all items in multi mode,Verify 'Select All' functionality in multi selection mode,"1. Component is loaded in multi mode
+2. Multiple items are displayed (e.g., 20 items on current page)","1. Locate 'Select All' checkbox (typically in header)
+2. Click 'Select All'
+3. Verify all items are selected","1. All items on current page should be selected
+2. All checkboxes should be checked
+3. Selection count should show total (e.g., '20 items selected')
+4. 'Select All' checkbox should be checked",Click Select All,High,Functional,Pending
+TC_VUE_045,Selection Mode,Deselect all items,Verify 'Deselect All' or unchecking 'Select All' clears selections,"1. Component is loaded in multi mode
+2. Multiple items are selected","1. Select 5 items manually
+2. Click 'Select All' checkbox to uncheck (or 'Deselect All' button)
+3. Verify all selections are cleared","1. All items should be deselected
+2. All checkboxes should be unchecked
+3. Selection count should show '0 items selected'
+4. 'Select All' checkbox should be unchecked",Deselect all,High,Functional,Pending
+TC_VUE_046,Selection Mode,Partial selection state in Select All,Verify indeterminate state when some items are selected,"1. Component is loaded in multi mode
+2. 10 items are displayed","1. Select 3 out of 10 items manually
+2. Observe 'Select All' checkbox state","1. 'Select All' checkbox should show indeterminate state (dash/minus icon)
+2. Indicates some but not all items are selected
+3. Selection count should show '3 items selected'
+4. Clicking 'Select All' should select remaining items",Select 3 of 10 items,Medium,Functional,Pending
+TC_VUE_047,Selection Mode,Selection persists across pagination,Verify selected items remain selected when navigating pages,"1. Component is loaded in multi mode
+2. Pagination is active","1. On page 1, select items 2, 5, 8
+2. Navigate to page 2
+3. Select items 3, 7
+4. Navigate back to page 1
+5. Verify selections","1. Items 2, 5, 8 should still be selected on page 1
+2. Total selection count should show 5 items
+3. Selections should persist across page navigation
+4. Selected items on page 2 should also persist",Select across pages,High,Functional,Pending
+TC_VUE_048,Selection Mode,Shift+Click range selection,Verify Shift+Click selects range of items in multi mode,"1. Component is loaded in multi mode
+2. At least 10 items are visible","1. Click on item 2 to select
+2. Hold Shift key
+3. Click on item 7
+4. Release Shift
+5. Verify selection range","1. Items 2 through 7 should all be selected (6 items total)
+2. Range selection should be contiguous
+3. Selection count should show '6 items selected'
+4. All items in range should be highlighted",Shift+Click items 2-7,Medium,Functional,Pending
+TC_VUE_049,Selection Mode,Ctrl+Click toggle selection,Verify Ctrl+Click toggles individual item selection in multi mode,"1. Component is loaded in multi mode
+2. Some items are already selected","1. Select item 3
+2. Hold Ctrl key (Cmd on Mac)
+3. Click item 7 (should add to selection)
+4. Ctrl+Click item 3 again (should deselect)
+5. Verify behavior","1. Ctrl+Click on unselected item should add to selection
+2. Ctrl+Click on selected item should remove from selection
+3. Other selections should remain unchanged
+4. Selection count should update accordingly",Ctrl+Click items,Medium,Functional,Pending
+TC_VUE_050,Selection Mode,Keyboard navigation for selection,Verify keyboard arrows and spacebar work for selection,"1. Component is loaded
+2. Focus is on the list","1. Use Tab to focus on list
+2. Use Arrow Down to move through items
+3. Press Space to select/deselect focused item
+4. Repeat for multiple items
+5. Verify selections","1. Arrow keys should move focus indicator
+2. Spacebar should toggle selection of focused item
+3. Selection should work with keyboard only
+4. Visual focus indicator should be clear",Keyboard navigation,Medium,Accessibility,Pending
+TC_VUE_051,Selection Mode,Selection count display,Verify selection count displays correctly,"1. Component is loaded in multi mode
+2. No items are selected initially","1. Verify initial state shows '0 items selected' or no count
+2. Select 1 item, verify shows '1 item selected'
+3. Select 4 more items, verify shows '5 items selected'
+4. Deselect 2 items, verify shows '3 items selected'","1. Count should update in real-time
+2. Grammar should be correct (item vs items)
+3. Count should be prominently displayed
+4. Count should include selections across all pages if applicable",Select various counts,Medium,Functional,Pending
+TC_VUE_052,Selection Mode,Bulk actions on selected items,Verify bulk actions can be performed on selected items,"1. Component is loaded in multi mode
+2. Bulk action buttons are available (Delete, Export, etc.)","1. Select 5 items
+2. Locate bulk action button (e.g., 'Delete Selected')
+3. Click bulk action button
+4. Confirm action
+5. Verify action completes","1. Bulk action should apply to all selected items
+2. Confirmation dialog should show count (e.g., 'Delete 5 items?')
+3. Action should complete successfully
+4. Items should update accordingly (deleted, exported, etc.)",Select 5 + Delete,High,Functional,Pending
+TC_VUE_053,Selection Mode,Selection clears after bulk action,Verify selections are cleared after bulk action completes,"1. Component is loaded in multi mode
+2. Items are selected and bulk action performed","1. Select 3 items
+2. Perform bulk action (e.g., Export)
+3. Wait for action to complete
+4. Verify selection state","1. Selections should be cleared after action completes
+2. Selection count should show 0
+3. Checkboxes should be unchecked
+4. User can start fresh selection",Bulk action completion,Medium,Functional,Pending
+TC_VUE_054,Selection Mode,Selection with filtered items,Verify selection works correctly with filtered results,"1. Component is loaded in multi mode
+2. Filter is applied","1. Apply filter to show 8 items
+2. Select 3 filtered items
+3. Clear filter
+4. Verify selection state","1. 3 selected items should remain selected when filter is cleared
+2. Selection should be visible in full list
+3. Selection count should remain at 3
+4. Selecting works on filtered subsets",Filter + select + clear,High,Functional,Pending
+TC_VUE_055,Drag & Drop Customization,View customize mode activation,Verify user can enter view customization mode,"1. Component is loaded
+2. Customize view option is available","1. Locate 'Customize View' or settings icon
+2. Click to enter customize mode
+3. Verify mode activation","1. Customize mode should activate
+2. Visual indicators should show draggable fields
+3. Instructions should display (e.g., 'Drag to reorder columns')
+4. Drag handles should appear on field headers",Click Customize View,High,Functional,Pending
+TC_VUE_056,Drag & Drop Customization,Drag and drop field to reorder,Verify user can drag a field to a new position,"1. Component is in customize mode
+2. Multiple fields are displayed (e.g., Name, Date, Status, Priority)","1. Locate drag handle on 'Status' field
+2. Click and hold on drag handle
+3. Drag 'Status' to position before 'Name'
+4. Release mouse
+5. Verify new order","1. Field should visually move while dragging
+2. Drop indicator should show where field will be placed
+3. After drop, 'Status' should appear before 'Name'
+4. New order: Status, Name, Date, Priority
+5. List items should reflect new field order",Drag Status field,High,Functional,Pending
+TC_VUE_057,Drag & Drop Customization,Drag field to first position,Verify dragging a field to the first position works correctly,"1. Component is in customize mode
+2. Current order: Name, Date, Status, Priority","1. Drag 'Priority' field
+2. Move it to the very first position (before Name)
+3. Drop it
+4. Verify new order","1. 'Priority' should move to first position
+2. New order: Priority, Name, Date, Status
+3. All other fields should shift right
+4. List view should update immediately",Drag to first position,Medium,Functional,Pending
+TC_VUE_058,Drag & Drop Customization,Drag field to last position,Verify dragging a field to the last position works correctly,"1. Component is in customize mode
+2. Current order: Name, Date, Status, Priority","1. Drag 'Name' field
+2. Move it to the very last position (after Priority)
+3. Drop it
+4. Verify new order","1. 'Name' should move to last position
+2. New order: Date, Status, Priority, Name
+3. All other fields should shift left
+4. List view should update",Drag to last position,Medium,Functional,Pending
+TC_VUE_059,Drag & Drop Customization,Cancel drag operation,Verify drag operation can be cancelled,"1. Component is in customize mode
+2. User starts dragging a field","1. Start dragging 'Date' field
+2. Move it over different positions
+3. Press Escape key (or drag outside valid drop zone)
+4. Verify field returns to original position","1. Field should return to original position
+2. No order change should occur
+3. Visual indicators should disappear
+4. User can try again",Press Escape while dragging,Low,Functional,Pending
+TC_VUE_060,Drag & Drop Customization,Show/hide fields,Verify user can show or hide specific fields,"1. Component is in customize mode
+2. Field visibility toggles are available","1. Locate field list with checkboxes
+2. Uncheck 'Date' field to hide it
+3. Uncheck 'Priority' field
+4. Verify changes
+5. Check them again to show","1. Unchecked fields should be hidden from list view
+2. Hidden fields should not appear in item rows
+3. Checking them again should restore visibility
+4. At least one field must remain visible (validation)",Toggle Date and Priority,High,Functional,Pending
+TC_VUE_061,Drag & Drop Customization,Minimum visible fields validation,Verify at least one field must remain visible,"1. Component is in customize mode
+2. Multiple fields are visible","1. Try to hide all fields except one
+2. Try to hide the last remaining field
+3. Observe validation","1. System should prevent hiding the last field
+2. Warning message should appear
+3. At least one field must remain checked
+4. Checkbox should remain checked or be disabled",Try to hide all fields,Medium,Functional,Pending
+TC_VUE_062,Drag & Drop Customization,Reset to default layout,Verify 'Reset to Default' restores original field configuration,"1. Component is in customize mode
+2. User has reordered and hidden fields","1. Reorder several fields
+2. Hide some fields
+3. Locate 'Reset to Default' button
+4. Click Reset to Default
+5. Verify restoration","1. Fields should return to original order
+2. All fields should be visible again
+3. Any custom settings should be cleared
+4. Layout should match initial state",Click Reset to Default,Medium,Functional,Pending
+TC_VUE_063,Drag & Drop Customization,Save custom layout,Verify custom layout can be saved and persists,"1. Component is in customize mode
+2. User has made changes","1. Reorder fields to: Status, Priority, Name, Date
+2. Hide 'Date' field
+3. Click 'Save' or 'Apply' button
+4. Exit customize mode
+5. Verify changes persist","1. New field order should be saved
+2. Hidden fields should remain hidden
+3. Settings should persist after page reload
+4. User should see custom layout in normal view",Save custom layout,High,Functional,Pending
+TC_VUE_064,Drag & Drop Customization,Custom layout persists across sessions,Verify saved layout persists after page reload,"1. Component has saved custom layout
+2. Browser has saved settings (localStorage)","1. Verify custom layout is active
+2. Note field order and visibility
+3. Reload the page
+4. Verify layout after reload","1. Custom field order should be retained
+2. Hidden fields should remain hidden
+3. Layout should load from localStorage
+4. User should not need to recustomize",Reload page,High,Functional,Pending
+TC_VUE_065,Drag & Drop Customization,Drag visual feedback,Verify visual feedback during drag operation,"1. Component is in customize mode
+2. User starts dragging a field","1. Click and hold on 'Status' field
+2. Move mouse to drag
+3. Hover over different drop positions
+4. Observe visual feedback","1. Dragged field should have visual effect (opacity, shadow)
+2. Drop indicator line should show valid drop position
+3. Other fields should shift to show where item will land
+4. Cursor should change to dragging cursor
+5. Smooth animation during drag",Drag with observation,Medium,UI/UX,Pending
+TC_VUE_066,Drag & Drop Customization,Field width adjustment,Verify user can adjust column widths (if applicable),"1. Component is in customize or normal mode
+2. Fields have adjustable widths","1. Hover over border between two field headers
+2. Cursor should change to resize cursor
+3. Click and drag to adjust width
+4. Release mouse
+5. Verify width change","1. Field width should adjust as dragged
+2. Other fields should adjust to accommodate
+3. Minimum width should be enforced
+4. Width adjustment should be saved
+Note: Verify if this feature exists",Resize column width,Low,Functional,Pending
+TC_VUE_067,Drag & Drop Customization,Customize view in different modes,Verify customization applies to all view modes (List/Grid/Compact),"1. Component is loaded
+2. Custom layout is created in List view","1. In List view, customize fields: reorder and hide some
+2. Save customization
+3. Switch to Grid view
+4. Switch to Compact view
+5. Verify customization applies","1. Field customization should apply to List view
+2. Grid view should show same visible fields
+3. Compact view should respect field visibility
+4. Field order may vary by view mode (verify expected behavior)",Customize + switch views,Medium,Functional,Pending
+TC_VUE_068,Drag & Drop Customization,Drag and drop accessibility,Verify drag and drop can be done via keyboard for accessibility,"1. Component is in customize mode
+2. User is using keyboard only","1. Tab to focus on a field header
+2. Press Space or Enter to 'grab' the field
+3. Use Arrow keys to move it to new position
+4. Press Space or Enter to 'drop'
+5. Verify reorder","1. Keyboard users should be able to reorder fields
+2. Visual focus should be clear
+3. Screen reader should announce actions
+4. Arrow keys should move field position
+Note: Verify if implemented",Keyboard only,Medium,Accessibility,Pending
+TC_VUE_069,Responsive Behavior,Desktop layout (1920x1080),Verify layout displays correctly on full HD desktop,"1. Browser is set to 1920x1080 resolution
+2. Component is loaded","1. Set viewport to 1920x1080
+2. Load component in List view
+3. Switch to Grid view
+4. Verify layout and spacing","1. List view: items should utilize width appropriately
+2. Grid view: 4-6 columns should display
+3. All controls should be visible and accessible
+4. Layout should match AngularJS desktop layout
+5. No horizontal scrolling",Desktop viewport,High,Responsive,Pending
+TC_VUE_070,Responsive Behavior,Laptop layout (1366x768),Verify layout displays correctly on standard laptop resolution,"1. Browser is set to 1366x768 resolution
+2. Component is loaded","1. Set viewport to 1366x768
+2. Load component in various views
+3. Test all features
+4. Compare with AngularJS version","1. All content should be visible without horizontal scroll
+2. Grid view should adjust to 3-4 columns
+3. Controls should remain accessible
+4. Layout should match AngularJS at this resolution",Laptop viewport,High,Responsive,Pending
+TC_VUE_071,Responsive Behavior,Tablet portrait layout (768x1024),Verify layout displays correctly on tablet portrait mode,"1. Browser is set to 768x1024 resolution (iPad portrait)
+2. Component is loaded","1. Set viewport to 768x1024
+2. Test List view layout
+3. Test Grid view (should show 2 columns)
+4. Test touch interactions","1. List view should stack appropriately
+2. Grid view should show 2 columns
+3. Touch targets should be large enough (44x44px minimum)
+4. Layout should match AngularJS tablet layout",Tablet portrait,High,Responsive,Pending
+TC_VUE_072,Responsive Behavior,Tablet landscape layout (1024x768),Verify layout displays correctly on tablet landscape mode,"1. Browser is set to 1024x768 resolution
+2. Component is loaded","1. Set viewport to 1024x768
+2. Test all view modes
+3. Verify responsive adjustments","1. Grid view should show 3 columns
+2. All features should be accessible
+3. Layout should optimize for landscape orientation
+4. Should match AngularJS landscape layout",Tablet landscape,Medium,Responsive,Pending
+TC_VUE_073,Responsive Behavior,Mobile portrait layout (375x667),Verify layout displays correctly on mobile portrait (iPhone),"1. Browser is set to 375x667 resolution (iPhone SE)
+2. Component is loaded","1. Set viewport to 375x667
+2. Test all features
+3. Verify touch interactions
+4. Check if any features are hidden/reorganized","1. Grid view should show 1 column (or 2 narrow columns)
+2. List view should stack vertically
+3. Controls should be touch-friendly
+4. Pagination should adapt (may show fewer page numbers)
+5. Search/filter should be accessible",Mobile portrait,High,Responsive,Pending
+TC_VUE_074,Responsive Behavior,Mobile landscape layout (667x375),Verify layout displays correctly on mobile landscape,"1. Browser is set to 667x375 resolution
+2. Component is loaded","1. Set viewport to 667x375
+2. Test view modes
+3. Verify content visibility","1. Grid view should show 2 columns
+2. Content should be accessible
+3. May need to scroll more due to height constraint
+4. Controls should remain accessible",Mobile landscape,Medium,Responsive,Pending
+TC_VUE_075,Responsive Behavior,Small mobile layout (320x568),Verify layout works on smallest mobile devices (iPhone SE, 5),"1. Browser is set to 320x568 resolution
+2. Component is loaded","1. Set viewport to 320x568
+2. Test all features at minimum width
+3. Verify content doesn't break","1. All content should be visible (no cutoff)
+2. Grid should collapse to 1 column
+3. Text should wrap appropriately
+4. Buttons should remain tappable
+5. No horizontal overflow",Small mobile viewport,Medium,Responsive,Pending
+TC_VUE_076,Responsive Behavior,Responsive breakpoint transitions,Verify smooth transitions between responsive breakpoints,"1. Browser window is resizable
+2. Component is loaded","1. Start at desktop size (1920px)
+2. Slowly resize browser width down to mobile (320px)
+3. Observe layout changes at each breakpoint
+4. Verify smooth transitions","1. Layout should adapt at appropriate breakpoints
+2. No content should disappear unexpectedly
+3. Grid columns should reduce smoothly (6→4→3→2→1)
+4. No layout flashing or jumping
+5. Transitions should match AngularJS behavior",Resize from 1920 to 320px,High,Responsive,Pending
+TC_VUE_077,Responsive Behavior,Touch gestures on mobile,Verify touch gestures work on mobile devices,"1. Mobile device or touch simulation is active
+2. Component is loaded","1. Test swipe to scroll through list
+2. Test pinch to zoom (should be disabled for app)
+3. Test tap vs long press behavior
+4. Test drag and drop on touch devices","1. Swipe should scroll smoothly
+2. Pinch zoom should be disabled (if intended)
+3. Tap should select items
+4. Long press may show context menu (verify behavior)
+5. Drag and drop should work with touch",Touch device,Medium,Responsive,Pending
+TC_VUE_078,Responsive Behavior,Navigation menu on mobile,Verify navigation/controls adapt for mobile layout,"1. Mobile viewport (375x667)
+2. Component is loaded","1. Set mobile viewport
+2. Locate navigation controls (filters, view modes, customize)
+3. Verify accessibility
+4. Test hamburger menu or collapsed controls","1. Controls may collapse into hamburger menu
+2. All features should remain accessible
+3. Mobile navigation should match AngularJS mobile layout
+4. Touch targets should be adequate size",Mobile navigation,High,Responsive,Pending
+TC_VUE_079,Responsive Behavior,Orientation change handling,Verify layout adapts when device orientation changes,"1. Mobile device or browser with orientation simulation
+2. Component is loaded","1. Load component in portrait mode (375x667)
+2. Rotate device to landscape (667x375)
+3. Verify layout adapts
+4. Rotate back to portrait
+5. Verify layout returns","1. Layout should adapt immediately to orientation change
+2. No errors should occur
+3. State should be preserved (selections, filters, page)
+4. View mode should remain same
+5. No content should be lost",Rotate device,Medium,Responsive,Pending
+TC_VUE_080,Responsive Behavior,Fixed header on scroll (mobile),Verify header remains accessible when scrolling on mobile,"1. Mobile viewport with long list
+2. Component is loaded","1. Load component on mobile with many items
+2. Scroll down through list
+3. Observe header behavior","1. Search and filter controls should remain accessible (sticky header or fab button)
+2. User should not need to scroll to top to search
+3. Behavior should match AngularJS mobile behavior
+Note: Verify expected sticky header behavior",Scroll on mobile,Medium,Responsive,Pending
+TC_VUE_081,Responsive Behavior,Image and media responsiveness,Verify images/icons display correctly across all screen sizes,"1. Component includes images or icons
+2. Various viewports","1. Load component with items containing images
+2. Test at desktop, tablet, mobile viewports
+3. Verify image rendering","1. Images should scale appropriately
+2. Icons should remain visible and clear
+3. No broken images
+4. Retina displays should show high-res images if available",Test across viewports,Low,Responsive,Pending
+TC_VUE_082,Responsive Behavior,Font sizes responsive scaling,Verify text remains readable across all devices,"1. Component is loaded
+2. Various viewports tested","1. Check font sizes at desktop (1920px)
+2. Check font sizes at tablet (768px)
+3. Check font sizes at mobile (375px)
+4. Verify readability","1. Minimum font size should be 14-16px on mobile
+2. Headers should scale appropriately
+3. Text should not be too large on desktop or too small on mobile
+4. Should match AngularJS font scaling",Check at all sizes,Medium,Responsive,Pending
+TC_VUE_083,Responsive Behavior,Performance on low-end devices,Verify component performs well on low-end mobile devices,"1. Low-end device or throttled browser (slow 3G, 4x CPU slowdown)
+2. Component is loaded","1. Enable CPU throttling (4x) and slow 3G
+2. Load component
+3. Test interactions (scroll, filter, pagination)
+4. Measure performance","1. Initial load should complete within reasonable time
+2. Interactions should remain responsive (< 300ms)
+3. No janky scrolling
+4. Loading indicators should appear for async operations",Throttled device,Low,Performance,Pending
+TC_VUE_084,Layout Matching,Side-by-side comparison - List view,Verify Vue 3 List view matches AngularJS pixel-perfect,"1. Both applications are accessible
+2. Same data is loaded
+3. Side-by-side browser windows","1. Open AngularJS version in left window
+2. Open Vue 3 version in right window
+3. Set both to List view
+4. Take screenshots and overlay
+5. Compare spacing, colors, fonts, alignment","1. Item height should match exactly
+2. Padding and margins should be identical
+3. Font family, size, weight should match
+4. Colors (text, background, borders) should match hex values
+5. Icon sizes and positions should align
+6. Overall layout should be pixel-perfect or within 2-3px",Visual comparison tool,Critical,Visual/Functional,Pending
+TC_VUE_085,Layout Matching,Side-by-side comparison - Grid view,Verify Vue 3 Grid view matches AngularJS pixel-perfect,"1. Both applications accessible
+2. Same data loaded
+3. Same viewport size (1920x1080)","1. Set both to Grid view
+2. Compare grid gap spacing
+3. Compare card/tile dimensions
+4. Compare card content layout
+5. Overlay screenshots","1. Grid gap should match exactly
+2. Card width and height should be identical
+3. Card border radius, shadow should match
+4. Content padding within cards should match
+5. Image sizes should be same
+6. Hover effects should be identical",Visual comparison,Critical,Visual/Functional,Pending
+TC_VUE_086,Layout Matching,Side-by-side comparison - Compact view,Verify Vue 3 Compact view matches AngularJS pixel-perfect,"1. Both applications accessible
+2. Same data loaded","1. Set both to Compact view
+2. Compare row heights
+3. Compare information density
+4. Compare font sizes
+5. Overlay screenshots","1. Row height should match exactly (typically 32-40px in compact)
+2. Font sizes should be identical
+3. Padding should match
+4. Visible fields should be same
+5. Hover effects should be same",Visual comparison,Critical,Visual/Functional,Pending
+TC_VUE_087,Layout Matching,Color scheme matching,Verify all colors match AngularJS version exactly,"1. Both applications accessible
+2. Color picker tool available","1. Use color picker on AngularJS elements
+2. Compare with Vue 3 elements
+3. Check: background colors, text colors, border colors, accent colors, hover states, selection colors","1. All colors should match with exact hex values
+2. Primary color: [verify and match]
+3. Secondary color: [verify and match]
+4. Success/warning/error colors should match
+5. Hover state colors should match",Color picker tool,High,Visual,Pending
+TC_VUE_088,Layout Matching,Typography matching,Verify fonts and typography match AngularJS version,"1. Both applications accessible
+2. Browser dev tools open","1. Inspect font-family in AngularJS
+2. Inspect font-family in Vue 3
+3. Compare font sizes for each element type
+4. Compare font weights
+5. Compare line heights and letter spacing","1. Font family should be identical
+2. Font sizes should match for: headers (H1-H6), body text, small text, labels
+3. Font weights should match (regular, medium, bold)
+4. Line heights should match
+5. Letter spacing should match if customized",Dev tools inspection,High,Visual,Pending
+TC_VUE_089,Layout Matching,Icon library matching,Verify icons match AngularJS version,"1. Both applications accessible
+2. Icons are used throughout the UI","1. Compare icons in both versions
+2. Check icon sizes
+3. Check icon colors
+4. Check icon positions","1. Same icon library should be used (Font Awesome, Material Icons, etc.)
+2. Icon sizes should match (16px, 20px, 24px, etc.)
+3. Icon colors should match
+4. Icon positions (left/right of text) should match",Visual comparison,Medium,Visual,Pending
+TC_VUE_090,Layout Matching,Spacing and alignment matching,Verify spacing system matches AngularJS version,"1. Both applications accessible
+2. Ruler tool or dev tools available","1. Measure padding on various elements
+2. Measure margins between elements
+3. Check alignment of elements
+4. Verify consistent spacing system","1. Padding values should match (8px, 16px, 24px, etc.)
+2. Margins should match
+3. Elements should align to same grid
+4. Consistent spacing scale should be used (e.g., 4px base)
+5. Vertical rhythm should match",Measurement tool,High,Visual,Pending
+TC_VUE_091,Layout Matching,Hover and focus states matching,Verify interactive states match AngularJS version,"1. Both applications accessible
+2. Mouse and keyboard available","1. Hover over items in AngularJS, note effects
+2. Hover over items in Vue 3, compare
+3. Tab to focus elements in both
+4. Compare focus indicators","1. Hover background colors should match
+2. Hover cursor changes should match
+3. Focus outline color and width should match
+4. Transition speeds should match (e.g., 0.2s)
+5. Active/pressed states should match",Hover and focus testing,High,Visual/Functional,Pending
+TC_VUE_092,Layout Matching,Animation and transition matching,Verify animations match AngularJS version,"1. Both applications accessible
+2. Screen recording capability","1. Record animations in AngularJS (e.g., dropdown open, modal fade)
+2. Record same animations in Vue 3
+3. Compare frame-by-frame
+4. Check transition durations and easing","1. Animation duration should match (ms)
+2. Easing functions should match (ease-in, ease-out, etc.)
+3. Animation should feel identical
+4. No janky or missing animations in Vue 3",Video comparison,Medium,Visual,Pending
+TC_VUE_093,Layout Matching,Error states matching,Verify error messages and states match AngularJS version,"1. Both applications accessible
+2. Ability to trigger errors","1. Trigger validation error in AngularJS
+2. Trigger same error in Vue 3
+3. Compare error message styling
+4. Compare error placement","1. Error message text should be identical
+2. Error color should match (typically red)
+3. Error icon should match
+4. Error placement (inline, toast, modal) should match
+5. Error dismiss behavior should match",Error testing,Medium,Visual/Functional,Pending
+TC_VUE_094,Layout Matching,Loading states matching,Verify loading indicators match AngularJS version,"1. Both applications accessible
+2. Ability to observe loading states","1. Trigger loading state in AngularJS (pagination, filter)
+2. Trigger same in Vue 3
+3. Compare loading spinners/indicators
+4. Compare placement and behavior","1. Loading spinner design should match
+2. Spinner size and color should match
+3. Loading text should match
+4. Spinner placement should be same
+5. Transition in/out should match",Loading state testing,Medium,Visual/Functional,Pending
+TC_VUE_095,Layout Matching,Empty state matching,Verify empty states match AngularJS version,"1. Both applications accessible
+2. Ability to create empty state (no items, no results)","1. Create empty state in AngularJS (filter to no results)
+2. Create same in Vue 3
+3. Compare empty state message and design","1. Empty state message text should match
+2. Empty state icon/illustration should match
+3. Layout and positioning should match
+4. Call-to-action buttons should match (if any)
+5. Overall empty state design should be identical",Empty state testing,Medium,Visual/Functional,Pending
+TC_VUE_096,Integration,Component initialization with props,Verify component initializes correctly with various prop configurations,"1. Vue 3 environment is set up
+2. Component can receive props","1. Initialize component with props: { mode: 'list', pageSize: 10, selectionMode: 'single' }
+2. Initialize with: { mode: 'grid', pageSize: 25, selectionMode: 'multi' }
+3. Verify each configuration","1. Component should render correctly with each prop set
+2. View mode should match prop
+3. Page size should be applied
+4. Selection mode should be correct
+5. No errors in console",Various prop configs,High,Integration,Pending
+TC_VUE_097,Integration,Component emits events correctly,Verify component emits correct events for parent consumption,"1. Component is integrated in parent component
+2. Event listeners are set up","1. Set up listeners for: itemSelected, itemsFiltered, pageChanged, viewModeChanged
+2. Perform actions that trigger these events
+3. Verify events are emitted with correct payload","1. itemSelected should emit with item data
+2. itemsFiltered should emit with filter criteria
+3. pageChanged should emit with new page number
+4. viewModeChanged should emit with new mode
+5. All events should have correct payload structure",Event listener testing,High,Integration,Pending
+TC_VUE_098,Integration,Component with API data loading,Verify component works correctly when data is loaded from API,"1. Component is connected to API endpoint
+2. API returns paginated data","1. Load component
+2. Observe initial data load from API
+3. Change page, verify API call
+4. Apply filter, verify API call with filter params
+5. Change page size, verify API call","1. Component should show loading state during API call
+2. Data should render after successful load
+3. Pagination should use API's total count
+4. Filters should send correct query params to API
+5. Error handling should work if API fails",API integration,High,Integration,Pending
+TC_VUE_099,Integration,Component with real-time data updates,Verify component handles real-time data updates (WebSocket/polling),"1. Component is connected to real-time data source
+2. Data can change externally","1. Load component with initial data
+2. Trigger external data update (new item added)
+3. Trigger item update
+4. Trigger item deletion
+5. Verify component updates","1. New items should appear in list without page reload
+2. Updated items should reflect changes
+3. Deleted items should be removed
+4. Pagination should adjust if needed
+5. User's current context (page, selection) should be preserved where possible",Real-time data,Medium,Integration,Pending
+TC_VUE_100,Integration,Browser compatibility - Chrome,Verify full functionality in Chrome browser (latest version),"1. Chrome browser (latest) is installed
+2. Component is deployed","1. Open component in Chrome
+2. Test all features: search, filter, views, pagination, selection, customization
+3. Check console for errors
+4. Verify layout matches design","1. All features should work perfectly
+2. No console errors
+3. Layout should render correctly
+4. Performance should be smooth",Chrome browser,Critical,Compatibility,Pending
+TC_VUE_101,Integration,Browser compatibility - Firefox,Verify full functionality in Firefox browser (latest version),"1. Firefox browser (latest) is installed
+2. Component is deployed","1. Open component in Firefox
+2. Test all features
+3. Check console for errors
+4. Verify layout","1. All features should work
+2. No console errors or warnings
+3. Layout should match Chrome version
+4. CSS rendering should be consistent",Firefox browser,Critical,Compatibility,Pending
+TC_VUE_102,Integration,Browser compatibility - Safari,Verify full functionality in Safari browser (latest version),"1. Safari browser (macOS/iOS) is available
+2. Component is deployed","1. Open component in Safari
+2. Test all features
+3. Check for Safari-specific issues
+4. Verify layout","1. All features should work
+2. No console errors
+3. Webkit-specific CSS should work
+4. Date pickers and native controls should work
+5. Touch events should work on iOS Safari",Safari browser,Critical,Compatibility,Pending
+TC_VUE_103,Integration,Browser compatibility - Edge,Verify full functionality in Edge browser (latest version),"1. Edge browser (latest) is installed
+2. Component is deployed","1. Open component in Edge
+2. Test all features
+3. Check console
+4. Verify layout","1. All features should work
+2. No console errors
+3. Layout should match Chrome (Chromium-based)
+4. Windows-specific interactions should work",Edge browser,High,Compatibility,Pending
+TC_VUE_104,Integration,Browser compatibility - Legacy browsers,Verify graceful degradation or polyfills for older browsers,"1. Older browser or compatibility mode (e.g., IE11 if support required)
+2. Polyfills are in place","1. Open component in older browser
+2. Verify what works
+3. Check for appropriate error messages or fallbacks","1. If not supported, clear message should appear
+2. If supported with polyfills, basic functionality should work
+3. No breaking errors
+4. Graceful degradation strategy should be implemented
+Note: Verify browser support requirements",Legacy browser,Low,Compatibility,Pending
+TC_VUE_105,Performance,Initial load performance,Verify component loads within acceptable time,"1. Component is deployed
+2. Performance testing tools available (Lighthouse, WebPageTest)","1. Clear browser cache
+2. Open component with fresh load
+3. Measure: Time to First Byte, First Contentful Paint, Time to Interactive
+4. Run multiple times for average","1. First Contentful Paint < 1.5s
+2. Time to Interactive < 3s
+3. Lighthouse Performance score > 90
+4. No blocking resources
+5. Load time should match or beat AngularJS version",Performance testing tool,High,Performance,Pending
+TC_VUE_106,Performance,Large dataset performance,Verify component performs well with large number of items,"1. Component is loaded
+2. Large dataset available (1000+ items)","1. Load component with 1000 items
+2. Test scrolling performance (if virtual scrolling)
+3. Test pagination performance
+4. Test search/filter on large dataset
+5. Monitor memory usage","1. Scrolling should be smooth (60 fps)
+2. Pagination should be instant
+3. Search/filter should complete < 500ms
+4. Memory usage should be reasonable (< 100MB)
+5. No memory leaks after extended use",1000+ items,High,Performance,Pending
+TC_VUE_107,Performance,Rapid user interactions,Verify component handles rapid user actions without lag,"1. Component is loaded
+2. User can perform actions quickly","1. Rapidly click pagination buttons
+2. Rapidly toggle selections
+3. Rapidly switch view modes
+4. Type quickly in search field
+5. Monitor performance","1. UI should remain responsive
+2. No freezing or lag
+3. Actions should queue or debounce appropriately
+4. No race conditions
+5. Final state should be correct",Rapid interactions,Medium,Performance,Pending
+TC_VUE_108,Performance,Memory leak testing,Verify component doesn't have memory leaks during extended use,"1. Component is loaded
+2. Chrome DevTools Memory profiler available","1. Take heap snapshot
+2. Use component for 10 minutes (various actions)
+3. Take another heap snapshot
+4. Compare memory usage
+5. Perform actions again, take snapshot
+6. Check for continuously growing memory","1. Memory should stabilize after initial use
+2. Should not continuously grow
+3. Event listeners should be cleaned up
+4. Watchers/observers should be properly disposed
+5. No detached DOM nodes accumulating",Memory profiler,Medium,Performance,Pending
+TC_VUE_109,Accessibility,WCAG 2.1 AA compliance,Verify component meets WCAG 2.1 Level AA standards,"1. Component is deployed
+2. Accessibility testing tools available (axe DevTools, WAVE)","1. Run axe DevTools automated scan
+2. Check for violations
+3. Test with WAVE
+4. Manual verification of flagged issues","1. No critical or serious violations
+2. Color contrast ratio ≥ 4.5:1 for normal text
+3. All interactive elements are keyboard accessible
+4. Proper heading hierarchy
+5. ARIA labels where needed",Accessibility scanner,High,Accessibility,Pending
+TC_VUE_110,Accessibility,Screen reader testing - NVDA,Verify component is usable with NVDA screen reader,"1. NVDA screen reader is installed (Windows)
+2. Component is deployed","1. Enable NVDA
+2. Navigate through component with keyboard
+3. Listen to announcements
+4. Test all features
+5. Verify context is clear","1. All elements should be announced
+2. Interactive elements should identify as buttons, checkboxes, etc.
+3. State changes should be announced
+4. Error messages should be announced
+5. User should understand component structure",NVDA screen reader,High,Accessibility,Pending
+TC_VUE_111,Accessibility,Screen reader testing - JAWS,Verify component is usable with JAWS screen reader,"1. JAWS screen reader is installed (Windows)
+2. Component is deployed","1. Enable JAWS
+2. Navigate through component
+3. Test all features with JAWS
+4. Verify announcements","1. All features should be accessible
+2. Announcements should be clear and helpful
+3. Keyboard navigation should work
+4. Forms and controls should be understandable",JAWS screen reader,High,Accessibility,Pending
+TC_VUE_112,Accessibility,Screen reader testing - VoiceOver,Verify component is usable with VoiceOver screen reader,"1. VoiceOver is available (macOS/iOS)
+2. Component is deployed","1. Enable VoiceOver
+2. Navigate through component with VO commands
+3. Test all features
+4. Verify announcements","1. All features should be accessible
+2. Rotor should show proper landmarks and headings
+3. Announcements should be clear
+4. Touch gestures should work on iOS",VoiceOver screen reader,High,Accessibility,Pending
+TC_VUE_113,Accessibility,Keyboard only navigation,Verify all functionality is accessible via keyboard only,"1. Component is loaded
+2. Mouse is not used","1. Use Tab to navigate through all interactive elements
+2. Use Shift+Tab to navigate backwards
+3. Use Arrow keys where appropriate
+4. Use Space/Enter to activate
+5. Use Escape to close dialogs/menus
+6. Test all features without mouse","1. All interactive elements should be reachable
+2. Focus order should be logical
+3. Focus indicators should be visible
+4. All features should be usable
+5. No keyboard traps
+6. Shortcut keys should work (if any)",Keyboard only,Critical,Accessibility,Pending
+TC_VUE_114,Accessibility,Focus management,Verify focus is managed correctly throughout component,"1. Component is loaded
+2. User can navigate with keyboard","1. Tab through component, verify focus order
+2. Open customization mode, verify focus moves to modal
+3. Close modal, verify focus returns to trigger button
+4. Open dropdown, close it, verify focus returns
+5. After form submission, verify focus management","1. Focus order should be logical (left-to-right, top-to-bottom)
+2. Focus should move to newly opened modals/dialogs
+3. Focus should return to trigger when closing
+4. Skip links should be provided if needed
+5. Focus should never be lost",Focus testing,High,Accessibility,Pending
+TC_VUE_115,Accessibility,ARIA labels and roles,Verify appropriate ARIA attributes are used,"1. Component is loaded
+2. Browser DevTools available","1. Inspect elements in DevTools
+2. Check for ARIA roles (button, checkbox, dialog, etc.)
+3. Check for ARIA labels (aria-label, aria-labelledby)
+4. Check for ARIA states (aria-selected, aria-expanded)
+5. Check for ARIA live regions","1. All custom controls should have appropriate roles
+2. All controls should have accessible names
+3. State changes should update ARIA attributes
+4. Live regions should announce dynamic changes
+5. ARIA should enhance, not replace, semantic HTML",DevTools inspection,High,Accessibility,Pending
+TC_VUE_116,Accessibility,Color contrast,Verify text and interactive elements have sufficient color contrast,"1. Component is loaded
+2. Color contrast checker available","1. Check contrast for normal body text
+2. Check contrast for small text
+3. Check contrast for interactive elements
+4. Check contrast in different themes (if applicable)
+5. Use automated tool to scan","1. Normal text contrast ≥ 4.5:1
+2. Large text (18pt+) contrast ≥ 3:1
+3. Interactive elements contrast ≥ 3:1
+4. Focus indicators contrast ≥ 3:1
+5. No contrast failures",Contrast checker,High,Accessibility,Pending
+TC_VUE_117,Accessibility,Text resize,Verify component works when text is resized to 200%,"1. Component is loaded
+2. Browser zoom is at 100%","1. Load component at 100% zoom
+2. Increase browser zoom to 200%
+3. Verify all content is still visible
+4. Test all features at 200% zoom","1. All text should resize
+2. No content should be cut off
+3. No horizontal scrolling required
+4. Layout should adapt (may break to responsive layout)
+5. All features should remain functional",Zoom to 200%,Medium,Accessibility,Pending
+TC_VUE_118,Accessibility,Reduced motion,Verify component respects prefers-reduced-motion setting,"1. Component is loaded
+2. OS or browser has reduced motion setting","1. Enable reduced motion in OS/browser
+2. Reload component
+3. Perform actions that normally have animations
+4. Verify animations are reduced or removed","1. Transitions should be instant or very short (< 100ms)
+2. No spinning or moving animations
+3. Functionality should remain the same
+4. prefers-reduced-motion media query should be respected",Reduced motion setting,Medium,Accessibility,Pending
+TC_VUE_119,Error Handling,Network error handling,Verify component handles network errors gracefully,"1. Component is connected to API
+2. Network can be simulated offline","1. Load component successfully
+2. Disable network (browser offline mode)
+3. Try to change page or apply filter
+4. Verify error handling","1. User-friendly error message should appear
+2. Message should indicate network issue
+3. Retry button should be provided
+4. Component should not crash or show blank screen
+5. Previous data should remain visible if possible",Offline mode,High,Error Handling,Pending
+TC_VUE_120,Error Handling,API error handling,Verify component handles API errors gracefully,"1. Component is connected to API
+2. API can return error responses","1. Simulate API returning 500 error
+2. Simulate API returning 404 error
+3. Simulate API timeout
+4. Verify error handling for each","1. Appropriate error message for each error type
+2. User should understand what went wrong
+3. Retry option should be available
+4. Component should not crash
+5. Console should log error details for debugging",API error simulation,High,Error Handling,Pending
+TC_VUE_121,Security,XSS prevention in search,Verify component prevents XSS attacks via search input,"1. Component is loaded
+2. Search functionality is available","1. Enter script in search: '<script>alert(""XSS"")</script>'
+2. Execute search
+3. Enter: '<img src=x onerror=""alert(1)"">'
+4. Verify no script execution","1. Scripts should not execute
+2. HTML should be escaped and displayed as text
+3. No alert should pop up
+4. Vue 3's template escaping should prevent XSS
+5. Console should show no errors",XSS attempt,Critical,Security,Pending
+TC_VUE_122,Security,XSS prevention in data display,Verify component safely renders potentially malicious data,"1. Component receives data from API
+2. Data may contain HTML/scripts","1. Load component with data containing: '<script>alert(""test"")</script>'
+2. Load data with: '<img src=x onerror=""alert(1)"">'
+3. Verify rendering","1. Scripts in data should not execute
+2. Content should be escaped or sanitized
+3. Vue's v-text or proper escaping should be used
+4. Only intended HTML should render (if using v-html, must be sanitized)",Malicious data,Critical,Security,Pending
+TC_VUE_123,Usability,User can complete workflow without help,Verify component is intuitive enough to use without documentation,"1. New user unfamiliar with component
+2. Component is loaded with data","1. Ask new user to:
+   - Find a specific item
+   - Change view to Grid
+   - Select multiple items
+   - Customize which fields are visible
+2. Observe without helping
+3. Note any confusion","1. User should complete tasks without help
+2. Controls should be clearly labeled
+3. Icons should have tooltips
+4. User should not get stuck
+5. Time to complete should be reasonable (< 2 min per task)",Usability testing,High,Usability,Pending
+TC_VUE_124,Usability,Helpful tooltips and hints,Verify tooltips and help text are available where needed,"1. Component is loaded
+2. User hovers over various controls","1. Hover over icon buttons
+2. Hover over complex controls
+3. Look for help icons or info tooltips
+4. Check if inline help is available","1. All icon-only buttons should have tooltips
+2. Tooltips should appear on hover (desktop) or tap (mobile)
+3. Tooltips should be concise and helpful
+4. Help text should clarify complex features
+5. No obvious controls should lack labels or tooltips",Hover testing,Medium,Usability,Pending
+TC_VUE_125,Regression,All AngularJS features implemented,Verify all AngularJS features are implemented in Vue 3 version,"1. AngularJS feature list is documented
+2. Vue 3 component is complete","1. Review AngularJS feature list
+2. Test each feature in Vue 3 version:
+   - Search
+   - Filter
+   - List/Grid/Compact views
+   - Item spacing
+   - Pagination
+   - Single/Multi selection
+   - Drag & drop customization
+3. Verify each is implemented","1. All features from AngularJS should be present in Vue 3
+2. No features should be missing
+3. Feature parity should be 100%
+4. Document any intentional differences",Feature checklist,Critical,Regression,Pending
