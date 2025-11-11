@@ -1,0 +1,233 @@
+Test Case ID,Test Suite,Test Case Name,Priority,Type,Preconditions,Test Steps,Expected Results,Test Data,Browser,Status,Actual Result,Defect ID,Tested By,Date,Notes
+TC-001,Navigation Links Presence,Verify All Navigation Links Are Rendered,High,Functional,"Vue 3 navigation component is mounted, User is on any page","1. Load the application
+2. Locate the main navigation bar component
+3. Count all visible navigation links","- Navigation bar is visible
+- Exactly 10 navigation links are present
+- Links displayed in order: Search, Events, Attendees, Websites, Surveys, Email messages, Mailing list, Users, Accounts, Contacts DB, Prospects",N/A,Chrome,,,,,
+TC-002,Navigation Links Presence,Verify Navigation Link Labels,High,Functional,Navigation component is rendered,"1. Inspect each navigation link
+2. Verify the text label matches expected value","All labels match:
+1. Search
+2. Events
+3. Attendees
+4. Websites
+5. Surveys
+6. Email messages
+7. Mailing list
+8. Users
+9. Accounts
+10. Contacts DB
+11. Prospects",N/A,Chrome,,,,,
+TC-003,Navigation Routing,Search Link Navigation,High,Functional,"User is on home page, Navigation bar is visible","1. Click on the 'Search' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /search or appropriate route
+- Search page component loads
+- Navigation remains visible
+- 'Search' link is highlighted as active",N/A,Chrome,,,,,
+TC-004,Navigation Routing,Events Link Navigation,High,Functional,User is on home page,"1. Click on the 'Events' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /events or appropriate route
+- Events page component loads
+- Navigation remains visible
+- 'Events' link is highlighted as active",N/A,Chrome,,,,,
+TC-005,Navigation Routing,Attendees Link Navigation,High,Functional,User is on home page,"1. Click on the 'Attendees' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /attendees or appropriate route
+- Attendees page component loads
+- Navigation remains visible
+- 'Attendees' link is highlighted as active",N/A,Chrome,,,,,
+TC-006,Navigation Routing,Websites Link Navigation,High,Functional,User is on home page,"1. Click on the 'Websites' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /websites or appropriate route
+- Websites page component loads
+- Navigation remains visible
+- 'Websites' link is highlighted as active",N/A,Chrome,,,,,
+TC-007,Navigation Routing,Surveys Link Navigation,High,Functional,User is on home page,"1. Click on the 'Surveys' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /surveys or appropriate route
+- Surveys page component loads
+- Navigation remains visible
+- 'Surveys' link is highlighted as active",N/A,Chrome,,,,,
+TC-008,Navigation Routing,Email Messages Link Navigation,High,Functional,User is on home page,"1. Click on the 'Email messages' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /email-messages or appropriate route
+- Email messages page component loads
+- Navigation remains visible
+- 'Email messages' link is highlighted as active",N/A,Chrome,,,,,
+TC-009,Navigation Routing,Mailing List Link Navigation,High,Functional,User is on home page,"1. Click on the 'Mailing list' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /mailing-list or appropriate route
+- Mailing list page component loads
+- Navigation remains visible
+- 'Mailing list' link is highlighted as active",N/A,Chrome,,,,,
+TC-010,Navigation Routing,Users Link Navigation,High,Functional,User is on home page,"1. Click on the 'Users' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /users or appropriate route
+- Users page component loads
+- Navigation remains visible
+- 'Users' link is highlighted as active",N/A,Chrome,,,,,
+TC-011,Navigation Routing,Accounts Link Navigation,High,Functional,User is on home page,"1. Click on the 'Accounts' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /accounts or appropriate route
+- Accounts page component loads
+- Navigation remains visible
+- 'Accounts' link is highlighted as active",N/A,Chrome,,,,,
+TC-012,Navigation Routing,Contacts DB Link Navigation,High,Functional,User is on home page,"1. Click on the 'Contacts DB' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /contacts-db or appropriate route
+- Contacts DB page component loads
+- Navigation remains visible
+- 'Contacts DB' link is highlighted as active",N/A,Chrome,,,,,
+TC-013,Navigation Routing,Prospects Link Navigation,High,Functional,User is on home page,"1. Click on the 'Prospects' link
+2. Observe the URL change
+3. Verify the correct page loads","- URL changes to /prospects or appropriate route
+- Prospects page component loads
+- Navigation remains visible
+- 'Prospects' link is highlighted as active",N/A,Chrome,,,,,
+TC-014,Layout & Visual,Compare Navigation Bar Layout with AngularJS,High,Visual Regression,"Original AngularJS navigation bar accessible, Vue 3 navigation rendered","1. Take screenshot of AngularJS navigation bar (desktop)
+2. Take screenshot of Vue 3 navigation bar (desktop)
+3. Compare both screenshots pixel by pixel","- Navigation bar height matches (±2px tolerance)
+- Font family, size, weight are identical
+- Colors (background, text, hover) are identical
+- Spacing and padding match
+- Overall appearance is indistinguishable","AngularJS baseline screenshots, Viewport: 1920x1080px",Chrome,,,,,
+TC-015,Layout & Visual,Verify Navigation Bar Positioning,Medium,Visual,Application is loaded,"1. Observe navigation bar position
+2. Scroll down the page
+3. Check if navigation bar behavior matches AngularJS","- Navigation bar positioned at top
+- Positioning behavior (fixed/static/sticky) matches AngularJS
+- Z-index appropriate (appears above content)",N/A,Chrome,,,,,
+TC-016,Layout & Visual,Verify Link Styling States,Medium,Visual,Navigation bar is visible,"1. Observe default link styling
+2. Hover over each link
+3. Click a link and observe active state
+4. Navigate to different pages and observe active indicator","- Default state matches AngularJS styling
+- Hover state matches AngularJS hover effect
+- Active state: current page link visually distinguished
+- Focus state: keyboard focus indicator matches AngularJS",N/A,Chrome,,,,,
+TC-017,Layout & Visual,Verify Icon Display,Medium,Visual,Navigation bar is rendered,"1. Check if navigation links have icons
+2. Compare icon display with AngularJS version
+3. Verify icon alignment and sizing","- If AngularJS has icons, Vue 3 displays identical icons
+- Icons properly aligned with text
+- Icon size and spacing match original",N/A,Chrome,,,,,
+TC-018,Responsive Behavior,Desktop View 1920x1080,High,Responsive,Browser window set to 1920x1080px,"1. Load the application
+2. Observe navigation bar layout
+3. Compare with AngularJS at same resolution","- All 10 links displayed horizontally
+- No overflow or wrapping
+- Layout matches AngularJS exactly
+- All links easily clickable",Viewport: 1920x1080px,Chrome,,,,,
+TC-019,Responsive Behavior,Laptop View 1366x768,High,Responsive,Browser window set to 1366x768px,"1. Resize browser to 1366x768px
+2. Observe navigation bar layout
+3. Compare with AngularJS at same resolution","- Navigation bar adapts appropriately
+- All links remain accessible
+- Behavior matches AngularJS (horizontal or hamburger menu)",Viewport: 1366x768px,Chrome,,,,,
+TC-020,Responsive Behavior,Tablet View 768x1024,High,Responsive,Browser window set to 768x1024px,"1. Resize browser to tablet dimensions
+2. Observe navigation bar transformation
+3. Test interaction with navigation
+4. Compare with AngularJS","- Navigation bar matches AngularJS responsive behavior
+- If hamburger menu, all 10 links accessible
+- Touch targets appropriately sized (44x44px min)
+- Menu opens/closes smoothly",Viewport: 768x1024px,Chrome,,,,,
+TC-021,Responsive Behavior,Mobile View 375x667,High,Responsive,Browser window set to 375x667px,"1. Resize browser to mobile dimensions
+2. Observe navigation bar transformation
+3. Test hamburger menu
+4. Verify all links accessible
+5. Compare with AngularJS","- Navigation bar matches AngularJS mobile behavior
+- Hamburger menu icon visible and functional
+- Tapping hamburger opens full menu
+- All 10 links accessible
+- Menu easily scrollable
+- Touch targets appropriately sized",Viewport: 375x667px,Chrome,,,,,
+TC-022,Responsive Behavior,Mobile Landscape 667x375,Medium,Responsive,Device/browser in landscape (667x375px),"1. Rotate device to landscape or resize browser
+2. Observe navigation bar layout
+3. Test navigation functionality
+4. Compare with AngularJS","- Navigation adapts to landscape
+- Behavior matches AngularJS
+- All links accessible
+- Layout uses horizontal space efficiently",Viewport: 667x375px,Chrome,,,,,
+TC-023,Responsive Behavior,Ultra-wide Screen 2560x1440,Low,Responsive,Browser window set to 2560x1440px,"1. Load application on ultra-wide screen
+2. Observe navigation bar layout
+3. Compare with AngularJS","- Navigation bar scales appropriately
+- Links not awkwardly spaced
+- Layout matches AngularJS behavior",Viewport: 2560x1440px,Chrome,,,,,
+TC-024,Accessibility,Keyboard Navigation,High,Accessibility,Mouse/trackpad not used,"1. Press Tab to navigate through links
+2. Verify tab order (left to right)
+3. Press Enter on each link to navigate
+4. Use Shift+Tab to navigate backwards","- All 10 links keyboard accessible
+- Tab order logical: Search → Events → Attendees → Websites → Surveys → Email messages → Mailing list → Users → Accounts → Contacts DB → Prospects
+- Focused link has visible focus indicator
+- Enter triggers navigation
+- Matches AngularJS keyboard behavior",N/A,Chrome,,,,,
+TC-025,Accessibility,Screen Reader Compatibility,High,Accessibility,Screen reader enabled (NVDA/JAWS/VoiceOver),"1. Enable screen reader
+2. Navigate to navigation bar
+3. Tab through all links
+4. Listen to screen reader announcements","- Navigation bar announced as landmark
+- Each link label clearly announced
+- Current active page identified
+- Experience matches AngularJS
+- ARIA labels/roles properly implemented",N/A,Chrome,,,,,
+TC-026,Accessibility,ARIA Attributes Validation,Medium,Accessibility,Navigation component is rendered,"1. Inspect navigation bar HTML
+2. Verify ARIA attributes present
+3. Validate against WCAG 2.1 AA","- <nav> element or role='navigation' present
+- Current page link has aria-current='page'
+- Links have appropriate aria-label if needed
+- ARIA attributes match AngularJS",N/A,Chrome,,,,,
+TC-027,Accessibility,Color Contrast Compliance,Medium,Accessibility,Navigation bar rendered with styling,"1. Use color contrast analyzer tool
+2. Check contrast ratio for all text colors
+3. Test default, hover, active states","- All text has minimum 4.5:1 contrast ratio (WCAG AA)
+- Contrast ratios match or exceed AngularJS
+- Hover states maintain sufficient contrast",Tool: WAVE or axe DevTools,Chrome,,,,,
+TC-028,Accessibility,Focus Management,Medium,Accessibility,User navigates via navigation link,"1. Click a navigation link
+2. Observe where focus is placed after navigation
+3. Compare with AngularJS behavior","- Focus managed appropriately after navigation
+- Focus moves to main content or stays as per AngularJS
+- No focus traps
+- Skip links function correctly (if present)",N/A,Chrome,,,,,
+TC-029,Performance,Navigation Component Load Time,Medium,Performance,Chrome DevTools Performance tab open,"1. Clear cache and reload page
+2. Measure time from page load to navigation fully rendered
+3. Compare with AngularJS","- Navigation bar renders within 500ms
+- Performance equal to or better than AngularJS
+- No layout shift (CLS) during render",N/A,Chrome,,,,,
+TC-030,Performance,Navigation Interaction Performance,Medium,Performance,Application is loaded,"1. Click each navigation link
+2. Measure time to route change and page render
+3. Record any lag or delays","- Click response immediate (<100ms)
+- Route changes occur smoothly
+- No perceived lag vs AngularJS",N/A,Chrome,,,,,
+TC-031,Performance,Memory Usage,Low,Performance,Chrome DevTools Memory profiler open,"1. Navigate through all 10 sections multiple times
+2. Monitor memory usage
+3. Check for memory leaks","- No memory leaks detected
+- Memory usage stable
+- Performance equal to or better than AngularJS",N/A,Chrome,,,,,
+TC-032,Integration,Navigation Persistence Across Routes,High,Integration,User is on home page,"1. Click on 'Events' link
+2. Click on 'Users' link
+3. Click on 'Search' link
+4. Navigate back using browser back button
+5. Navigate forward using browser forward button","- Navigation bar remains visible and functional on all pages
+- Active link indicator updates correctly
+- Browser back/forward buttons work correctly
+- State maintained appropriately",N/A,Chrome,,,,,
+TC-033,Integration,Deep Link Navigation,Medium,Integration,User has direct link to specific section,"1. Directly access /users via URL
+2. Verify navigation bar loads correctly
+3. Verify 'Users' link is marked as active","- Navigation bar loads on deep-linked pages
+- Correct link highlighted as active
+- All navigation links functional","Test URLs: /search, /events, /attendees, /websites, /surveys, /email-messages, /mailing-list, /users, /accounts, /contacts-db, /prospects",Chrome,,,,,
+TC-034,Integration,Navigation with Authentication States,Medium,Integration,Application has authentication system,"1. Access navigation as logged-out user
+2. Log in
+3. Observe any navigation changes
+4. Compare with AngularJS behavior","- Navigation behavior matches AngularJS for auth states
+- Links shown/hidden appropriately based on permissions
+- Login/logout doesn't break navigation",Test user credentials,Chrome,,,,,
+TC-035,Edge Cases,Rapid Link Clicking,Low,Edge Case,Navigation bar is loaded,"1. Rapidly click multiple navigation links in quick succession
+2. Observe application behavior","- Application handles rapid clicks gracefully
+- No race conditions
+- Final navigation state is correct
+- No console errors",N/A,Chrome,,,,,
+TC-036,Edge Cases,Navigation with Unsaved Changes,Medium,Edge Case,User has unsaved changes on current page,"1. Make changes to a form (if applicable)
+2. Click a navigation link without saving
+3. Observe if warning appears
+4. Compare with AngularJS behavior","- Behavior matches AngularJS (warning if applicable)
+- User can choose to leave or stay
+- Navigation prevented if user chooses to stay",N/A,Chrome,,,,,
+TC-037,Edge Cases,Navigation with Slow Network,Low,Edge Case,Network throttling enabled (Slow 3G),"1. Enable network throttling in DevTools
+2. Click navigation links
+3. Observe loading behavior","- Navigation bar remains functional
+- Loading indicators appear if appropriate
+- User cannot break navigation by multiple clicks
+- Behavior matches AngularJS",Network: Slow 3G throttling,Chrome,,,,,
