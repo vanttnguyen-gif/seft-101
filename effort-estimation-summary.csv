@@ -1,0 +1,37 @@
+Test ID,Test Name,Priority,Estimated Time (minutes),Estimated Time (hours),Notes
+TC-SEARCH-001,Search Events - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-002,Search Events - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-003,Search Attendees - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-004,Search Attendees - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-005,Search Websites - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-006,Search Websites - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-007,Search Surveys - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-008,Search Surveys - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-009,Search Email Messages - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-010,Search Email Messages - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-011,Search Mailing List - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-012,Search Mailing List - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-013,Search Users - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-014,Search Users - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-015,Search Accounts - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-016,Search Accounts - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-017,Search Contacts DB - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-018,Search Contacts DB - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-019,Search Prospects - Valid Search Criteria,High,10,0.17,Standard search test
+TC-SEARCH-020,Search Prospects - Click on Result Item,High,12,0.20,Include navigation verification
+TC-SEARCH-021,Search with Empty Criteria,Medium,10,0.17,Test validation
+TC-SEARCH-022,Search with No Matching Results,Medium,10,0.17,Test empty result handling
+TC-SEARCH-023,Search with Invalid Object Type Selection,Low,8,0.13,Quick validation test
+TC-SEARCH-024,Search with Special Characters,Medium,15,0.25,Need special test data
+TC-SEARCH-025,Search with Very Long String,Medium,15,0.25,Need special test data
+TC-SEARCH-026,Rapid Object Type Switching,Low,12,0.20,Test edge case behavior
+TC-SEARCH-027,Search Results Display Format,Medium,12,0.20,UI/UX verification
+TC-SEARCH-028,Navigation Back from Details Page,Medium,10,0.17,Navigation flow test
+TOTAL,,,312,5.20,Total execution time
+PREPARATION,Test Data Preparation,,30,0.50,Prepare test data for all object types
+PREPARATION,Environment Setup,,18,0.30,Setup test environment and login
+BUG_REPORTING,Bug Reporting (20% fail rate),,60,1.00,Assume 20% test cases have bugs
+RETEST,Retest after bug fix,,60,1.00,Retest failed test cases
+DOCUMENTATION,Documentation & Review,,30,0.50,Summarize results and review
+BUFFER,Buffer (10%),,51,0.85,Buffer for unexpected issues
+GRAND_TOTAL,,,561,9.35,Total effort including all activities
