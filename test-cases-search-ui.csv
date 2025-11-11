@@ -1,0 +1,64 @@
+Test ID,Test Name,Object Type,Priority,Type,Precondition,Steps,Expected Result,Status
+TC-SEARCH-001,Search Events - Valid Search Criteria,Events,High,Functional,User is on Search page,"1. Select ""Events"" from Object Type dropdown
+2. Enter valid search criteria
+3. Click Search button or press Enter",System displays a list of matching Events. Results show relevant event information (name date location),Pending
+TC-SEARCH-002,Search Events - Click on Result Item,Events,High,Functional,TC-SEARCH-001 executed and results displayed,1. Click on an Event item from the search results list,System navigates to Event details page. Displays complete information (name date time location description attendees etc),Pending
+TC-SEARCH-003,Search Attendees - Valid Search Criteria,Attendees,High,Functional,User is on Search page,"1. Select ""Attendees"" from Object Type dropdown
+2. Enter valid search criteria (e.g. attendee name email event)
+3. Click Search button or press Enter",System displays a list of matching Attendees. Results show attendee information (name email associated events),Pending
+TC-SEARCH-004,Search Attendees - Click on Result Item,Attendees,High,Functional,TC-SEARCH-003 executed and results displayed,1. Click on an Attendee item from the search results list,System navigates to Attendee details page. Displays complete information (name email phone events attended registration status etc),Pending
+TC-SEARCH-005,Search Websites - Valid Search Criteria,Websites,High,Functional,User is on Search page,"1. Select ""Websites"" from Object Type dropdown
+2. Enter valid search criteria (e.g. website name URL domain)
+3. Click Search button or press Enter",System displays a list of matching Websites. Results show website information (name URL domain status),Pending
+TC-SEARCH-006,Search Websites - Click on Result Item,Websites,High,Functional,TC-SEARCH-005 executed and results displayed,1. Click on a Website item from the search results list,System navigates to Website details page. Displays complete information (name URL domain status configuration analytics etc),Pending
+TC-SEARCH-007,Search Surveys - Valid Search Criteria,Surveys,High,Functional,User is on Search page,"1. Select ""Surveys"" from Object Type dropdown
+2. Enter valid search criteria (e.g. survey name ID status)
+3. Click Search button or press Enter",System displays a list of matching Surveys. Results show survey information (name ID status creation date),Pending
+TC-SEARCH-008,Search Surveys - Click on Result Item,Surveys,High,Functional,TC-SEARCH-007 executed and results displayed,1. Click on a Survey item from the search results list,System navigates to Survey details page. Displays complete information (name questions responses status analytics etc),Pending
+TC-SEARCH-009,Search Email Messages - Valid Search Criteria,Email messages,High,Functional,User is on Search page,"1. Select ""Email messages"" from Object Type dropdown
+2. Enter valid search criteria (e.g. subject sender recipient date)
+3. Click Search button or press Enter",System displays a list of matching Email messages. Results show email information (subject sender recipient date status),Pending
+TC-SEARCH-010,Search Email Messages - Click on Result Item,Email messages,High,Functional,TC-SEARCH-009 executed and results displayed,1. Click on an Email message item from the search results list,System navigates to Email message details page. Displays complete information (subject sender recipient body attachments status timestamp etc),Pending
+TC-SEARCH-011,Search Mailing List - Valid Search Criteria,Mailing list,High,Functional,User is on Search page,"1. Select ""Mailing list"" from Object Type dropdown
+2. Enter valid search criteria (e.g. list name ID status)
+3. Click Search button or press Enter",System displays a list of matching Mailing lists. Results show mailing list information (name ID subscriber count status),Pending
+TC-SEARCH-012,Search Mailing List - Click on Result Item,Mailing list,High,Functional,TC-SEARCH-011 executed and results displayed,1. Click on a Mailing list item from the search results list,System navigates to Mailing list details page. Displays complete information (name subscribers campaigns status statistics etc),Pending
+TC-SEARCH-013,Search Users - Valid Search Criteria,Users,High,Functional,User is on Search page,"1. Select ""Users"" from Object Type dropdown
+2. Enter valid search criteria (e.g. username email name role)
+3. Click Search button or press Enter",System displays a list of matching Users. Results show user information (username name email role),Pending
+TC-SEARCH-014,Search Users - Click on Result Item,Users,High,Functional,TC-SEARCH-013 executed and results displayed,1. Click on a User item from the search results list,System navigates to User details page. Displays complete information (username name email role permissions activity history etc),Pending
+TC-SEARCH-015,Search Accounts - Valid Search Criteria,Accounts,High,Functional,User is on Search page,"1. Select ""Accounts"" from Object Type dropdown
+2. Enter valid search criteria (e.g. account name ID company status)
+3. Click Search button or press Enter",System displays a list of matching Accounts. Results show account information (name ID company status type),Pending
+TC-SEARCH-016,Search Accounts - Click on Result Item,Accounts,High,Functional,TC-SEARCH-015 executed and results displayed,1. Click on an Account item from the search results list,System navigates to Account details page. Displays complete information (name ID company contacts opportunities status billing information etc),Pending
+TC-SEARCH-017,Search Contacts DB - Valid Search Criteria,Contacts DB,High,Functional,User is on Search page,"1. Select ""Contacts DB"" from Object Type dropdown
+2. Enter valid search criteria (e.g. contact name email phone company)
+3. Click Search button or press Enter",System displays a list of matching Contacts. Results show contact information (name email phone company),Pending
+TC-SEARCH-018,Search Contacts DB - Click on Result Item,Contacts DB,High,Functional,TC-SEARCH-017 executed and results displayed,1. Click on a Contact item from the search results list,System navigates to Contact details page. Displays complete information (name email phone address company notes interaction history etc),Pending
+TC-SEARCH-019,Search Prospects - Valid Search Criteria,Prospects,High,Functional,User is on Search page,"1. Select ""Prospects"" from Object Type dropdown
+2. Enter valid search criteria (e.g. prospect name company status source)
+3. Click Search button or press Enter",System displays a list of matching Prospects. Results show prospect information (name company status source value),Pending
+TC-SEARCH-020,Search Prospects - Click on Result Item,Prospects,High,Functional,TC-SEARCH-019 executed and results displayed,1. Click on a Prospect item from the search results list,System navigates to Prospect details page. Displays complete information (name company contact details status source value notes conversion history etc),Pending
+TC-SEARCH-021,Search with Empty Criteria,All,Medium,Functional,User is on Search page,"1. Select any Object Type from dropdown
+2. Leave search criteria field empty
+3. Click Search button or press Enter",System displays error message indicating search criteria is required. No results displayed. User remains on Search page,Pending
+TC-SEARCH-022,Search with No Matching Results,All,Medium,Functional,User is on Search page,"1. Select any Object Type from dropdown
+2. Enter search criteria that matches no objects (e.g. ""NonExistentObject123"")
+3. Click Search button or press Enter",System displays message indicating no results found. Results list is empty or shows ""No results found"" message. User remains on Search page,Pending
+TC-SEARCH-023,Search with Invalid Object Type Selection,N/A,Low,Functional,User is on Search page,"1. Do not select any Object Type (leave dropdown at default/empty state)
+2. Enter valid search criteria
+3. Click Search button or press Enter",System displays error message indicating Object Type must be selected. No search performed. User remains on Search page,Pending
+TC-SEARCH-024,Search with Special Characters,All,Medium,Functional,User is on Search page,"1. Select any Object Type from dropdown
+2. Enter search criteria with special characters (e.g. ""Test@#$%^&*()"")
+3. Click Search button or press Enter",System handles special characters appropriately. Either displays matching results or ""No results found"" message. System does not crash or display error,Pending
+TC-SEARCH-025,Search with Very Long String,All,Medium,Functional,User is on Search page,"1. Select any Object Type from dropdown
+2. Enter a very long search string (e.g. 1000+ characters)
+3. Click Search button or press Enter",System handles long strings appropriately. Search executes without error. Results displayed or ""No results found"" message shown,Pending
+TC-SEARCH-026,Rapid Object Type Switching,All,Low,Functional,User is on Search page,"1. Select ""Events"" from Object Type dropdown
+2. Quickly switch to ""Users""
+3. Quickly switch to ""Accounts""
+4. Enter search criteria
+5. Click Search button",System correctly uses the last selected Object Type. Search executes for correct object type. Results match selected object type,Pending
+TC-SEARCH-027,Search Results Display Format,All,Medium,UI/UX,User has performed a search with results,"1. Perform any successful search
+2. Observe the search results display",Results displayed in clear readable format. Each result item is clickable. Results show relevant information for selected object type. Results properly paginated if many results. Loading indicator shown during search execution,Pending
+TC-SEARCH-028,Navigation Back from Details Page,All,Medium,Functional,User is on object details page (navigated from search results),1. Click browser back button or application back button,System navigates back to search results page. Search results still displayed. Search criteria and object type selection preserved,Pending
