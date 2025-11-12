@@ -3,7 +3,7 @@ TC-SEARCH-001,Verify Object Type List,N/A,High,Functional,User is on Search page
 2. Observe the list of available object types","- Object Type dropdown displays all 10 object types (Events Attendees Websites Surveys Email messages Mailing list Users Accounts Contacts DB Prospects)
 - All object types are selectable
 - Object types are displayed in clear readable format",Pending
-TC-SEARCH-002,Search Events and Navigate to Details,Events,High,Functional,User is on Search page (Events is selected by default),"1. Enter valid search criteria (e.g. event name date location)
+TC-SEARCH-002,Search Events and Navigate to Details,Events,High,Functional,"User is on Search page (Events is selected by default). Events data exists in the system.","1. Enter valid search criteria (e.g. event name date location)
 2. Click Search button or press Enter
 3. Verify search results are displayed
 4. Click on an Event item from the search results list","- System displays a list of matching Events
@@ -11,7 +11,7 @@ TC-SEARCH-002,Search Events and Navigate to Details,Events,High,Functional,User 
 - Each result shows relevant event information (name date location)
 - System navigates to Event details page when clicking on result
 - Event details page displays like previous UI",Pending
-TC-SEARCH-003,Search Attendees and Navigate to Details,Attendees,High,Functional,User is on Search page,"1. Select ""Attendees"" from Object Type dropdown
+TC-SEARCH-003,Search Attendees and Navigate to Details,Attendees,High,Functional,"User is on Search page. Attendees data exists in the system.","1. Select ""Attendees"" from Object Type dropdown
 2. Enter valid search criteria (e.g. attendee name email event)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -19,7 +19,7 @@ TC-SEARCH-003,Search Attendees and Navigate to Details,Attendees,High,Functional
 - Results show attendee information (name email associated events)
 - System navigates to Attendee details page when clicking on result
 - Attendee details page displays like previous UI",Pending
-TC-SEARCH-004,Search Websites and Navigate to Details,Websites,High,Functional,User is on Search page,"1. Select ""Websites"" from Object Type dropdown
+TC-SEARCH-004,Search Websites and Navigate to Details,Websites,High,Functional,"User is on Search page. Websites data exists in the system.","1. Select ""Websites"" from Object Type dropdown
 2. Enter valid search criteria (e.g. website name URL domain)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -27,7 +27,7 @@ TC-SEARCH-004,Search Websites and Navigate to Details,Websites,High,Functional,U
 - Results show website information (name URL domain status)
 - System navigates to Website details page when clicking on result
 - Website details page displays like previous UI",Pending
-TC-SEARCH-005,Search Surveys and Navigate to Details,Surveys,High,Functional,User is on Search page,"1. Select ""Surveys"" from Object Type dropdown
+TC-SEARCH-005,Search Surveys and Navigate to Details,Surveys,High,Functional,"User is on Search page. Surveys data exists in the system.","1. Select ""Surveys"" from Object Type dropdown
 2. Enter valid search criteria (e.g. survey name ID status)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -35,7 +35,7 @@ TC-SEARCH-005,Search Surveys and Navigate to Details,Surveys,High,Functional,Use
 - Results show survey information (name ID status creation date)
 - System navigates to Survey details page when clicking on result
 - Survey details page displays like previous UI",Pending
-TC-SEARCH-006,Search Email Messages and Navigate to Details,Email messages,High,Functional,User is on Search page,"1. Select ""Email messages"" from Object Type dropdown
+TC-SEARCH-006,Search Email Messages and Navigate to Details,Email messages,High,Functional,"User is on Search page. Email messages data exists in the system.","1. Select ""Email messages"" from Object Type dropdown
 2. Enter valid search criteria (e.g. subject sender recipient date)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -43,7 +43,7 @@ TC-SEARCH-006,Search Email Messages and Navigate to Details,Email messages,High,
 - Results show email information (subject sender recipient date status)
 - System navigates to Email message details page when clicking on result
 - Email details page displays like previous UI",Pending
-TC-SEARCH-007,Search Mailing List and Navigate to Details,Mailing list,High,Functional,User is on Search page,"1. Select ""Mailing list"" from Object Type dropdown
+TC-SEARCH-007,Search Mailing List and Navigate to Details,Mailing list,High,Functional,"User is on Search page. Mailing list data exists in the system.","1. Select ""Mailing list"" from Object Type dropdown
 2. Enter valid search criteria (e.g. list name ID status)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -51,7 +51,7 @@ TC-SEARCH-007,Search Mailing List and Navigate to Details,Mailing list,High,Func
 - Results show mailing list information (name ID subscriber count status)
 - System navigates to Mailing list details page when clicking on result
 - Mailing list details page displays like previous UI",Pending
-TC-SEARCH-008,Search Users and Navigate to Details,Users,High,Functional,User is on Search page,"1. Select ""Users"" from Object Type dropdown
+TC-SEARCH-008,Search Users and Navigate to Details,Users,High,Functional,"User is on Search page. Users data exists in the system.","1. Select ""Users"" from Object Type dropdown
 2. Enter valid search criteria (e.g. username email name role)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -59,7 +59,7 @@ TC-SEARCH-008,Search Users and Navigate to Details,Users,High,Functional,User is
 - Results show user information (username name email role)
 - System navigates to User details page when clicking on result
 - User details page displays like previous UI",Pending
-TC-SEARCH-009,Search Accounts and Navigate to Details,Accounts,High,Functional,User is on Search page,"1. Select ""Accounts"" from Object Type dropdown
+TC-SEARCH-009,Search Accounts and Navigate to Details,Accounts,High,Functional,"User is on Search page. Accounts data exists in the system.","1. Select ""Accounts"" from Object Type dropdown
 2. Enter valid search criteria (e.g. account name ID company status)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -67,7 +67,7 @@ TC-SEARCH-009,Search Accounts and Navigate to Details,Accounts,High,Functional,U
 - Results show account information (name ID company status type)
 - System navigates to Account details page when clicking on result
 - Account details page displays like previous UI",Pending
-TC-SEARCH-010,Search Contacts DB and Navigate to Details,Contacts DB,High,Functional,User is on Search page,"1. Select ""Contacts DB"" from Object Type dropdown
+TC-SEARCH-010,Search Contacts DB and Navigate to Details,Contacts DB,High,Functional,"User is on Search page. Contacts DB data exists in the system.","1. Select ""Contacts DB"" from Object Type dropdown
 2. Enter valid search criteria (e.g. contact name email phone company)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -75,7 +75,7 @@ TC-SEARCH-010,Search Contacts DB and Navigate to Details,Contacts DB,High,Functi
 - Results show contact information (name email phone company)
 - System navigates to Contact details page when clicking on result
 - Contact details page displays like previous UI",Pending
-TC-SEARCH-011,Search Prospects and Navigate to Details,Prospects,High,Functional,User is on Search page,"1. Select ""Prospects"" from Object Type dropdown
+TC-SEARCH-011,Search Prospects and Navigate to Details,Prospects,High,Functional,"User is on Search page. Prospects data exists in the system.","1. Select ""Prospects"" from Object Type dropdown
 2. Enter valid search criteria (e.g. prospect name company status source)
 3. Click Search button or press Enter
 4. Verify search results are displayed
@@ -120,7 +120,7 @@ TC-SEARCH-018,Rapid Object Type Switching,All,Low,Functional,User is on Search p
 5. Click Search button","- System correctly uses the last selected Object Type
 - Search executes for the correct object type
 - Results match the selected object type",Pending
-TC-SEARCH-019,Search Results Display Format,All,Medium,UI/UX,User has performed a search with results,"1. Perform any successful search
+TC-SEARCH-019,Search Results Display Format,All,Medium,UI/UX,"User has performed a search with results. Data exists in the system for the selected object type.","1. Perform any successful search
 2. Observe the search results display","- Results are displayed in clear readable format
 - Each result item is clickable
 - Results show relevant information for selected object type
