@@ -63,7 +63,7 @@
 
 ## 📊 Test Cases Overview
 
-**Total Test Cases:** 85
+**Total Test Cases:** 61
 
 ### Breakdown by Category
 
@@ -75,40 +75,38 @@
 | **Pagination** | 7 | High-Medium | 3-4 |
 | **Selection Mode** | 6 | High-Medium | 3-4 |
 | **Customize View** | 10 | High | 6-8 |
-| **Layout - Desktop** | 6 | High | 3-4 |
-| **Layout - Laptop** | 2 | Medium | 1-2 |
-| **Layout - Tablet** | 4 | High | 3-4 |
-| **Layout - Mobile** | 6 | High | 4-5 |
-| **Responsive - Orientation** | 2 | Medium | 1-2 |
 | **Integration** | 5 | Medium | 3-4 |
-| **Performance** | 3 | Medium | 3-4 |
 | **Accessibility** | 3 | High | 4-5 |
 | **Edge Cases** | 3 | Low | 2-3 |
 | **Visual Consistency** | 7 | Medium | 4-5 |
-| **Browser Compatibility** | 1 | High | 1 |
-| **TOTAL** | **85** | | **52-67** |
+| **TOTAL** | **61** | | **37-47** |
 
 ### Priority Distribution
 
-- **High Priority:** 45 test cases (53%) - Critical features
-- **Medium Priority:** 32 test cases (38%) - Important features
-- **Low Priority:** 8 test cases (9%) - Edge cases
+- **High Priority:** 35 test cases (57%) - Critical features
+- **Medium Priority:** 22 test cases (36%) - Important features
+- **Low Priority:** 4 test cases (7%) - Edge cases
+
+### ❌ Excluded from Testing (As per requirement)
+- ❌ Performance Testing (load time, large datasets)
+- ❌ Layout/Responsive Testing (desktop, laptop, tablet, mobile viewports)
+- ❌ Browser Compatibility Testing (Firefox, Safari, Edge)
 
 ---
 
 ## ⏱️ Effort Estimation
 
 ### Test Execution
-- **Core Testing:** 52-67 hours
-- **Setup & Planning:** 6-8 hours
-- **Bug Reporting:** 6-8 hours
-- **Regression Testing:** 8-10 hours
-- **Buffer (15%):** 8-10 hours
+- **Core Testing:** 37-47 hours
+- **Setup & Planning:** 4-6 hours
+- **Bug Reporting:** 5-7 hours
+- **Regression Testing:** 6-8 hours
+- **Buffer (15%):** 6-8 hours
 
 ### Total Effort
-- **Total Hours:** 80-103 hours
-- **Person-Days:** 10-13 days (8h/day)
-- **Calendar Time:** 15 working days (3 weeks with 2 QA)
+- **Total Hours:** 58-76 hours
+- **Person-Days:** 7-10 days (8h/day)
+- **Calendar Time:** 10 working days (2 weeks with 2 QA)
 
 ---
 
@@ -116,19 +114,19 @@
 
 ### Recommended Team: 2 QA Engineers + 1 QA Lead
 
-**QA Engineer 1** (50-60 hours)
+**QA Engineer 1** (35-45 hours)
 - Primary tester
-- Functional features (Search, Filter, View Modes, Pagination, Selection)
-- Desktop and laptop testing
+- Functional features (Search, Filter, View Modes, Pagination)
 - Integration testing
+- Visual consistency
 
-**QA Engineer 2** (40-50 hours)
+**QA Engineer 2** (30-40 hours)
+- Selection Mode
 - Customize View feature (complex drag & drop)
-- Responsive testing (Tablet, Mobile)
-- Visual consistency comparison
 - Accessibility testing
+- Edge cases
 
-**QA Lead** (8-10 hours)
+**QA Lead** (6-8 hours)
 - Test planning and review
 - Bug triage
 - Sign-off and reporting
@@ -139,66 +137,49 @@
 
 | Role | Hours | Rate | Total Cost |
 |------|-------|------|------------|
-| QA Engineer 1 | 50-60h | $50/h | $2,500-$3,000 |
-| QA Engineer 2 | 40-50h | $50/h | $2,000-$2,500 |
-| QA Lead | 8-10h | $60/h | $480-$600 |
-| **TOTAL** | | | **$4,980-$6,100** |
+| QA Engineer 1 | 35-45h | $50/h | $1,750-$2,250 |
+| QA Engineer 2 | 30-40h | $50/h | $1,500-$2,000 |
+| QA Lead | 6-8h | $60/h | $360-$480 |
+| **TOTAL** | | | **$3,610-$4,730** |
 
 *Rates are sample estimates for US market*
 
 ---
 
-## 📅 Detailed Timeline (3 Weeks)
+## 📅 Detailed Timeline (2 Weeks)
 
 ### Week 1: Setup + Core Features
 
 **Day 1-2: Setup + Basic Features**
 - Environment setup and AngularJS baseline capture
-- TC-UI-001 to TC-UI-007: Search Criteria
-- TC-UI-008 to TC-UI-014: Filter Functionality
+- TC-UI-001 to TC-UI-007: Search Criteria (7 tests)
+- TC-UI-008 to TC-UI-014: Filter Functionality (7 tests)
 
-**Day 3-4: View & Pagination**
-- TC-UI-015 to TC-UI-020: View Modes
-- TC-UI-021 to TC-UI-028: Pagination
-- TC-UI-029 to TC-UI-034: Selection Mode
+**Day 3-4: View & Pagination & Selection**
+- TC-UI-015 to TC-UI-020: View Modes (6 tests)
+- TC-UI-021 to TC-UI-027: Pagination (7 tests)
+- TC-UI-028 to TC-UI-033: Selection Mode (6 tests)
 
 **Day 5: Customize View (Complex)**
-- TC-UI-035 to TC-UI-044: Customize View with drag & drop
+- TC-UI-034 to TC-UI-043: Customize View with drag & drop (10 tests)
 - This is the most complex feature - allocate full day
 
-### Week 2: Layout & Responsive
+### Week 2: Integration, Accessibility & Final Testing
 
-**Day 6-7: Desktop & Laptop**
-- TC-UI-045 to TC-UI-050: Desktop Layout Testing
-- TC-UI-051 to TC-UI-052: Laptop Layout Testing
-- Visual comparison with AngularJS screenshots
+**Day 6-7: Integration & Accessibility**
+- TC-UI-044 to TC-UI-048: Integration Tests (5 tests)
+- TC-UI-049 to TC-UI-051: Accessibility Testing (3 tests)
+- TC-UI-052 to TC-UI-054: Edge Cases (3 tests)
 
-**Day 8-9: Tablet & Mobile**
-- TC-UI-053 to TC-UI-056: Tablet Testing
-- TC-UI-057 to TC-UI-062: Mobile Testing
-- Test on real devices if possible
+**Day 8-9: Visual Consistency & Bug Fixes**
+- TC-UI-055 to TC-UI-061: Visual Consistency (7 tests)
+- Initial bug fixes from developers
+- Begin regression testing
 
-**Day 10: Integration & Performance**
-- TC-UI-063 to TC-UI-064: Orientation Testing
-- TC-UI-065 to TC-UI-069: Integration Tests
-- TC-UI-070 to TC-UI-072: Performance Tests
-
-### Week 3: Polish & Sign-off
-
-**Day 11-12: Visual & Accessibility**
-- TC-UI-073 to TC-UI-075: Accessibility Testing
-- TC-UI-076 to TC-UI-078: Edge Cases
-- TC-UI-079 to TC-UI-084: Visual Consistency Deep Dive
-- TC-UI-085: Browser Compatibility Check
-
-**Day 13-14: Bug Fixes & Regression**
-- Developers fix reported bugs
-- Regression testing on all fixed bugs
-- Retest high-priority test cases
-
-**Day 15: Final Validation**
+**Day 10: Final Validation & Sign-off**
+- Complete regression testing on all fixed bugs
 - Smoke testing across all features
-- Final visual comparison
+- Final visual comparison with AngularJS
 - Test summary report preparation
 - Stakeholder sign-off meeting
 
@@ -214,26 +195,26 @@
 - **Mitigation:** Test early, allocate extra time, have developers ready
 
 **2. Visual Differences from AngularJS**
-- **Impact:** +8-12 hours
+- **Impact:** +6-8 hours
 - **Probability:** High
 - **Mitigation:** Create detailed baseline screenshots, involve designer early
 
-**3. Responsive Layout Issues**
-- **Impact:** +6-10 hours
-- **Probability:** Medium
-- **Mitigation:** Test on real devices, not just DevTools
-
-**4. Performance with Large Datasets**
-- **Impact:** +4-8 hours
-- **Probability:** Medium
-- **Mitigation:** Profile early, optimize before full testing
-
-**5. Filter Logic Differences**
+**3. Filter Logic Differences**
 - **Impact:** +4-6 hours
 - **Probability:** Medium
 - **Mitigation:** Validate business logic with developers early
 
-**Recommended Buffer:** 25-30% (20-30 hours)
+**4. Customize View Persistence Issues**
+- **Impact:** +4-6 hours
+- **Probability:** Low
+- **Mitigation:** Test save/load functionality thoroughly
+
+**5. Integration Issues Between Features**
+- **Impact:** +3-5 hours
+- **Probability:** Medium
+- **Mitigation:** Test feature combinations thoroughly
+
+**Recommended Buffer:** 20-25% (12-19 hours)
 
 ---
 
@@ -246,31 +227,29 @@
 - [ ] Pagination controls work on all pages
 - [ ] Single and multi-select modes work correctly
 - [ ] Drag & drop field customization works
-- [ ] Layout matches AngularJS on desktop (1920x1080)
-- [ ] Layout matches AngularJS on tablet (768x1024)
-- [ ] Layout matches AngularJS on mobile (375x667)
 - [ ] All features are keyboard accessible
+- [ ] Visual styling matches AngularJS (fonts, colors, spacing)
 - [ ] 0 Critical bugs remaining
 - [ ] ≤3 High priority bugs remaining
 
 ### Should Pass (Medium Priority)
-- [ ] Visual styling matches AngularJS (fonts, colors, spacing)
-- [ ] Performance is equal to or better than AngularJS
-- [ ] Laptop responsive design works correctly
 - [ ] Integration of features works seamlessly
 - [ ] Accessibility meets WCAG 2.1 AA standards
+- [ ] Edge cases handled gracefully
+- [ ] Customize view persistence works correctly
+- [ ] Selection behavior across pages matches AngularJS
 
 ### Nice to Have (Low Priority)
-- [ ] Edge cases handled gracefully
-- [ ] Ultra-smooth animations and transitions
+- [ ] Smooth animations and transitions
 - [ ] Advanced accessibility features
+- [ ] Optimized empty state handling
 
 ---
 
 ## 📦 Key Deliverables
 
 ### 1. Test Execution Report
-- Completed CSV with all 85 test cases executed
+- Completed CSV with all 61 test cases executed
 - Status (Pass/Fail) for each test
 - Actual results documented
 
@@ -283,8 +262,8 @@
 
 ### 3. Visual Comparison Package
 - Side-by-side screenshots (AngularJS vs Vue 3)
-- Desktop, Tablet, Mobile views
-- All three view modes documented
+- All three view modes documented (List, Grid, Compact)
+- Visual consistency verification
 
 ### 4. Test Summary Report
 - Executive summary
@@ -299,12 +278,7 @@
 - Screen reader compatibility notes
 - Color contrast analysis
 
-### 6. Performance Benchmarks
-- Load time comparison
-- View switch performance
-- Large dataset handling
-
-### 7. Sign-off Document
+### 6. Sign-off Document
 - Stakeholder approval
 - Conditions for production release
 - Known issues and workarounds
@@ -315,17 +289,15 @@
 
 ### Mandatory
 - **Chrome Browser** (latest version)
-- **Chrome DevTools** (for responsive testing, performance)
+- **Chrome DevTools** (for inspecting elements, console errors)
 - **AngularJS Application** (baseline for comparison)
 - **Screen Capture Tool** (screenshots, recordings)
 - **Excel/Google Sheets** (for CSV test cases)
 
 ### Recommended
 - **Screen Reader** (NVDA for Windows, VoiceOver for Mac)
-- **Color Contrast Analyzer** (WAVE, WebAIM)
-- **Bug Tracking Tool** (Jira, Azure DevOps)
-- **Real Mobile Devices** (iPhone, Android)
-- **Real Tablet** (iPad or Android tablet)
+- **Color Contrast Analyzer** (WAVE, WebAIM, or Lighthouse)
+- **Bug Tracking Tool** (Jira, Azure DevOps, GitHub Issues)
 
 ---
 
@@ -334,11 +306,11 @@
 ### File: TEST_CASES_UI_MIGRATION_VUE3.csv
 
 **Columns:**
-1. **Test Case ID** - Unique identifier (TC-UI-001 to TC-UI-085)
+1. **Test Case ID** - Unique identifier (TC-UI-001 to TC-UI-061)
 2. **Test Suite** - Category (Search, Filter, View Modes, etc.)
 3. **Test Case Name** - Descriptive name
 4. **Priority** - High/Medium/Low
-5. **Type** - Functional/Visual/Performance/Accessibility
+5. **Type** - Functional/Visual/Accessibility
 6. **Preconditions** - Setup needed before test
 7. **Test Steps** - Detailed step-by-step instructions
 8. **Expected Results** - What should happen (compared to AngularJS)
@@ -432,14 +404,6 @@
 - Test reset to default
 - Verify custom view persists (or resets) appropriately
 
-### Responsive Testing
-- Use Chrome DevTools Device Toolbar (F12 → Toggle Device Toolbar)
-- Test all defined viewports:
-  - Desktop: 1920x1080, 1366x768
-  - Tablet: 768x1024 (portrait), 1024x768 (landscape)
-  - Mobile: 375x667 (portrait), 667x375 (landscape)
-- Zoom levels: Test at 100%, 125%, 150%
-- Real device testing is highly recommended for mobile/tablet
 
 ### Visual Comparison
 - Always compare side-by-side with AngularJS
@@ -453,17 +417,6 @@
   - Layout (positioning, alignment)
 - Use pixel-perfect tools if available
 
-### Performance Testing
-- Clear cache before each test
-- Use Chrome DevTools Performance tab
-- Use Chrome DevTools Network tab (throttle if needed)
-- Measure:
-  - Initial page load time
-  - Search response time
-  - Filter application time
-  - View mode switch time
-  - Pagination navigation time
-- Compare all measurements with AngularJS baseline
 
 ### Accessibility Testing
 - Keyboard only (no mouse): Tab through all controls
@@ -521,7 +474,7 @@
 ## 📊 Sample Metrics to Track
 
 ### Test Execution Metrics
-- Total Test Cases: 85
+- Total Test Cases: 61
 - Executed: ___
 - Passed: ___
 - Failed: ___
@@ -541,44 +494,38 @@
 ### Coverage Metrics
 - Functional Coverage: ___%
 - Visual Coverage: ___%
-- Responsive Coverage: ___%
 - Accessibility Coverage: ___%
-
-### Performance Metrics
-- Page Load Time: ___ ms (AngularJS: ___ ms)
-- Search Time: ___ ms (AngularJS: ___ ms)
-- Filter Time: ___ ms (AngularJS: ___ ms)
-- View Switch Time: ___ ms (AngularJS: ___ ms)
+- Integration Coverage: ___%
 
 ---
 
 ## 🚀 Optimization Strategies
 
-### If Time is Constrained (Reduce to 2 weeks / 10 days)
+### If Time is Constrained (Reduce to 1.5 weeks / 7-8 days)
 
 **Option 1: Test High Priority Only**
-- Execute 45 high-priority test cases only
-- **Time saved:** 15-20 hours
+- Execute 35 high-priority test cases only
+- **Time saved:** 10-13 hours
 - **Risk:** May miss important medium-priority issues
 
-**Option 2: Reduce Responsive Testing**
-- Test only Desktop (1920x1080), Tablet (768x1024), Mobile (375x667)
-- Skip laptop and orientation tests
-- **Time saved:** 3-5 hours
-- **Risk:** May miss issues on specific viewports
-
-**Option 3: Reduce Visual Consistency Testing**
+**Option 2: Reduce Visual Consistency Testing**
 - Do basic visual comparison only
 - Skip detailed font/spacing/icon checks
 - **Time saved:** 3-4 hours
 - **Risk:** Subtle visual differences may go unnoticed
 
+**Option 3: Skip Edge Cases**
+- Focus on happy path scenarios only
+- Skip edge case testing (3 tests)
+- **Time saved:** 2-3 hours
+- **Risk:** May miss unusual scenarios
+
 ### If Budget is Constrained
 
 **Option: Single QA Engineer**
 - One QA executes all tests
-- **Timeline:** 4 weeks instead of 3
-- **Cost savings:** ~$2,000-$2,500
+- **Timeline:** 3 weeks instead of 2
+- **Cost savings:** ~$1,500-$2,000
 - **Trade-off:** Longer timeline
 
 ---
