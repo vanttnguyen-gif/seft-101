@@ -1,0 +1,445 @@
+Test Case ID,Test Suite,Test Case Name,Priority,Type,Preconditions,Test Steps,Expected Results,Test Data,Browser,Status,Actual Result,Defect ID,Tested By,Date,Notes
+TC-UI-001,Search Criteria,Verify Search Box is Rendered,High,Functional,User is on the page with search functionality,"1. Load the page
+2. Locate the search criteria box
+3. Verify the search box is visible","- Search criteria box is displayed
+- Search box position matches AngularJS version
+- Search box styling (size, border, placeholder) matches AngularJS",N/A,Chrome,,,,,
+TC-UI-002,Search Criteria,Verify Search Box Placeholder Text,Medium,Functional,Page is loaded,"1. Locate the search criteria box
+2. Check the placeholder text","- Placeholder text matches AngularJS version
+- Text is visible and readable
+- Font and color match original",N/A,Chrome,,,,,
+TC-UI-003,Search Criteria,Verify Search Functionality,High,Functional,Page has data to search,"1. Enter search term in search box
+2. Press Enter or click search button
+3. Observe filtered results","- Data is filtered based on search term
+- Results display immediately after search
+- Behavior matches AngularJS version
+- No console errors",Test data: Valid search terms,Chrome,,,,,
+TC-UI-004,Search Criteria,Verify Search with No Results,Medium,Functional,Page is loaded,"1. Enter a search term that has no matching results
+2. Press Enter or click search button
+3. Observe the display","- 'No results found' message or empty state displayed
+- Message matches AngularJS version
+- UI remains stable",Test data: Non-existent search term,Chrome,,,,,
+TC-UI-005,Search Criteria,Verify Search Clear Functionality,Medium,Functional,Search has been performed,"1. Perform a search
+2. Clear the search box (X button or clear all)
+3. Verify results reset","- Search box is cleared
+- All data is displayed again
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-006,Search Criteria,Verify Search with Special Characters,Low,Functional,Page is loaded,"1. Enter special characters in search box (!@#$%^&*)
+2. Press Enter
+3. Observe behavior","- System handles special characters gracefully
+- No errors occur
+- Behavior matches AngularJS version",Test data: Special characters,Chrome,,,,,
+TC-UI-007,Search Criteria,Verify Search Performance,Medium,Performance,Page has large dataset,"1. Enter search term
+2. Measure time from input to results display
+3. Compare with AngularJS version","- Search completes within acceptable time (<500ms)
+- Performance is equal to or better than AngularJS
+- No lag or delay",Test data: Large dataset,Chrome,,,,,
+TC-UI-008,Filter Functionality,Verify Filter Icon is Displayed,High,Visual,Page is loaded,"1. Locate the filter icon on the page
+2. Verify the icon is visible and clickable","- Filter icon is displayed
+- Icon position matches AngularJS version
+- Icon design matches original",N/A,Chrome,,,,,
+TC-UI-009,Filter Functionality,Verify Filter Panel Opens,High,Functional,Page is loaded,"1. Click on the filter icon
+2. Observe filter panel/dropdown opens","- Filter panel opens on click
+- Panel displays all available filter fields
+- Animation/transition matches AngularJS version
+- Panel position is correct",N/A,Chrome,,,,,
+TC-UI-010,Filter Functionality,Verify Filter by Single Field,High,Functional,Filter panel is open,"1. Select a field to filter (e.g., Status)
+2. Choose a value (e.g., Active)
+3. Apply filter
+4. Observe filtered results","- Data is filtered by selected field value
+- Results update immediately
+- Filter indicator shows active filter
+- Behavior matches AngularJS version",Test data: Field values,Chrome,,,,,
+TC-UI-011,Filter Functionality,Verify Filter by Multiple Fields,High,Functional,Filter panel is open,"1. Select multiple fields to filter
+2. Choose values for each field
+3. Apply filters
+4. Observe filtered results","- Data is filtered by all selected criteria (AND logic)
+- Results match all filter conditions
+- Behavior matches AngularJS version",Test data: Multiple field values,Chrome,,,,,
+TC-UI-012,Filter Functionality,Verify Clear All Filters,Medium,Functional,Filters are applied,"1. Apply one or more filters
+2. Click 'Clear All' or reset button
+3. Observe results","- All filters are cleared
+- Full dataset is displayed again
+- Filter panel resets to default state
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-013,Filter Functionality,Verify Filter Indicator,Medium,Visual,Filters are applied,"1. Apply one or more filters
+2. Observe filter indicator/badge
+3. Verify count of active filters","- Filter indicator shows number of active filters
+- Indicator styling matches AngularJS version
+- Indicator updates when filters change",N/A,Chrome,,,,,
+TC-UI-014,Filter Functionality,Verify Filter Panel Close,Medium,Functional,Filter panel is open,"1. Click outside filter panel or close button
+2. Observe panel closes","- Filter panel closes properly
+- Applied filters remain active
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-015,View Modes,Verify List View Mode,High,Functional,Page is loaded with data,"1. Select 'List' view mode
+2. Observe data display format","- Data is displayed in list format (rows)
+- Each row shows appropriate fields
+- Layout matches AngularJS list view
+- Styling and spacing match original",N/A,Chrome,,,,,
+TC-UI-016,View Modes,Verify Grid View Mode,High,Functional,Page is loaded with data,"1. Select 'Grid' view mode
+2. Observe data display format","- Data is displayed in grid format (cards/tiles)
+- Cards show appropriate fields
+- Grid layout matches AngularJS grid view
+- Responsive grid behavior matches original",N/A,Chrome,,,,,
+TC-UI-017,View Modes,Verify Compact View Mode,High,Functional,Page is loaded with data,"1. Select 'Compact' view mode
+2. Observe data display format","- Data is displayed in compact format (condensed rows)
+- Compact view shows fewer details per item
+- Layout matches AngularJS compact view
+- Spacing and density match original",N/A,Chrome,,,,,
+TC-UI-018,View Modes,Verify Switch Between View Modes,High,Functional,Page is loaded,"1. Switch from List to Grid view
+2. Switch from Grid to Compact view
+3. Switch from Compact to List view
+4. Observe transitions","- View mode switches smoothly
+- Data persists across view changes
+- Transition animations match AngularJS (if any)
+- No data loss or UI glitches",N/A,Chrome,,,,,
+TC-UI-019,View Modes,Verify View Mode Icon/Button Styling,Medium,Visual,Page is loaded,"1. Observe view mode selector buttons
+2. Check selected vs unselected state
+3. Compare with AngularJS version","- View mode buttons are clearly visible
+- Selected view is highlighted
+- Styling matches AngularJS version
+- Icons are correct (list, grid, compact icons)",N/A,Chrome,,,,,
+TC-UI-020,View Modes,Verify View Mode Persistence,Medium,Functional,User selects a view mode,"1. Select a view mode (e.g., Grid)
+2. Navigate to another page
+3. Return to the original page
+4. Verify view mode is retained","- Selected view mode is remembered
+- User preference is persisted (session/local storage)
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-021,Pagination,Verify Show Items Dropdown,High,Functional,Page has paginated data,"1. Locate the 'Show items' or 'Items per page' dropdown
+2. Verify dropdown is visible and clickable","- Dropdown is displayed
+- Position matches AngularJS version
+- Dropdown shows available options (10, 25, 50, 100, etc.)",N/A,Chrome,,,,,
+TC-UI-022,Pagination,Verify Change Items Per Page,High,Functional,Page is loaded with data,"1. Click on 'Show items' dropdown
+2. Select different value (e.g., 25 items)
+3. Observe page updates","- Page displays selected number of items
+- Pagination controls update accordingly
+- Behavior matches AngularJS version
+- Selection is applied immediately","Test data: Options 10, 25, 50, 100",Chrome,,,,,
+TC-UI-023,Pagination,Verify Pagination Controls Display,High,Visual,Page has multiple pages of data,"1. Observe pagination controls at bottom of page
+2. Verify all elements are visible","- Previous/Next buttons are visible
+- Page numbers are displayed
+- First/Last page buttons visible (if applicable)
+- Layout matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-024,Pagination,Verify Next Page Navigation,High,Functional,Page has multiple pages,"1. Click 'Next' button or page 2
+2. Observe page content updates","- Page advances to next page
+- Data for next page loads correctly
+- URL updates with page parameter (if applicable)
+- Behavior matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-025,Pagination,Verify Previous Page Navigation,High,Functional,User is on page 2 or later,"1. Click 'Previous' button
+2. Observe page content updates","- Page goes back to previous page
+- Data for previous page loads correctly
+- Behavior matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-026,Pagination,Verify First and Last Page Navigation,Medium,Functional,Page has multiple pages,"1. Click 'Last' page button
+2. Verify last page loads
+3. Click 'First' page button
+4. Verify first page loads","- Navigation to first/last page works correctly
+- Appropriate data is displayed
+- Behavior matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-027,Pagination,Verify Disabled Pagination Buttons,Medium,Functional,User is on first or last page,"1. Go to first page - verify Previous is disabled
+2. Go to last page - verify Next is disabled","- Disabled buttons are visually indicated (grayed out)
+- Clicking disabled buttons has no effect
+- Styling matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-028,Pagination,Verify Pagination Info Display,Medium,Visual,Page is paginated,"1. Observe pagination info text
+2. Verify format (e.g., 'Showing 1-25 of 100 items')","- Pagination info is displayed
+- Format matches AngularJS version
+- Numbers are accurate
+- Updates when page changes",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-029,Selection Mode,Verify Single Selection Mode,High,Functional,Single selection mode is active,"1. Click on a row/item to select
+2. Click on another row/item
+3. Observe selection behavior","- Only one item can be selected at a time
+- Previous selection is deselected when new item selected
+- Selected item is visually highlighted
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-030,Selection Mode,Verify Multi Selection Mode,High,Functional,Multi selection mode is active,"1. Click on first row/item to select
+2. Click on second row/item
+3. Click on third row/item
+4. Observe selection behavior","- Multiple items can be selected simultaneously
+- All selected items are visually highlighted
+- Selection state persists until deselected
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-031,Selection Mode,Verify Select All Functionality,High,Functional,Multi selection mode is active,"1. Click 'Select All' checkbox or button
+2. Observe all items are selected
+3. Click 'Select All' again to deselect","- All visible items are selected
+- Select All checkbox shows checked state
+- Clicking again deselects all items
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-032,Selection Mode,Verify Switch Between Selection Modes,Medium,Functional,Page supports both modes,"1. Start in Single selection mode - select an item
+2. Switch to Multi selection mode
+3. Observe behavior
+4. Switch back to Single mode","- Mode switching works correctly
+- Selections may reset when switching modes (as per AngularJS)
+- UI updates to show appropriate selection controls
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-033,Selection Mode,Verify Selection Visual Indicator,Medium,Visual,Item is selected,"1. Select one or more items
+2. Observe visual highlighting
+3. Compare with AngularJS version","- Selected items have clear visual indicator (background color, checkbox, etc.)
+- Styling matches AngularJS version
+- Hover state is distinguishable from selected state",N/A,Chrome,,,,,
+TC-UI-034,Selection Mode,Verify Selection Persistence with Filters,Medium,Functional,Items are selected,"1. Select one or more items
+2. Apply a filter
+3. Clear filter
+4. Verify selections","- Selection behavior matches AngularJS (persist or clear based on original logic)
+- No unexpected selection states
+- UI accurately reflects selection state",N/A,Chrome,,,,,
+TC-UI-035,Customize View,Verify Customize View Button/Icon,High,Visual,Page is loaded,"1. Locate customize view button or icon
+2. Verify it is visible and clickable","- Customize view control is displayed
+- Position and styling match AngularJS version
+- Icon/button is clearly labeled",N/A,Chrome,,,,,
+TC-UI-036,Customize View,Verify Customize View Panel Opens,High,Functional,Page is loaded,"1. Click on customize view button
+2. Observe panel/modal opens","- Customize view panel opens
+- Panel displays all available fields
+- Layout matches AngularJS version
+- Panel is properly positioned",N/A,Chrome,,,,,
+TC-UI-037,Customize View,Verify Available Fields are Listed,High,Functional,Customize view panel is open,"1. Observe the list of available fields
+2. Verify all fields are present","- All available fields are listed
+- Field names match AngularJS version
+- Fields are organized logically (same order as AngularJS)",N/A,Chrome,,,,,
+TC-UI-038,Customize View,Verify Drag and Drop Field Ordering,High,Functional,Customize view panel is open,"1. Click and hold a field
+2. Drag it to a new position
+3. Drop the field
+4. Observe the new order","- Field can be dragged smoothly
+- Visual feedback during drag (cursor, placeholder)
+- Field drops into new position correctly
+- Drag and drop behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-039,Customize View,Verify Show/Hide Fields,High,Functional,Customize view panel is open,"1. Toggle a field off (hide)
+2. Toggle a field on (show)
+3. Apply changes
+4. Observe data view","- Fields can be toggled on/off via checkbox or toggle
+- Hidden fields do not appear in data view
+- Shown fields appear in data view
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-040,Customize View,Verify Apply Custom View,High,Functional,Changes made in customize panel,"1. Make changes to field visibility and order
+2. Click 'Apply' or 'Save' button
+3. Observe data view updates","- Data view updates with custom field configuration
+- Field order matches the customization
+- Only selected fields are displayed
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-041,Customize View,Verify Reset to Default View,Medium,Functional,Custom view is applied,"1. Click 'Reset' or 'Default' button in customize panel
+2. Observe fields reset to default","- All fields reset to default configuration
+- Field order returns to original
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-042,Customize View,Verify Save Custom View,Medium,Functional,Custom view is configured,"1. Create a custom view
+2. Save the view (if feature supports saving named views)
+3. Reload page
+4. Verify custom view is available","- Custom view is saved
+- Saved view appears in view selector
+- View can be loaded on subsequent visits
+- Behavior matches AngularJS version (if applicable)",N/A,Chrome,,,,,
+TC-UI-043,Customize View,Verify Drag and Drop Visual Feedback,Medium,Visual,Customize view panel is open,"1. Start dragging a field
+2. Observe visual feedback during drag","- Dragged item follows cursor
+- Drop zones are indicated
+- Placeholder shows where item will be dropped
+- Visual feedback matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-044,Customize View,Verify Cancel Customization,Medium,Functional,Changes made in customize panel,"1. Make changes to fields
+2. Click 'Cancel' or close panel without saving
+3. Verify data view unchanged","- Changes are not applied
+- Data view remains as before
+- Panel closes properly
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-045,Layout - Desktop,Verify Overall Page Layout on Desktop 1920x1080,High,Visual,Browser set to 1920x1080px,"1. Load page on desktop resolution
+2. Observe all components (search, filter, view modes, data, pagination)
+3. Compare with AngularJS version","- All components are properly positioned
+- Layout matches AngularJS desktop version
+- No overlapping elements
+- Spacing and margins match original",Viewport: 1920x1080px,Chrome,,,,,
+TC-UI-046,Layout - Desktop,Verify Search Box Layout on Desktop,Medium,Visual,Desktop resolution 1920x1080px,"1. Observe search criteria box position and size
+2. Compare with AngularJS version","- Search box width and height match AngularJS
+- Position (top, left, right) matches original
+- Alignment with other elements is correct",Viewport: 1920x1080px,Chrome,,,,,
+TC-UI-047,Layout - Desktop,Verify Filter Controls Layout on Desktop,Medium,Visual,Desktop resolution 1920x1080px,"1. Observe filter icon and panel layout
+2. Compare with AngularJS version","- Filter icon position matches AngularJS
+- Filter panel opens in correct position
+- Panel width and height match original",Viewport: 1920x1080px,Chrome,,,,,
+TC-UI-048,Layout - Desktop,Verify View Mode Controls Layout on Desktop,Medium,Visual,Desktop resolution 1920x1080px,"1. Observe view mode buttons position
+2. Compare with AngularJS version","- View mode controls positioned correctly
+- Button sizes match original
+- Alignment with other controls is correct",Viewport: 1920x1080px,Chrome,,,,,
+TC-UI-049,Layout - Desktop,Verify Data Display Area on Desktop,Medium,Visual,Desktop resolution with data loaded,"1. Observe data display area
+2. Compare with AngularJS version in each view mode","- Data area dimensions match AngularJS
+- Spacing between items matches original
+- All three view modes (List, Grid, Compact) layout correctly",Viewport: 1920x1080px,Chrome,,,,,
+TC-UI-050,Layout - Desktop,Verify Pagination Layout on Desktop,Medium,Visual,Desktop resolution with paginated data,"1. Observe pagination controls position
+2. Compare with AngularJS version","- Pagination positioned at bottom (or as per AngularJS)
+- Controls are properly aligned
+- Spacing matches original",Viewport: 1920x1080px,Chrome,,,,,
+TC-UI-051,Layout - Laptop,Verify Overall Page Layout on Laptop 1366x768,High,Visual,Browser set to 1366x768px,"1. Resize browser to 1366x768px
+2. Observe page layout adjustments
+3. Compare with AngularJS version","- Layout adapts to laptop screen size
+- All components remain accessible
+- Behavior matches AngularJS responsive design",Viewport: 1366x768px,Chrome,,,,,
+TC-UI-052,Layout - Laptop,Verify Grid View on Laptop,Medium,Visual,Laptop resolution with grid view,"1. Switch to Grid view on laptop screen
+2. Observe grid columns
+3. Compare with AngularJS","- Grid adjusts to show appropriate number of columns
+- Column count matches AngularJS at same resolution
+- No horizontal scrolling required",Viewport: 1366x768px,Chrome,,,,,
+TC-UI-053,Layout - Tablet,Verify Overall Page Layout on Tablet 768x1024,High,Visual,Browser set to 768x1024px,"1. Resize browser to tablet dimensions
+2. Observe layout changes
+3. Compare with AngularJS version","- Layout adapts to tablet screen
+- Controls may stack vertically or adjust positioning
+- Behavior matches AngularJS responsive design",Viewport: 768x1024px,Chrome,,,,,
+TC-UI-054,Layout - Tablet,Verify Search and Filter on Tablet,High,Functional,Tablet resolution,"1. Test search functionality on tablet
+2. Test filter panel on tablet
+3. Compare with AngularJS","- Search box is accessible and functional
+- Filter panel opens and is usable on tablet
+- Touch targets are appropriately sized (44x44px min)
+- Behavior matches AngularJS",Viewport: 768x1024px,Chrome,,,,,
+TC-UI-055,Layout - Tablet,Verify View Modes on Tablet,High,Functional,Tablet resolution,"1. Switch between List, Grid, Compact views
+2. Observe layout in each mode
+3. Compare with AngularJS","- All view modes work on tablet
+- Grid may show fewer columns than desktop
+- Layout matches AngularJS tablet behavior",Viewport: 768x1024px,Chrome,,,,,
+TC-UI-056,Layout - Tablet,Verify Pagination on Tablet,Medium,Functional,Tablet resolution with multiple pages,"1. Test pagination controls on tablet
+2. Navigate between pages
+3. Compare with AngularJS","- Pagination controls are accessible
+- Touch targets are appropriately sized
+- Behavior matches AngularJS",Viewport: 768x1024px,Chrome,,,,,
+TC-UI-057,Layout - Mobile,Verify Overall Page Layout on Mobile 375x667,High,Visual,Browser set to 375x667px,"1. Resize browser to mobile dimensions
+2. Observe layout changes
+3. Compare with AngularJS version","- Layout adapts to mobile screen
+- Components stack vertically as needed
+- All features remain accessible
+- Behavior matches AngularJS mobile design",Viewport: 375x667px,Chrome,,,,,
+TC-UI-058,Layout - Mobile,Verify Search on Mobile,High,Functional,Mobile resolution,"1. Test search functionality on mobile
+2. Enter text and search
+3. Compare with AngularJS","- Search box is full-width or appropriately sized
+- Keyboard interaction works well
+- Behavior matches AngularJS mobile",Viewport: 375x667px,Chrome,,,,,
+TC-UI-059,Layout - Mobile,Verify Filter Panel on Mobile,High,Functional,Mobile resolution,"1. Open filter panel on mobile
+2. Apply filters
+3. Compare with AngularJS","- Filter panel opens (possibly full-screen on mobile)
+- All filter options are accessible
+- Panel is easy to use on touch screen
+- Behavior matches AngularJS mobile",Viewport: 375x667px,Chrome,,,,,
+TC-UI-060,Layout - Mobile,Verify View Modes on Mobile,High,Functional,Mobile resolution,"1. Switch between view modes on mobile
+2. Observe layout in each mode
+3. Compare with AngularJS","- View mode controls are accessible
+- List view may be default on mobile
+- Grid shows 1-2 columns max
+- Compact view is usable
+- Behavior matches AngularJS",Viewport: 375x667px,Chrome,,,,,
+TC-UI-061,Layout - Mobile,Verify Pagination on Mobile,Medium,Functional,Mobile resolution with multiple pages,"1. Test pagination on mobile
+2. Navigate between pages
+3. Compare with AngularJS","- Pagination controls are touch-friendly
+- Page numbers may be condensed (... notation)
+- Next/Previous are easily tappable
+- Behavior matches AngularJS mobile",Viewport: 375x667px,Chrome,,,,,
+TC-UI-062,Layout - Mobile,Verify Customize View on Mobile,Medium,Functional,Mobile resolution,"1. Open customize view panel on mobile
+2. Try drag and drop on touch screen
+3. Compare with AngularJS","- Customize panel is accessible on mobile
+- Drag and drop works with touch (if supported in AngularJS)
+- Alternative controls provided if drag/drop not suitable
+- Behavior matches AngularJS mobile",Viewport: 375x667px,Chrome,,,,,
+TC-UI-063,Responsive - Orientation,Verify Mobile Landscape Orientation 667x375,Medium,Visual,Device in landscape mode,"1. Rotate device to landscape or resize browser
+2. Observe layout adjustments
+3. Compare with AngularJS","- Layout adapts to landscape orientation
+- Horizontal space is utilized efficiently
+- Behavior matches AngularJS",Viewport: 667x375px,Chrome,,,,,
+TC-UI-064,Responsive - Orientation,Verify Tablet Landscape Orientation 1024x768,Medium,Visual,Tablet in landscape mode,"1. Rotate tablet to landscape
+2. Observe layout adjustments
+3. Compare with AngularJS","- Layout takes advantage of wider screen
+- Grid view may show more columns
+- Behavior matches AngularJS",Viewport: 1024x768px,Chrome,,,,,
+TC-UI-065,Integration,Verify Search + Filter Combination,High,Functional,Page is loaded with data,"1. Enter a search term
+2. Apply a filter
+3. Observe results
+4. Compare with AngularJS","- Search and filter work together (combined criteria)
+- Results match both search and filter
+- Behavior matches AngularJS logic",Test data: Search term + filter values,Chrome,,,,,
+TC-UI-066,Integration,Verify Filter + View Mode Combination,Medium,Functional,Filters are applied,"1. Apply filters
+2. Switch between view modes
+3. Verify filtered data persists","- Filtered data remains filtered across view mode changes
+- All view modes display filtered results correctly
+- Behavior matches AngularJS",N/A,Chrome,,,,,
+TC-UI-067,Integration,Verify Selection + Pagination,Medium,Functional,Multi-select mode with multiple pages,"1. Select items on page 1
+2. Navigate to page 2
+3. Select items on page 2
+4. Navigate back to page 1
+5. Verify selections","- Selection behavior across pages matches AngularJS
+- Selections may persist or reset based on AngularJS logic
+- UI accurately shows selection state",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-068,Integration,Verify Customize View + All Features,Medium,Functional,Custom view is applied,"1. Apply custom field configuration
+2. Test search, filter, view modes, pagination
+3. Verify all features work with custom view","- All features work correctly with custom field configuration
+- Custom fields are respected in all operations
+- Behavior matches AngularJS",N/A,Chrome,,,,,
+TC-UI-069,Integration,Verify State Persistence on Page Reload,Medium,Functional,Various settings applied,"1. Apply search, filters, view mode, items per page
+2. Reload the page
+3. Verify state persistence","- Settings persist (or reset) according to AngularJS behavior
+- User experience matches original
+- No unexpected state loss",N/A,Chrome,,,,,
+TC-UI-070,Performance,Verify Page Load Time,Medium,Performance,Chrome DevTools open,"1. Clear cache and reload page
+2. Measure total page load time
+3. Compare with AngularJS version","- Page loads within acceptable time
+- Performance is equal to or better than AngularJS
+- No significant delays",N/A,Chrome,,,,,
+TC-UI-071,Performance,Verify View Mode Switch Performance,Low,Performance,Page is loaded,"1. Switch between view modes multiple times
+2. Measure time for each switch
+3. Compare with AngularJS","- View mode switching is smooth and fast (<200ms)
+- No lag or flicker
+- Performance matches or exceeds AngularJS",N/A,Chrome,,,,,
+TC-UI-072,Performance,Verify Large Dataset Handling,Medium,Performance,Page with 1000+ items,"1. Load page with large dataset
+2. Test pagination, filtering, search
+3. Observe performance
+4. Compare with AngularJS","- Large datasets are handled efficiently
+- No browser freezing or lag
+- Performance matches or exceeds AngularJS","Test data: 1000+ items",Chrome,,,,,
+TC-UI-073,Accessibility,Verify Keyboard Navigation for All Controls,High,Accessibility,Keyboard only (no mouse),"1. Tab through all controls (search, filter, view modes, pagination)
+2. Verify all are accessible via keyboard
+3. Compare with AngularJS","- All interactive elements are keyboard accessible
+- Tab order is logical
+- Keyboard shortcuts match AngularJS (if any)
+- Focus indicators are visible",N/A,Chrome,,,,,
+TC-UI-074,Accessibility,Verify Screen Reader Compatibility,High,Accessibility,Screen reader enabled,"1. Navigate page with screen reader
+2. Test all features
+3. Compare with AngularJS","- All elements have appropriate ARIA labels
+- Screen reader announces controls and states clearly
+- Experience matches AngularJS accessibility",N/A,Chrome,,,,,
+TC-UI-075,Accessibility,Verify Color Contrast for All Elements,Medium,Accessibility,Page is loaded,"1. Use contrast checker on all text and controls
+2. Verify WCAG AA compliance
+3. Compare with AngularJS","- All elements meet WCAG 2.1 AA standards (4.5:1)
+- Contrast matches or exceeds AngularJS
+- No accessibility regressions",Tool: WAVE or Lighthouse,Chrome,,,,,
+TC-UI-076,Edge Cases,Verify Behavior with Empty Dataset,Low,Edge Case,No data available,"1. Load page with no data
+2. Observe all controls and messages
+3. Compare with AngularJS","- Empty state message is displayed
+- Controls are disabled or hidden appropriately
+- Behavior matches AngularJS empty state",Test data: Empty dataset,Chrome,,,,,
+TC-UI-077,Edge Cases,Verify Behavior with Single Item,Low,Edge Case,Only one item in dataset,"1. Load page with single item
+2. Observe pagination and selection
+3. Compare with AngularJS","- Single item is displayed correctly
+- Pagination shows appropriate state (1 of 1)
+- Behavior matches AngularJS",Test data: Single item,Chrome,,,,,
+TC-UI-078,Edge Cases,Verify Rapid Interaction Handling,Low,Edge Case,Page is loaded,"1. Rapidly click view modes, pagination, filters
+2. Observe system stability
+3. Compare with AngularJS","- System handles rapid interactions gracefully
+- No race conditions or errors
+- Behavior is stable like AngularJS",N/A,Chrome,,,,,
+TC-UI-079,Visual Consistency,Verify Font Consistency,Medium,Visual,Page is loaded,"1. Inspect fonts used across all components
+2. Compare with AngularJS version","- Font families match AngularJS
+- Font sizes match original
+- Font weights match original",N/A,Chrome,,,,,
+TC-UI-080,Visual Consistency,Verify Color Scheme Consistency,Medium,Visual,Page is loaded,"1. Inspect colors used (backgrounds, text, borders, hover states)
+2. Compare with AngularJS version","- Color palette matches AngularJS exactly
+- Hover and active states use same colors
+- No color discrepancies",N/A,Chrome,,,,,
+TC-UI-081,Visual Consistency,Verify Spacing and Padding Consistency,Medium,Visual,Page is loaded,"1. Inspect spacing between elements
+2. Inspect padding within components
+3. Compare with AngularJS version","- Spacing matches AngularJS (±2px tolerance)
+- Padding matches original
+- Overall visual rhythm is consistent",N/A,Chrome,,,,,
+TC-UI-082,Visual Consistency,Verify Icon Consistency,Low,Visual,Page is loaded,"1. Inspect all icons (filter, view modes, pagination arrows, etc.)
+2. Compare with AngularJS version","- Icons match AngularJS exactly
+- Icon sizes match original
+- Icon colors and styles match",N/A,Chrome,,,,,
+TC-UI-083,Visual Consistency,Verify Button Styles Consistency,Medium,Visual,Page is loaded,"1. Inspect all buttons and their states
+2. Compare with AngularJS version","- Button styles match (primary, secondary, etc.)
+- Hover and active states match
+- Disabled state styling matches",N/A,Chrome,,,,,
+TC-UI-084,Visual Consistency,Verify Input Field Styles Consistency,Medium,Visual,Page is loaded,"1. Inspect search box and any input fields
+2. Compare with AngularJS version","- Input field borders match
+- Focus states match
+- Placeholder styling matches",N/A,Chrome,,,,,
+TC-UI-085,Browser Compatibility,Verify All Features in Chrome Latest,High,Cross-browser,Chrome latest version,"1. Execute all major test scenarios
+2. Verify no Chrome-specific issues","- All features work correctly in Chrome
+- No console errors
+- Performance is good",Browser: Chrome latest,Chrome,,,,,
