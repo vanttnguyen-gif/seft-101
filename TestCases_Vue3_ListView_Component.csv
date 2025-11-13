@@ -1072,4 +1072,379 @@ TC_VUE_125,Regression,All AngularJS features implemented,Verify all AngularJS fe
 3. Verify each is implemented","1. All features from AngularJS should be present in Vue 3
 2. No features should be missing
 3. Feature parity should be 100%
-4. Document any intentional differences",Feature checklist,Critical,Regression,Pending
+4. Document any intentional differences",Feature checklist,Critical,Regression,PendingTC_VUE_126,Multi Selection Mode,Select All - This Page only,Verify 'Select All - This Page' selects only items on current page,"1. Component is loaded in multi selection mode
+2. Pagination is active with multiple pages (e.g., 50 items, 10 per page)
+3. User is on page 1","1. Locate 'Select All' dropdown or options
+2. Click 'Select All - This Page' option
+3. Verify selection count
+4. Navigate to page 2
+5. Verify selections on page 2","1. Only 10 items on page 1 should be selected
+2. Selection counter should show '10 items selected'
+3. All checkboxes on page 1 should be checked
+4. Items on page 2 should NOT be selected
+5. Action buttons should be enabled",Click 'Select All - This Page',High,Functional,Pending
+TC_VUE_127,Multi Selection Mode,Select All - All Pages,Verify 'Select All - All Pages' selects items across all pages,"1. Component is loaded in multi selection mode
+2. Pagination is active (e.g., 50 items across 5 pages)
+3. User is on any page","1. Locate 'Select All' dropdown
+2. Click 'Select All - All Pages' option
+3. Verify selection counter
+4. Navigate through pages 1, 2, 3
+5. Verify selections on each page","1. All 50 items across all pages should be selected
+2. Selection counter should show '50 items selected' or 'All 50 items selected'
+3. Checkboxes should be checked on all pages
+4. Warning message may appear for large selections
+5. Action buttons should be enabled",Click 'Select All - All Pages',Critical,Functional,Pending
+TC_VUE_128,Multi Selection Mode,Toggle between This Page and All Pages selection,Verify switching between 'This Page' and 'All Pages' selection modes,"1. Component is loaded in multi mode
+2. Some items are already selected","1. Select 5 items manually on page 1
+2. Click 'Select All - This Page'
+3. Verify selection count (10 items)
+4. Click 'Select All - All Pages'
+5. Verify selection count (50 items)
+6. Click 'Deselect All'","1. Manual selections should be preserved or replaced based on mode
+2. 'This Page' should show 10 items selected
+3. 'All Pages' should show 50 items selected
+4. Deselect All should clear all selections
+5. Counter should update accordingly",Toggle selection modes,High,Functional,Pending
+TC_VUE_129,Multi Selection Mode,Items Selected Counter Display,Verify 'X items selected' counter displays and updates correctly,"1. Component is loaded in multi mode
+2. No items are selected initially","1. Observe initial state (no counter or '0 items selected')
+2. Select 1 item, verify counter shows '1 item selected'
+3. Select 9 more items, verify '10 items selected'
+4. Select all on this page, verify counter
+5. Select all pages, verify counter","1. Counter should display '0 items selected' or be hidden when none selected
+2. Singular form: '1 item selected'
+3. Plural form: '10 items selected'
+4. Should update in real-time as selections change
+5. Should show total across all pages if 'All Pages' selected
+6. Counter should be prominently visible",Select various counts,High,Functional,Pending
+TC_VUE_130,Multi Selection Mode,Items Selected Counter - Large Numbers,Verify counter displays correctly with large numbers of selected items,"1. Component is loaded with 1000+ items
+2. Multi selection mode is active","1. Select all items across all pages (1000 items)
+2. Verify counter display
+3. Deselect 1 item
+4. Verify counter updates","1. Counter should show '1,000 items selected' (with comma formatting)
+2. Should show '999 items selected' after deselection
+3. Large numbers should be readable and formatted
+4. No UI overflow or layout breaking",1000+ items,Medium,Functional,Pending
+TC_VUE_131,Multi Selection Mode,Actions Menu Visibility,Verify Actions menu appears when items are selected,"1. Component is loaded in multi mode
+2. No items are selected initially","1. Verify Actions menu is hidden or disabled
+2. Select 1 item
+3. Observe Actions menu/button
+4. Deselect the item
+5. Verify Actions menu state","1. When no items selected, Actions should be hidden or disabled
+2. When 1+ items selected, Actions menu should appear/enable
+3. Actions button should be prominently visible
+4. May show as dropdown or action bar
+5. Should hide/disable again when all deselected",Select/deselect items,High,Functional,Pending
+TC_VUE_132,Multi Selection Mode,Action - Edit All selected items,Verify 'Edit All' action works on selected items,"1. Component is loaded in multi mode
+2. Multiple items are selected (e.g., 5 items)","1. Select 5 items
+2. Click Actions button/menu
+3. Click 'Edit All' option
+4. Verify edit dialog/form appears
+5. Make changes and save
+6. Verify all 5 items are updated","1. Edit All option should be visible in Actions menu
+2. Edit dialog should indicate '5 items selected' for editing
+3. Changes should apply to all selected items
+4. Bulk edit should complete successfully
+5. Confirmation message should appear
+6. Items should reflect the changes",Select 5 + Edit All,Critical,Functional,Pending
+TC_VUE_133,Multi Selection Mode,Action - Edit All with validation,Verify validation when editing multiple items with conflicting values,"1. Component is loaded in multi mode
+2. Items with different current values are selected","1. Select items with different Status values (Active, Inactive)
+2. Click Edit All
+3. Try to set a common field value
+4. Verify behavior with conflicting fields","1. System should show which fields can be bulk edited
+2. Fields with different values should show 'Multiple values' or be blank
+3. User should be able to set common values
+4. Warning should appear for conflicting changes if needed
+5. Save should update only changeable fields",Mixed value items,High,Functional,Pending
+TC_VUE_134,Multi Selection Mode,Action - Delete All selected items,Verify 'Delete All' action deletes all selected items,"1. Component is loaded in multi mode
+2. Multiple items are selected (e.g., 8 items)
+3. Total items: 50","1. Select 8 items (note their IDs/names)
+2. Click Actions button
+3. Click 'Delete All' option
+4. Verify confirmation dialog appears
+5. Confirm deletion
+6. Verify items are deleted","1. Delete All option should be visible in Actions menu
+2. Confirmation dialog should appear: 'Delete 8 items? This action cannot be undone.'
+3. Dialog should show count of items to be deleted
+4. After confirmation, all 8 items should be deleted
+5. Success message: '8 items deleted successfully'
+6. List should refresh, total items should be 42
+7. Selections should be cleared",Select 8 + Delete All,Critical,Functional,Pending
+TC_VUE_135,Multi Selection Mode,Action - Delete All with cancel,Verify canceling Delete All action does not delete items,"1. Component is loaded in multi mode
+2. Items are selected","1. Select 5 items
+2. Click Actions > Delete All
+3. Confirmation dialog appears
+4. Click 'Cancel' or close dialog
+5. Verify items are not deleted","1. Confirmation dialog should appear
+2. Cancel button should be clearly visible
+3. After clicking Cancel, dialog should close
+4. No items should be deleted
+5. Items should remain selected
+6. User can try action again or deselect",Select + Delete + Cancel,High,Functional,Pending
+TC_VUE_136,Multi Selection Mode,Action - Delete All with error handling,Verify error handling when Delete All fails,"1. Component is loaded in multi mode
+2. API can simulate errors
+3. Items are selected","1. Select 10 items
+2. Click Actions > Delete All
+3. Confirm deletion
+4. Simulate API error (network failure or 500 error)
+5. Verify error handling","1. Loading indicator should show during deletion
+2. If error occurs, error message should display
+3. Error message: 'Failed to delete items. Please try again.'
+4. Items should remain in list if deletion failed
+5. Selections may be cleared or retained
+6. User should be able to retry",Simulate API error,High,Error Handling,Pending
+TC_VUE_137,Multi Selection Mode,Action - Send Email to selected items,Verify 'Send Email' action for selected items,"1. Component is loaded in multi mode
+2. Items represent users/contacts with email addresses
+3. Multiple items are selected","1. Select 3 items (users/contacts)
+2. Click Actions button
+3. Click 'Send Email' option
+4. Verify email compose dialog appears
+5. Compose email and send
+6. Verify sending completes","1. Send Email option should be visible in Actions menu
+2. Email dialog should open with 3 recipients pre-filled
+3. Dialog should show: 'Sending to 3 recipients'
+4. To field should show selected emails or 'Multiple recipients'
+5. User can compose subject and body
+6. Send button should trigger email sending
+7. Success message: 'Email sent to 3 recipients'",Select 3 + Send Email,High,Functional,Pending
+TC_VUE_138,Multi Selection Mode,Action - Send Email validation,Verify Send Email validates recipients have email addresses,"1. Component is loaded in multi mode
+2. Some items may not have email addresses","1. Select 5 items where 2 items have no email
+2. Click Actions > Send Email
+3. Verify validation","1. System should validate all selected items have emails
+2. Warning message should appear: '2 items have no email address'
+3. Options: 'Continue with 3 recipients' or 'Cancel'
+4. If continue, email should be sent to 3 valid recipients
+5. Summary should show successful sends",Mixed items (with/without emails),Medium,Functional,Pending
+TC_VUE_139,Multi Selection Mode,Action - Send Email to All Pages,Verify Send Email works when selecting all pages,"1. Component has 100 items across multiple pages
+2. User selects 'All Pages'","1. Click 'Select All - All Pages' (100 items selected)
+2. Click Actions > Send Email
+3. Verify warning for large batch
+4. Compose and send email","1. Warning may appear: 'You are about to send email to 100 recipients'
+2. Confirmation should be required
+3. Sending should process in batches (background job)
+4. Progress indicator should show
+5. Success message: 'Email queued for 100 recipients'
+6. May send in background with notification later",100 recipients,High,Functional,Pending
+TC_VUE_140,Multi Selection Mode,Action - Invite to Register selected items,Verify 'Invite to Register' action sends invitations,"1. Component is loaded in multi mode
+2. Items represent users who are not yet registered
+3. Items are selected","1. Select 4 unregistered users
+2. Click Actions button
+3. Click 'Invite to Register' option
+4. Verify invitation dialog
+5. Customize invitation message (optional)
+6. Send invitations","1. Invite to Register option should be visible
+2. Dialog should show: 'Sending invitations to 4 users'
+3. Preview of invitation email should be available
+4. User can customize invitation message
+5. Send button triggers invitation sending
+6. Success message: '4 invitations sent successfully'
+7. Items status may update to 'Invited'",Select 4 + Invite,High,Functional,Pending
+TC_VUE_141,Multi Selection Mode,Action - Invite to Register with already registered users,Verify Invite action handles already registered users,"1. Component is loaded in multi mode
+2. Mix of registered and unregistered users exist","1. Select 6 users where 2 are already registered
+2. Click Actions > Invite to Register
+3. Verify validation","1. System should detect registered users
+2. Warning: '2 users are already registered'
+3. Options: 'Continue with 4 unregistered users' or 'Cancel'
+4. If continue, invitations sent only to 4 unregistered users
+5. Summary: 'Invitations sent to 4 users, 2 already registered'",Mixed user status,Medium,Functional,Pending
+TC_VUE_142,Multi Selection Mode,Action - Invite to Register with invalid emails,Verify Invite action validates email addresses,"1. Component is loaded in multi mode
+2. Some items may have invalid email formats","1. Select 5 users where 1 has invalid email format
+2. Click Actions > Invite to Register
+3. Verify validation","1. System should validate email formats
+2. Error message: '1 user has invalid email address'
+3. Should list the problematic user(s)
+4. Options: Fix emails or continue with valid ones
+5. Invitations sent only to valid emails",Select users with 1 invalid email,Medium,Functional,Pending
+TC_VUE_143,Multi Selection Mode,Reset Selections button,Verify 'Reset Selections' button clears all selections,"1. Component is loaded in multi mode
+2. Multiple items are selected across pages","1. Select 15 items across 2 pages
+2. Verify selection counter shows '15 items selected'
+3. Locate 'Reset Selections' button
+4. Click Reset Selections
+5. Verify all selections are cleared","1. Reset Selections button should be visible when items are selected
+2. Button should be easily accessible near selection counter
+3. After clicking, all selections should be cleared
+4. Selection counter should show '0 items selected' or disappear
+5. All checkboxes should be unchecked across all pages
+6. Actions menu should be hidden/disabled",15 items selected,High,Functional,Pending
+TC_VUE_144,Multi Selection Mode,Reset Selections confirmation,Verify Reset Selections with confirmation dialog (if applicable),"1. Component is loaded in multi mode
+2. Many items are selected","1. Select 50 items (all pages)
+2. Click Reset Selections
+3. Check if confirmation dialog appears
+4. Confirm or cancel","1. For large selections, confirmation may appear: 'Clear 50 selections?'
+2. If confirmation shown, user can confirm or cancel
+3. If confirmed, all selections cleared
+4. If canceled, selections retained
+Note: Confirmation may not be needed for small selections",50 items selected,Medium,Functional,Pending
+TC_VUE_145,Multi Selection Mode,Items Selected Counter position and visibility,Verify items selected counter is prominently displayed and accessible,"1. Component is loaded in multi mode
+2. Items are being selected","1. Select 1 item
+2. Observe where counter appears
+3. Select more items
+4. Scroll down the list
+5. Verify counter remains visible","1. Counter should appear in a prominent location (top bar, action bar)
+2. Should be visible without scrolling
+3. May be sticky/fixed position
+4. Should be large enough to read easily
+5. Should stand out visually (color, size)
+6. Should be near Actions button",Select and scroll,Medium,UI/UX,Pending
+TC_VUE_146,Multi Selection Mode,Actions Menu - All available actions,Verify all action options are available in Actions menu,"1. Component is loaded in multi mode
+2. Items with full permissions are selected","1. Select 3 items
+2. Click Actions button/dropdown
+3. Observe all available options
+4. Verify menu structure","1. Actions menu should list all available actions:
+   - Edit All
+   - Delete All
+   - Send Email
+   - Invite to Register
+   - (Any other custom actions)
+2. Each action should have clear label and icon
+3. Actions should be organized logically
+4. Disabled actions should be grayed out with reason
+5. Menu should be easy to scan",Open Actions menu,High,Functional,Pending
+TC_VUE_147,Multi Selection Mode,Actions Menu - Conditional action visibility,Verify actions appear/disappear based on item types selected,"1. Component is loaded in multi mode
+2. Different item types exist (e.g., Active users vs Invited users)","1. Select only Active users (3 items)
+2. Open Actions menu, note available actions
+3. Deselect all, select only Invited users (2 items)
+4. Open Actions menu, verify different actions
+5. Select mix of Active and Invited users
+6. Verify Actions menu","1. Actions should be contextual to selected items
+2. 'Invite to Register' may only show for unregistered users
+3. 'Send Email' may only show for users with emails
+4. Mixed selections may show only common actions
+5. Tooltip should explain why action is unavailable if grayed out",Select different item types,Medium,Functional,Pending
+TC_VUE_148,Multi Selection Mode,Actions Menu - Permission-based actions,Verify actions are filtered based on user permissions,"1. Component is loaded in multi mode
+2. Current user has limited permissions (e.g., can view but not delete)
+3. Items are selected","1. Login as user with read-only permissions
+2. Select 5 items
+3. Open Actions menu
+4. Verify available actions","1. Only allowed actions should appear in menu
+2. Delete All should not appear for read-only user
+3. Edit All may be restricted
+4. Send Email may be allowed
+5. Permissions should be enforced on backend as well",Limited permission user,High,Security,Pending
+TC_VUE_149,Multi Selection Mode,Items for Actions indicator,Verify 'Items for Actions' indicator shows selected items are ready for actions,"1. Component is loaded in multi mode
+2. Items are being selected","1. Select 0 items, verify no indicator
+2. Select 1 item, verify indicator appears
+3. Select 5 items, verify indicator updates
+4. Verify indicator shows item count or details","1. Indicator should show that items are ready for actions
+2. May display as: '5 items ready for actions' or similar
+3. May show preview of selected items (thumbnails, names)
+4. Should be visible and informative
+5. May be part of selection counter or separate component
+6. Should update in real-time",Select various amounts,Medium,UI/UX,Pending
+TC_VUE_150,Multi Selection Mode,Items for Actions - Preview selected items,Verify user can preview which items are selected before performing action,"1. Component is loaded in multi mode
+2. Multiple items are selected across pages","1. Select 10 items across pages 1 and 2
+2. Locate 'View Selected' or items preview link
+3. Click to view selected items
+4. Verify preview shows all selected items","1. Link/button to view selected items should be available
+2. Clicking should show modal or panel with selected items
+3. Preview should list all 10 items (names, IDs, key info)
+4. User can verify correct items are selected
+5. User can deselect items from preview if needed
+6. Close preview and return to list",10 items across pages,Medium,Functional,Pending
+TC_VUE_151,Multi Selection Mode,Action - Edit All with no permissions,Verify Edit All shows appropriate error when user lacks edit permission,"1. Component is loaded in multi mode
+2. User has view-only permissions
+3. Items are selected","1. Select 5 items
+2. If Edit All appears, click it
+3. Verify permission check","1. Edit All should be hidden or disabled if no permission
+2. If user attempts action, error message should appear
+3. Error: 'You do not have permission to edit these items'
+4. No items should be modified
+5. User should be redirected or shown info message",No edit permission,High,Security,Pending
+TC_VUE_152,Multi Selection Mode,Action - Delete All with protected items,Verify Delete All handles items that cannot be deleted,"1. Component is loaded in multi mode
+2. Some items are protected/locked from deletion","1. Select 5 items where 2 are protected
+2. Click Actions > Delete All
+3. Verify validation","1. System should detect protected items
+2. Warning: '2 items are protected and cannot be deleted'
+3. Options: 'Delete 3 allowed items' or 'Cancel'
+4. If continued, only 3 items should be deleted
+5. Summary: '3 items deleted, 2 items protected'
+6. Protected items should remain selected or be deselected",2 protected items,High,Functional,Pending
+TC_VUE_153,Multi Selection Mode,Action confirmation dialogs consistency,Verify all bulk action confirmation dialogs follow consistent design,"1. Component is loaded in multi mode
+2. Items are selected","1. Trigger Edit All, observe confirmation dialog
+2. Trigger Delete All, observe confirmation dialog
+3. Trigger Send Email, observe dialog
+4. Trigger Invite to Register, observe dialog
+5. Compare dialog designs","1. All confirmation dialogs should have consistent design
+2. Should show action name prominently
+3. Should show count of affected items
+4. Should have clear Confirm and Cancel buttons
+5. Should follow same layout pattern
+6. Colors should indicate severity (red for delete, blue for others)",Compare all action dialogs,Medium,UI/UX,Pending
+TC_VUE_154,Multi Selection Mode,Bulk action progress indicator,Verify progress indicator shows during bulk actions,"1. Component is loaded in multi mode
+2. Many items are selected (50+)
+3. Slow network can be simulated","1. Select 50 items
+2. Click Actions > Delete All
+3. Confirm action
+4. Observe progress during deletion","1. Loading indicator should appear immediately
+2. May show progress bar: 'Deleting 25/50 items...'
+3. May show percentage: '50% complete'
+4. User should see action is in progress
+5. UI should be disabled during process
+6. Should handle if user tries to navigate away",50 items + slow network,Medium,Functional,Pending
+TC_VUE_155,Multi Selection Mode,Bulk action success notification,Verify success notification appears after bulk action completes,"1. Component is loaded in multi mode
+2. Items are selected
+3. Bulk action is performed","1. Select 8 items
+2. Perform any bulk action (Edit/Delete/Send Email)
+3. Wait for action to complete
+4. Verify success notification","1. Success notification should appear (toast, banner, modal)
+2. Message should be specific: 'Successfully deleted 8 items'
+3. Notification should be prominent and visible
+4. Should auto-dismiss after few seconds or have close button
+5. Should include action summary
+6. May include undo option if applicable",8 items + any action,High,Functional,Pending
+TC_VUE_156,Multi Selection Mode,Bulk action partial success handling,Verify system handles partial success in bulk actions,"1. Component is loaded in multi mode
+2. Bulk action may fail for some items","1. Select 10 items
+2. Perform bulk action (e.g., Send Email)
+3. Simulate 7 succeed, 3 fail
+4. Verify partial success handling","1. System should complete action for successful items
+2. Should track which items failed
+3. Notification: '7 items succeeded, 3 items failed'
+4. Should show details of failures
+5. User should be able to retry failed items
+6. Failed items may remain selected",10 items with 3 failures,High,Functional,Pending
+TC_VUE_157,Multi Selection Mode,Select All state indicator,Verify 'Select All' checkbox shows correct state (checked/unchecked/indeterminate),"1. Component is loaded in multi mode
+2. 10 items on current page","1. Verify Select All checkbox is unchecked initially
+2. Select 3 items manually
+3. Observe Select All checkbox (should be indeterminate)
+4. Click Select All
+5. Verify checkbox is fully checked
+6. Deselect 1 item
+7. Verify checkbox returns to indeterminate","1. Unchecked: no items selected
+2. Indeterminate (dash): some items selected
+3. Checked: all items on page selected
+4. State should update automatically as items are selected/deselected
+5. Visual state should be clear and distinguishable",Select various combinations,Medium,Functional,Pending
+TC_VUE_158,Multi Selection Mode,Action bar layout and responsive design,Verify action bar with selections adapts to different screen sizes,"1. Component is loaded in multi mode
+2. Items are selected
+3. Viewport can be resized","1. Select 5 items on desktop (1920px)
+2. Observe action bar layout
+3. Resize to tablet (768px)
+4. Resize to mobile (375px)
+5. Verify action bar on each size","1. Desktop: Full action bar with all buttons visible
+2. Tablet: May collapse some actions into dropdown
+3. Mobile: Actions should be in dropdown/menu
+4. Selection counter should always be visible
+5. Reset Selections button should be accessible
+6. Actions button should be prominent on all sizes",Resize viewport,Medium,Responsive,Pending
+TC_VUE_159,Multi Selection Mode,Keyboard shortcuts for bulk actions,Verify keyboard shortcuts work for common bulk actions,"1. Component is loaded in multi mode
+2. Items are selected
+3. Keyboard shortcuts are documented/implemented","1. Select 3 items with Space/Enter
+2. Try keyboard shortcut for Delete (e.g., Ctrl+D or Del key)
+3. Try shortcut for Select All (Ctrl+A)
+4. Verify shortcuts work","1. Ctrl+A or Cmd+A should Select All on current page
+2. Delete key should trigger Delete confirmation
+3. Escape should cancel action dialogs
+4. Shortcuts should be documented in help
+5. Should not conflict with browser shortcuts
+Note: Verify if implemented",Keyboard testing,Low,Accessibility,Pending
+TC_VUE_160,Multi Selection Mode,Action - Export selected items,Verify exporting selected items to CSV/Excel (if feature exists),"1. Component is loaded in multi mode
+2. Export action is available
+3. Items are selected","1. Select 10 items
+2. Click Actions > Export
+3. Choose export format (CSV/Excel)
+4. Verify file download","1. Export option should be in Actions menu
+2. User can choose format if multiple options
+3. Export should include only selected items
+4. Downloaded file should contain 10 items
+5. All visible fields should be exported
+6. Filename should be descriptive: 'selected_items_2025-11-11.csv'
+Note: Add if feature exists",10 items + Export,Medium,Functional,Pending
