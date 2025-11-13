@@ -4,6 +4,7 @@ RTMP Direct Streaming Test Checklist
 Preconditions
 -------------
 - Test environment has RTMP-capable session created with format `RTMP direct streaming (entire screen)`.
+- At the account level, ensure `Enable RTMP` checkbox is available and selected by an Aventri staff or admin user.
 - Test account has organizer permissions; attendee account available for validation.
 - External streaming tool (e.g., OBS) configured for manual URL/key entry.
 

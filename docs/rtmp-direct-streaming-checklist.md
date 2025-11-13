@@ -4,6 +4,7 @@ RTMP Direct Streaming Checklist
 Pre-Session Preparation (within 12 hours before start)
 ------------------------------------------------------
 - [ ] Confirm the session format is set to `RTMP direct streaming (entire screen)`.
+- [ ] Verify the account has the `Enable RTMP` checkbox enabled by an Aventri staff or admin user.
 - [ ] Verify that fields hidden for RTMP direct streaming (welcome message, closed captioning, sharing settings, participant name visibility, breakout rooms) are not needed for this session.
 - [ ] Align the session start time with the external streaming schedule.
 
