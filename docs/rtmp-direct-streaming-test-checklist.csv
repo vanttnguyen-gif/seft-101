@@ -1,0 +1,18 @@
+Test ID,Area,Description,Step,Expected Result
+1,Session Editor,Validate unsupported options are hidden in RTMP mode,Open the session in edit mode and select "RTMP direct streaming (entire screen)".,"Welcome message, Enable Closed Captioning, Sharing settings, Only show participants names to hosts and speakers, and Allow hosts to create Breakout Rooms inputs are hidden or disabled."
+2,Channel Timing,Confirm channel cannot open too early,Attempt to click "Open Channel" more than 12 hours before the session start.,Control is disabled or blocked with a message preventing opening.
+3,Channel Timing,Ensure channel opens once within 12-hour window,When the start time is 11h 59m away (adjust start time if necessary), refresh and click "Open Channel".,"Open Channel button is enabled and populates Server URL and Stream key."
+4,Clipboard,Confirm Server URL copies correctly,Click the populated "Server URL" field.,Value copies to clipboard; pasting shows the same Server URL.
+5,Clipboard,Confirm Stream key copies correctly,Click the populated "Stream key" field.,Value copies to clipboard; pasting shows the same Stream key.
+6,Streaming Setup,Verify streaming app accepts RTMP credentials,Enter the copied Server URL and Stream key into the external streaming application.,Streaming application accepts both values without validation errors.
+7,Streaming Start,Check organizer sees live state when streaming begins,Start the stream from the external application.,Organizer interface shows live status such as a live indicator or timer.
+8,Attendee Waiting Room,Ensure attendees wait until stream starts,Join the session as an attendee before the stream begins.,Attendee sees the waiting room until the stream starts.
+9,Attendee Live View,Confirm attendee player auto-loads live feed,With the stream running, observe the attendee player.,Video and audio play without needing a page refresh.
+10,Leave Action,Verify attendee can exit session gracefully,As an attendee click the "Leave" control.,Attendee returns to the agenda lobby with no errors.
+11,Stream End Alert,Ensure attendees see end-of-stream alert,Stop the stream from the organizer side.,Attendee receives the alert "This meeting has ended. You will be forwarded back to the lobby" with an OK option.
+12,Lobby Redirect,Validate lobby redirect after stream ends,Click "OK" on the attendee alert.,Attendee is redirected to the agenda lobby page.
+NEG-1,Channel Timing,Ensure channel cannot reopen outside the permitted window,After closing the channel, attempt to reopen when the session is more than 12 hours away.,System blocks the action until the session is within 12 hours.
+NEG-2,Clipboard Permissions,Confirm copy actions handle browser permissions,Trigger clipboard copy for Server URL and Stream key in a browser that prompts for permission.,Copy succeeds after granting permission or provides clear guidance if denied.
+NEG-3,Stream Key Rotation,Verify old keys become invalid after rotation,Rotate the stream key and attempt to use the previous key in the streaming application.,Streaming application rejects the old key; new key works as expected.
+NEG-4,Stream Interruption,Check attendee experience when stream halts unexpectedly,Stop the stream mid-session and restart it.,Attendee returns to waiting room during outage and resumes playback automatically when streaming restarts.
+NEG-5,Organizer Recovery,Ensure organizer can restart streaming without page refresh,After stopping the stream, start a new stream without reloading the session editor.,Organizer can start a new stream successfully and attendees see the resumed broadcast.
