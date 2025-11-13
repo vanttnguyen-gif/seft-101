@@ -8,6 +8,14 @@
   <body>
     <div id="todo-header" class="header">
       <h2>My To Do List</h2>
+      <div class="view-toggle">
+        <button id="list-view-btn" class="view-btn active" onclick="switchToListView()">
+          <span>☰</span> List
+        </button>
+        <button id="grid-view-btn" class="view-btn" onclick="switchToGridView()">
+          <span>⊞</span> Grid
+        </button>
+      </div>
       <input type="text" id="todo-input" placeholder="Title...">
       <span onclick="newTodoItem()" class="add-btn">Add</span>
     </div>
