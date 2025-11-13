@@ -63,7 +63,7 @@
 
 ## 📊 Test Cases Overview
 
-**Total Test Cases:** 61
+**Total Test Cases:** 72
 
 ### Breakdown by Category
 
@@ -73,19 +73,26 @@
 | **Filter Functionality** | 7 | High | 4-5 |
 | **View Modes** | 6 | High-Medium | 3-4 |
 | **Pagination** | 7 | High-Medium | 3-4 |
-| **Selection Mode** | 6 | High-Medium | 3-4 |
+| **Selection Mode** | 17 | High | 8-10 |
 | **Customize View** | 10 | High | 6-8 |
 | **Integration** | 5 | Medium | 3-4 |
 | **Accessibility** | 3 | High | 4-5 |
 | **Edge Cases** | 3 | Low | 2-3 |
 | **Visual Consistency** | 7 | Medium | 4-5 |
-| **TOTAL** | **61** | | **37-47** |
+| **TOTAL** | **72** | | **47-58** |
 
 ### Priority Distribution
 
-- **High Priority:** 35 test cases (57%) - Critical features
-- **Medium Priority:** 22 test cases (36%) - Important features
-- **Low Priority:** 4 test cases (7%) - Edge cases
+- **High Priority:** 44 test cases (61%) - Critical features
+- **Medium Priority:** 24 test cases (33%) - Important features
+- **Low Priority:** 4 test cases (6%) - Edge cases
+
+### ⭐ Selection Mode Expanded Coverage (11 new tests)
+- **Select All:** This Page / All Pages options (3 tests)
+- **Actions:** Edit All, Delete All, Send Email, Invite to Register (5 tests)
+- **Reset Selections** (1 test)
+- **Items Selected Counter** display (1 test)
+- **Items for Actions** display (1 test)
 
 ### ❌ Excluded from Testing (As per requirement)
 - ❌ Performance Testing (load time, large datasets)
@@ -97,16 +104,16 @@
 ## ⏱️ Effort Estimation
 
 ### Test Execution
-- **Core Testing:** 37-47 hours
+- **Core Testing:** 47-58 hours
 - **Setup & Planning:** 4-6 hours
-- **Bug Reporting:** 5-7 hours
-- **Regression Testing:** 6-8 hours
-- **Buffer (15%):** 6-8 hours
+- **Bug Reporting:** 6-8 hours
+- **Regression Testing:** 7-9 hours
+- **Buffer (15%):** 7-9 hours
 
 ### Total Effort
-- **Total Hours:** 58-76 hours
-- **Person-Days:** 7-10 days (8h/day)
-- **Calendar Time:** 10 working days (2 weeks with 2 QA)
+- **Total Hours:** 71-90 hours
+- **Person-Days:** 9-12 days (8h/day)
+- **Calendar Time:** 12 working days (2.5 weeks with 2 QA)
 
 ---
 
@@ -114,14 +121,14 @@
 
 ### Recommended Team: 2 QA Engineers + 1 QA Lead
 
-**QA Engineer 1** (35-45 hours)
+**QA Engineer 1** (40-50 hours)
 - Primary tester
 - Functional features (Search, Filter, View Modes, Pagination)
 - Integration testing
 - Visual consistency
 
-**QA Engineer 2** (30-40 hours)
-- Selection Mode
+**QA Engineer 2** (40-50 hours)
+- **Selection Mode** (expanded - 17 tests including actions)
 - Customize View feature (complex drag & drop)
 - Accessibility testing
 - Edge cases
@@ -137,16 +144,16 @@
 
 | Role | Hours | Rate | Total Cost |
 |------|-------|------|------------|
-| QA Engineer 1 | 35-45h | $50/h | $1,750-$2,250 |
-| QA Engineer 2 | 30-40h | $50/h | $1,500-$2,000 |
+| QA Engineer 1 | 40-50h | $50/h | $2,000-$2,500 |
+| QA Engineer 2 | 40-50h | $50/h | $2,000-$2,500 |
 | QA Lead | 6-8h | $60/h | $360-$480 |
-| **TOTAL** | | | **$3,610-$4,730** |
+| **TOTAL** | | | **$4,360-$5,480** |
 
 *Rates are sample estimates for US market*
 
 ---
 
-## 📅 Detailed Timeline (2 Weeks)
+## 📅 Detailed Timeline (2.5 Weeks)
 
 ### Week 1: Setup + Core Features
 
@@ -155,29 +162,35 @@
 - TC-UI-001 to TC-UI-007: Search Criteria (7 tests)
 - TC-UI-008 to TC-UI-014: Filter Functionality (7 tests)
 
-**Day 3-4: View & Pagination & Selection**
+**Day 3-4: View & Pagination + Start Selection Mode**
 - TC-UI-015 to TC-UI-020: View Modes (6 tests)
 - TC-UI-021 to TC-UI-027: Pagination (7 tests)
-- TC-UI-028 to TC-UI-033: Selection Mode (6 tests)
+- TC-UI-028 to TC-UI-033: Basic Selection Mode (6 tests)
 
-**Day 5: Customize View (Complex)**
-- TC-UI-034 to TC-UI-043: Customize View with drag & drop (10 tests)
-- This is the most complex feature - allocate full day
+**Day 5: Selection Mode - Expanded Features**
+- TC-UI-034 to TC-UI-044: Selection Mode advanced features
+  - Select All (This Page / All Pages)
+  - Actions (Edit All, Delete All, Send Email, Invite to Register)
+  - Reset Selections, Counter, Items for Actions
+- This is now a complex feature with 11 additional tests
 
-### Week 2: Integration, Accessibility & Final Testing
+### Week 2: Complex Features & Integration
 
-**Day 6-7: Integration & Accessibility**
-- TC-UI-044 to TC-UI-048: Integration Tests (5 tests)
-- TC-UI-049 to TC-UI-051: Accessibility Testing (3 tests)
-- TC-UI-052 to TC-UI-054: Edge Cases (3 tests)
+**Day 6-7: Customize View + Integration**
+- TC-UI-045 to TC-UI-054: Customize View with drag & drop (10 tests)
+- TC-UI-055 to TC-UI-059: Integration Tests (5 tests)
 
-**Day 8-9: Visual Consistency & Bug Fixes**
-- TC-UI-055 to TC-UI-061: Visual Consistency (7 tests)
-- Initial bug fixes from developers
-- Begin regression testing
+**Day 8-9: Accessibility, Edge Cases & Visual Consistency**
+- TC-UI-060 to TC-UI-062: Accessibility Testing (3 tests)
+- TC-UI-063 to TC-UI-065: Edge Cases (3 tests)
+- TC-UI-066 to TC-UI-072: Visual Consistency (7 tests)
 
-**Day 10: Final Validation & Sign-off**
-- Complete regression testing on all fixed bugs
+**Day 10-11: Bug Fixes & Regression Testing**
+- Developers fix reported bugs
+- Regression testing on all fixed bugs
+- Retest high-priority test cases (especially Selection Mode actions)
+
+**Day 12: Final Validation & Sign-off**
 - Smoke testing across all features
 - Final visual comparison with AngularJS
 - Test summary report preparation
@@ -189,32 +202,37 @@
 
 ### High Risk Items
 
-**1. Drag & Drop Functionality (Customize View)**
+**1. Selection Mode Actions Not Working Properly**
+- **Impact:** +5-8 hours
+- **Probability:** Medium
+- **Mitigation:** Test all actions thoroughly (Edit All, Delete All, Send Email, Invite to Register) with different datasets and user types
+
+**2. Drag & Drop Functionality (Customize View)**
 - **Impact:** +6-10 hours
 - **Probability:** Medium
 - **Mitigation:** Test early, allocate extra time, have developers ready
 
-**2. Visual Differences from AngularJS**
+**3. Visual Differences from AngularJS**
 - **Impact:** +6-8 hours
 - **Probability:** High
 - **Mitigation:** Create detailed baseline screenshots, involve designer early
 
-**3. Filter Logic Differences**
+**4. Filter Logic Differences**
 - **Impact:** +4-6 hours
 - **Probability:** Medium
 - **Mitigation:** Validate business logic with developers early
 
-**4. Customize View Persistence Issues**
+**5. Customize View Persistence Issues**
 - **Impact:** +4-6 hours
 - **Probability:** Low
 - **Mitigation:** Test save/load functionality thoroughly
 
-**5. Integration Issues Between Features**
+**6. Integration Issues Between Features**
 - **Impact:** +3-5 hours
 - **Probability:** Medium
 - **Mitigation:** Test feature combinations thoroughly
 
-**Recommended Buffer:** 20-25% (12-19 hours)
+**Recommended Buffer:** 25-30% (18-27 hours)
 
 ---
 
@@ -226,6 +244,11 @@
 - [ ] All 3 view modes (List, Grid, Compact) display properly
 - [ ] Pagination controls work on all pages
 - [ ] Single and multi-select modes work correctly
+- [ ] **Select All (This Page / All Pages) works correctly**
+- [ ] **All Actions work: Edit All, Delete All, Send Email, Invite to Register**
+- [ ] **Reset Selections clears all selected items**
+- [ ] **Items Selected Counter displays accurate count**
+- [ ] **Items for Actions displays selected items correctly**
 - [ ] Drag & drop field customization works
 - [ ] All features are keyboard accessible
 - [ ] Visual styling matches AngularJS (fonts, colors, spacing)
@@ -238,6 +261,7 @@
 - [ ] Edge cases handled gracefully
 - [ ] Customize view persistence works correctly
 - [ ] Selection behavior across pages matches AngularJS
+- [ ] Actions work with different data types (users, contacts, prospects)
 
 ### Nice to Have (Low Priority)
 - [ ] Smooth animations and transitions
@@ -249,9 +273,10 @@
 ## 📦 Key Deliverables
 
 ### 1. Test Execution Report
-- Completed CSV with all 61 test cases executed
+- Completed CSV with all 72 test cases executed
 - Status (Pass/Fail) for each test
 - Actual results documented
+- Special focus on Selection Mode actions verification
 
 ### 2. Bug Reports
 - Detailed bug reports with:
@@ -306,8 +331,8 @@
 ### File: TEST_CASES_UI_MIGRATION_VUE3.csv
 
 **Columns:**
-1. **Test Case ID** - Unique identifier (TC-UI-001 to TC-UI-061)
-2. **Test Suite** - Category (Search, Filter, View Modes, etc.)
+1. **Test Case ID** - Unique identifier (TC-UI-001 to TC-UI-072)
+2. **Test Suite** - Category (Search, Filter, View Modes, Selection Mode, etc.)
 3. **Test Case Name** - Descriptive name
 4. **Priority** - High/Medium/Low
 5. **Type** - Functional/Visual/Accessibility
@@ -474,14 +499,22 @@
 ## 📊 Sample Metrics to Track
 
 ### Test Execution Metrics
-- Total Test Cases: 61
+- Total Test Cases: 72
 - Executed: ___
 - Passed: ___
 - Failed: ___
 - Blocked: ___
 - Pass Rate: ____%
 
-### Bug Metrics
+### Bug Metrics by Feature
+- Search & Filter: ___
+- View Modes & Pagination: ___
+- **Selection Mode & Actions: ___** (High focus area)
+- Customize View: ___
+- Integration & Accessibility: ___
+- Visual Consistency: ___
+
+### Bug Metrics by Severity
 - Total Bugs: ___
 - Critical: ___
 - High: ___
@@ -497,24 +530,35 @@
 - Accessibility Coverage: ___%
 - Integration Coverage: ___%
 
+### Selection Mode Specific Metrics (New)
+- Select All Tests Passed: ___/3
+- Actions Tests Passed: ___/5
+- Reset/Counter/Display Tests Passed: ___/3
+
 ---
 
 ## 🚀 Optimization Strategies
 
-### If Time is Constrained (Reduce to 1.5 weeks / 7-8 days)
+### If Time is Constrained (Reduce to 2 weeks / 10 days)
 
 **Option 1: Test High Priority Only**
-- Execute 35 high-priority test cases only
-- **Time saved:** 10-13 hours
+- Execute 44 high-priority test cases only
+- **Time saved:** 12-16 hours
 - **Risk:** May miss important medium-priority issues
 
-**Option 2: Reduce Visual Consistency Testing**
+**Option 2: Reduce Selection Mode Actions Testing**
+- Test only Edit All and Delete All
+- Skip Send Email and Invite to Register
+- **Time saved:** 4-5 hours
+- **Risk:** May miss issues with email/invite actions
+
+**Option 3: Reduce Visual Consistency Testing**
 - Do basic visual comparison only
 - Skip detailed font/spacing/icon checks
 - **Time saved:** 3-4 hours
 - **Risk:** Subtle visual differences may go unnoticed
 
-**Option 3: Skip Edge Cases**
+**Option 4: Skip Edge Cases**
 - Focus on happy path scenarios only
 - Skip edge case testing (3 tests)
 - **Time saved:** 2-3 hours
@@ -524,8 +568,8 @@
 
 **Option: Single QA Engineer**
 - One QA executes all tests
-- **Timeline:** 3 weeks instead of 2
-- **Cost savings:** ~$1,500-$2,000
+- **Timeline:** 3-4 weeks instead of 2.5
+- **Cost savings:** ~$2,000-$2,500
 - **Trade-off:** Longer timeline
 
 ---

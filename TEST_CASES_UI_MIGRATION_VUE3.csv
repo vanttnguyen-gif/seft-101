@@ -176,146 +176,222 @@ TC-UI-033,Selection Mode,Verify Selection Persistence with Filters,Medium,Functi
 4. Verify selections","- Selection behavior matches AngularJS (persist or clear based on original logic)
 - No unexpected selection states
 - UI accurately reflects selection state",N/A,Chrome,,,,,
-TC-UI-034,Customize View,Verify Customize View Button/Icon,High,Visual,Page is loaded,"1. Locate customize view button or icon
+TC-UI-034,Selection Mode - Select All,Verify Select All This Page,High,Functional,Multi selection mode with multiple pages,"1. Click 'Select All' dropdown or button
+2. Select 'This Page' option
+3. Observe selection behavior","- All items on current page are selected
+- Items on other pages are not selected
+- Select All indicator shows 'This Page' is active
+- Behavior matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-035,Selection Mode - Select All,Verify Select All All Pages,High,Functional,Multi selection mode with multiple pages,"1. Click 'Select All' dropdown or button
+2. Select 'All Pages' option
+3. Navigate to different pages
+4. Observe selection state","- All items across all pages are selected
+- Selection persists when navigating between pages
+- Select All indicator shows 'All Pages' is active
+- Behavior matches AngularJS version",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-036,Selection Mode - Select All,Verify Switch Between This Page and All Pages,Medium,Functional,Multi selection mode with items selected,"1. Select 'This Page'
+2. Verify selection count
+3. Switch to 'All Pages'
+4. Verify selection count updates
+5. Switch back to 'This Page'","- Switching updates selection count correctly
+- UI reflects current selection scope
+- Behavior matches AngularJS version
+- No errors occur",Test data: Multi-page dataset,Chrome,,,,,
+TC-UI-037,Selection Mode - Actions,Verify Edit All Action,High,Functional,Multiple items are selected,"1. Select multiple items
+2. Click 'Actions' dropdown
+3. Select 'Edit All' option
+4. Observe behavior","- Edit All action is available
+- Action applies to all selected items
+- Confirmation prompt appears (if applicable)
+- Behavior matches AngularJS version",Test data: Multiple editable items,Chrome,,,,,
+TC-UI-038,Selection Mode - Actions,Verify Delete All Action,High,Functional,Multiple items are selected,"1. Select multiple items
+2. Click 'Actions' dropdown
+3. Select 'Delete All' option
+4. Observe confirmation dialog
+5. Confirm or cancel","- Delete All action is available
+- Confirmation prompt appears before deletion
+- Selected items are deleted after confirmation
+- Cancel prevents deletion
+- Behavior matches AngularJS version",Test data: Multiple deletable items,Chrome,,,,,
+TC-UI-039,Selection Mode - Actions,Verify Send Email Action,High,Functional,Multiple items are selected,"1. Select multiple items (users/contacts)
+2. Click 'Actions' dropdown
+3. Select 'Send Email' option
+4. Observe email compose interface","- Send Email action is available
+- Email interface opens with selected recipients
+- All selected items are included as recipients
+- Behavior matches AngularJS version",Test data: User/contact items,Chrome,,,,,
+TC-UI-040,Selection Mode - Actions,Verify Invite to Register Action,Medium,Functional,Multiple items are selected,"1. Select multiple items (users/prospects)
+2. Click 'Actions' dropdown
+3. Select 'Invite to Register' option
+4. Observe invitation process","- Invite to Register action is available
+- Invitation is sent to all selected items
+- Confirmation message appears
+- Behavior matches AngularJS version",Test data: Prospect/user items,Chrome,,,,,
+TC-UI-041,Selection Mode - Actions,Verify Actions Dropdown Display,Medium,Visual,Items are selected,"1. Select one or more items
+2. Click 'Actions' dropdown
+3. Observe available actions","- Actions dropdown displays correctly
+- All actions are listed (Edit All Delete All Send Email Invite to Register)
+- Disabled actions are grayed out (if any)
+- Styling matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-042,Selection Mode - Reset,Verify Reset Selections,High,Functional,Multiple items are selected,"1. Select multiple items across pages
+2. Click 'Reset Selections' button
+3. Observe all selections are cleared","- Reset Selections button is visible
+- All selections are cleared immediately
+- Selection counter resets to 0
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-043,Selection Mode - Counter,Verify Items Selected Counter Display,High,Visual,Multi selection mode is active,"1. Select no items - observe counter
+2. Select 1 item - observe counter
+3. Select multiple items - observe counter
+4. Select all items - observe counter","- Counter displays '0 items selected' when none selected
+- Counter updates in real-time as items are selected
+- Counter shows correct count (e.g. '5 items selected')
+- Counter styling matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-044,Selection Mode - Items for Actions,Verify Items for Actions Display,Medium,Functional,Multiple items are selected,"1. Select multiple items
+2. Observe 'Items for actions' section/panel
+3. Verify selected items are listed","- Items for actions section displays selected items
+- All selected items are listed with key details
+- List updates when selection changes
+- Behavior matches AngularJS version",N/A,Chrome,,,,,
+TC-UI-045,Customize View,Verify Customize View Button/Icon,High,Visual,Page is loaded,"1. Locate customize view button or icon
 2. Verify it is visible and clickable","- Customize view control is displayed
 - Position and styling match AngularJS version
 - Icon/button is clearly labeled",N/A,Chrome,,,,,
-TC-UI-035,Customize View,Verify Customize View Panel Opens,High,Functional,Page is loaded,"1. Click on customize view button
+TC-UI-046,Customize View,Verify Customize View Panel Opens,High,Functional,Page is loaded,"1. Click on customize view button
 2. Observe panel/modal opens","- Customize view panel opens
 - Panel displays all available fields
 - Layout matches AngularJS version
 - Panel is properly positioned",N/A,Chrome,,,,,
-TC-UI-036,Customize View,Verify Available Fields are Listed,High,Functional,Customize view panel is open,"1. Observe the list of available fields
+TC-UI-047,Customize View,Verify Available Fields are Listed,High,Functional,Customize view panel is open,"1. Observe the list of available fields
 2. Verify all fields are present","- All available fields are listed
 - Field names match AngularJS version
 - Fields are organized logically (same order as AngularJS)",N/A,Chrome,,,,,
-TC-UI-037,Customize View,Verify Drag and Drop Field Ordering,High,Functional,Customize view panel is open,"1. Click and hold a field
+TC-UI-048,Customize View,Verify Drag and Drop Field Ordering,High,Functional,Customize view panel is open,"1. Click and hold a field
 2. Drag it to a new position
 3. Drop the field
 4. Observe the new order","- Field can be dragged smoothly
 - Visual feedback during drag (cursor, placeholder)
 - Field drops into new position correctly
 - Drag and drop behavior matches AngularJS version",N/A,Chrome,,,,,
-TC-UI-038,Customize View,Verify Show/Hide Fields,High,Functional,Customize view panel is open,"1. Toggle a field off (hide)
+TC-UI-049,Customize View,Verify Show/Hide Fields,High,Functional,Customize view panel is open,"1. Toggle a field off (hide)
 2. Toggle a field on (show)
 3. Apply changes
 4. Observe data view","- Fields can be toggled on/off via checkbox or toggle
 - Hidden fields do not appear in data view
 - Shown fields appear in data view
 - Behavior matches AngularJS version",N/A,Chrome,,,,,
-TC-UI-039,Customize View,Verify Apply Custom View,High,Functional,Changes made in customize panel,"1. Make changes to field visibility and order
+TC-UI-050,Customize View,Verify Apply Custom View,High,Functional,Changes made in customize panel,"1. Make changes to field visibility and order
 2. Click 'Apply' or 'Save' button
 3. Observe data view updates","- Data view updates with custom field configuration
 - Field order matches the customization
 - Only selected fields are displayed
 - Behavior matches AngularJS version",N/A,Chrome,,,,,
-TC-UI-040,Customize View,Verify Reset to Default View,Medium,Functional,Custom view is applied,"1. Click 'Reset' or 'Default' button in customize panel
+TC-UI-051,Customize View,Verify Reset to Default View,Medium,Functional,Custom view is applied,"1. Click 'Reset' or 'Default' button in customize panel
 2. Observe fields reset to default","- All fields reset to default configuration
 - Field order returns to original
 - Behavior matches AngularJS version",N/A,Chrome,,,,,
-TC-UI-041,Customize View,Verify Save Custom View,Medium,Functional,Custom view is configured,"1. Create a custom view
+TC-UI-052,Customize View,Verify Save Custom View,Medium,Functional,Custom view is configured,"1. Create a custom view
 2. Save the view (if feature supports saving named views)
 3. Reload page
 4. Verify custom view is available","- Custom view is saved
 - Saved view appears in view selector
 - View can be loaded on subsequent visits
 - Behavior matches AngularJS version (if applicable)",N/A,Chrome,,,,,
-TC-UI-042,Customize View,Verify Drag and Drop Visual Feedback,Medium,Visual,Customize view panel is open,"1. Start dragging a field
+TC-UI-053,Customize View,Verify Drag and Drop Visual Feedback,Medium,Visual,Customize view panel is open,"1. Start dragging a field
 2. Observe visual feedback during drag","- Dragged item follows cursor
 - Drop zones are indicated
 - Placeholder shows where item will be dropped
 - Visual feedback matches AngularJS version",N/A,Chrome,,,,,
-TC-UI-043,Customize View,Verify Cancel Customization,Medium,Functional,Changes made in customize panel,"1. Make changes to fields
+TC-UI-054,Customize View,Verify Cancel Customization,Medium,Functional,Changes made in customize panel,"1. Make changes to fields
 2. Click 'Cancel' or close panel without saving
 3. Verify data view unchanged","- Changes are not applied
 - Data view remains as before
 - Panel closes properly
 - Behavior matches AngularJS version",N/A,Chrome,,,,,
-TC-UI-044,Integration,Verify Search + Filter Combination,High,Functional,Page is loaded with data,"1. Enter a search term
+TC-UI-055,Integration,Verify Search + Filter Combination,High,Functional,Page is loaded with data,"1. Enter a search term
 2. Apply a filter
 3. Observe results
 4. Compare with AngularJS","- Search and filter work together (combined criteria)
 - Results match both search and filter
 - Behavior matches AngularJS logic",Test data: Search term + filter values,Chrome,,,,,
-TC-UI-045,Integration,Verify Filter + View Mode Combination,Medium,Functional,Filters are applied,"1. Apply filters
+TC-UI-056,Integration,Verify Filter + View Mode Combination,Medium,Functional,Filters are applied,"1. Apply filters
 2. Switch between view modes
 3. Verify filtered data persists","- Filtered data remains filtered across view mode changes
 - All view modes display filtered results correctly
 - Behavior matches AngularJS",N/A,Chrome,,,,,
-TC-UI-046,Integration,Verify Selection + Pagination,Medium,Functional,Multi-select mode with multiple pages,"1. Select items on page 1
+TC-UI-057,Integration,Verify Selection + Pagination,Medium,Functional,Multi-select mode with multiple pages,"1. Select items on page 1
 2. Navigate to page 2
 3. Select items on page 2
 4. Navigate back to page 1
 5. Verify selections","- Selection behavior across pages matches AngularJS
 - Selections may persist or reset based on AngularJS logic
 - UI accurately shows selection state",Test data: Multi-page dataset,Chrome,,,,,
-TC-UI-047,Integration,Verify Customize View + All Features,Medium,Functional,Custom view is applied,"1. Apply custom field configuration
+TC-UI-058,Integration,Verify Customize View + All Features,Medium,Functional,Custom view is applied,"1. Apply custom field configuration
 2. Test search, filter, view modes, pagination
 3. Verify all features work with custom view","- All features work correctly with custom field configuration
 - Custom fields are respected in all operations
 - Behavior matches AngularJS",N/A,Chrome,,,,,
-TC-UI-048,Integration,Verify State Persistence on Page Reload,Medium,Functional,Various settings applied,"1. Apply search, filters, view mode, items per page
+TC-UI-059,Integration,Verify State Persistence on Page Reload,Medium,Functional,Various settings applied,"1. Apply search, filters, view mode, items per page
 2. Reload the page
 3. Verify state persistence","- Settings persist (or reset) according to AngularJS behavior
 - User experience matches original
 - No unexpected state loss",N/A,Chrome,,,,,
-TC-UI-049,Accessibility,Verify Keyboard Navigation for All Controls,High,Accessibility,Keyboard only (no mouse),"1. Tab through all controls (search, filter, view modes, pagination)
+TC-UI-060,Accessibility,Verify Keyboard Navigation for All Controls,High,Accessibility,Keyboard only (no mouse),"1. Tab through all controls (search, filter, view modes, pagination)
 2. Verify all are accessible via keyboard
 3. Compare with AngularJS","- All interactive elements are keyboard accessible
 - Tab order is logical
 - Keyboard shortcuts match AngularJS (if any)
 - Focus indicators are visible",N/A,Chrome,,,,,
-TC-UI-050,Accessibility,Verify Screen Reader Compatibility,High,Accessibility,Screen reader enabled,"1. Navigate page with screen reader
+TC-UI-061,Accessibility,Verify Screen Reader Compatibility,High,Accessibility,Screen reader enabled,"1. Navigate page with screen reader
 2. Test all features
 3. Compare with AngularJS","- All elements have appropriate ARIA labels
 - Screen reader announces controls and states clearly
 - Experience matches AngularJS accessibility",N/A,Chrome,,,,,
-TC-UI-051,Accessibility,Verify Color Contrast for All Elements,Medium,Accessibility,Page is loaded,"1. Use contrast checker on all text and controls
+TC-UI-062,Accessibility,Verify Color Contrast for All Elements,Medium,Accessibility,Page is loaded,"1. Use contrast checker on all text and controls
 2. Verify WCAG AA compliance
 3. Compare with AngularJS","- All elements meet WCAG 2.1 AA standards (4.5:1)
 - Contrast matches or exceeds AngularJS
 - No accessibility regressions",Tool: WAVE or Lighthouse,Chrome,,,,,
-TC-UI-052,Edge Cases,Verify Behavior with Empty Dataset,Low,Edge Case,No data available,"1. Load page with no data
+TC-UI-063,Edge Cases,Verify Behavior with Empty Dataset,Low,Edge Case,No data available,"1. Load page with no data
 2. Observe all controls and messages
 3. Compare with AngularJS","- Empty state message is displayed
 - Controls are disabled or hidden appropriately
 - Behavior matches AngularJS empty state",Test data: Empty dataset,Chrome,,,,,
-TC-UI-053,Edge Cases,Verify Behavior with Single Item,Low,Edge Case,Only one item in dataset,"1. Load page with single item
+TC-UI-064,Edge Cases,Verify Behavior with Single Item,Low,Edge Case,Only one item in dataset,"1. Load page with single item
 2. Observe pagination and selection
 3. Compare with AngularJS","- Single item is displayed correctly
 - Pagination shows appropriate state (1 of 1)
 - Behavior matches AngularJS",Test data: Single item,Chrome,,,,,
-TC-UI-054,Edge Cases,Verify Rapid Interaction Handling,Low,Edge Case,Page is loaded,"1. Rapidly click view modes, pagination, filters
+TC-UI-065,Edge Cases,Verify Rapid Interaction Handling,Low,Edge Case,Page is loaded,"1. Rapidly click view modes, pagination, filters
 2. Observe system stability
 3. Compare with AngularJS","- System handles rapid interactions gracefully
 - No race conditions or errors
 - Behavior is stable like AngularJS",N/A,Chrome,,,,,
-TC-UI-055,Visual Consistency,Verify Font Consistency,Medium,Visual,Page is loaded,"1. Inspect fonts used across all components
+TC-UI-066,Visual Consistency,Verify Font Consistency,Medium,Visual,Page is loaded,"1. Inspect fonts used across all components
 2. Compare with AngularJS version","- Font families match AngularJS
 - Font sizes match original
 - Font weights match original",N/A,Chrome,,,,,
-TC-UI-056,Visual Consistency,Verify Color Scheme Consistency,Medium,Visual,Page is loaded,"1. Inspect colors used (backgrounds, text, borders, hover states)
+TC-UI-067,Visual Consistency,Verify Color Scheme Consistency,Medium,Visual,Page is loaded,"1. Inspect colors used (backgrounds, text, borders, hover states)
 2. Compare with AngularJS version","- Color palette matches AngularJS exactly
 - Hover and active states use same colors
 - No color discrepancies",N/A,Chrome,,,,,
-TC-UI-057,Visual Consistency,Verify Spacing and Padding Consistency,Medium,Visual,Page is loaded,"1. Inspect spacing between elements
+TC-UI-068,Visual Consistency,Verify Spacing and Padding Consistency,Medium,Visual,Page is loaded,"1. Inspect spacing between elements
 2. Inspect padding within components
 3. Compare with AngularJS version","- Spacing matches AngularJS (±2px tolerance)
 - Padding matches original
 - Overall visual rhythm is consistent",N/A,Chrome,,,,,
-TC-UI-058,Visual Consistency,Verify Icon Consistency,Low,Visual,Page is loaded,"1. Inspect all icons (filter, view modes, pagination arrows, etc.)
+TC-UI-069,Visual Consistency,Verify Icon Consistency,Low,Visual,Page is loaded,"1. Inspect all icons (filter, view modes, pagination arrows, etc.)
 2. Compare with AngularJS version","- Icons match AngularJS exactly
 - Icon sizes match original
 - Icon colors and styles match",N/A,Chrome,,,,,
-TC-UI-059,Visual Consistency,Verify Button Styles Consistency,Medium,Visual,Page is loaded,"1. Inspect all buttons and their states
+TC-UI-070,Visual Consistency,Verify Button Styles Consistency,Medium,Visual,Page is loaded,"1. Inspect all buttons and their states
 2. Compare with AngularJS version","- Button styles match (primary, secondary, etc.)
 - Hover and active states match
 - Disabled state styling matches",N/A,Chrome,,,,,
-TC-UI-060,Visual Consistency,Verify Input Field Styles Consistency,Medium,Visual,Page is loaded,"1. Inspect search box and any input fields
+TC-UI-071,Visual Consistency,Verify Input Field Styles Consistency,Medium,Visual,Page is loaded,"1. Inspect search box and any input fields
 2. Compare with AngularJS version","- Input field borders match
 - Focus states match
 - Placeholder styling matches",N/A,Chrome,,,,,
-TC-UI-061,Visual Consistency,Verify Overall Page Layout,High,Visual,Page is loaded,"1. Observe overall page layout and component positioning
+TC-UI-072,Visual Consistency,Verify Overall Page Layout,High,Visual,Page is loaded,"1. Observe overall page layout and component positioning
 2. Compare with AngularJS version","- Overall layout matches AngularJS
 - Component positioning is identical
 - No visual regressions",N/A,Chrome,,,,,
