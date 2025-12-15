@@ -1,27 +1,27 @@
 Activity ID,Activity Name,Description (what to test),AC Coverage,Priority,Status
-TA-EMAILTPL-001,Open Email Templates page,"Admin truy cập trang quản lý Email Templates: list/grid hiển thị, có các action Create/Edit/Delete/Copy và Enable/Disable",AC1-AC4,High,Pending
-TA-EMAILTPL-002,Create form display,"Bấm Create New Template -> form tạo mới hiển thị đầy đủ field cấu hình (name, role, trigger, subject, body, enabled)",AC1,High,Pending
-TA-EMAILTPL-003,Create template - save success,"Tạo template mới với cấu hình hợp lệ -> submit lưu thành công và record xuất hiện trong list với đúng giá trị",AC1,High,Pending
-TA-EMAILTPL-004,Role-based options available,"Trong Create/Edit form có lựa chọn Role-based: All users / Submitters / Reviewers / Committee members",AC5,High,Pending
-TA-EMAILTPL-005,Role persistence,"Chọn Role bất kỳ khi tạo/sửa -> lưu -> mở lại vẫn giữ đúng Role đã chọn",AC5,High,Pending
-TA-EMAILTPL-006,Trigger types list coverage,"Dropdown Trigger Type có tối thiểu: submission created / submission reviewed / submission accepted và còn các trigger khác",AC6,High,Pending
-TA-EMAILTPL-007,Trigger persistence,"Chọn Trigger Type khi tạo/sửa -> lưu -> mở lại vẫn giữ đúng Trigger đã chọn",AC6,Medium,Pending
-TA-EMAILTPL-008,Subject/Body editable & saved,"Subject và Body có thể nhập/sửa; lưu xong mở lại vẫn đúng nội dung; list hiển thị/preview (nếu có) phản ánh thay đổi",AC8,High,Pending
-TA-EMAILTPL-009,Edit form data populated,"Chọn template có sẵn -> Edit -> form được populate đúng dữ liệu hiện tại (name/role/trigger/subject/body/status)",AC2,High,Pending
-TA-EMAILTPL-010,Edit template - save & reflect,"Sửa template (role/trigger/subject/body) -> submit -> list/preview phản ánh bản cập nhật",AC2,High,Pending
-TA-EMAILTPL-011,Delete confirmation prompt,"Bấm Delete -> hiển thị confirm dialog đúng template (tên/id) và có lựa chọn Cancel/Confirm",AC3,High,Pending
-TA-EMAILTPL-012,Delete - cancel no change,"Trong confirm delete bấm Cancel -> template không bị xoá, vẫn còn trong list",AC3,High,Pending
-TA-EMAILTPL-013,Delete - confirm removes,"Trong confirm delete bấm Confirm -> template bị xoá khỏi list và không còn truy cập được (nếu refresh)",AC3,High,Pending
-TA-EMAILTPL-014,Copy confirmation prompt,"Bấm Copy -> hiển thị confirm dialog copy đúng template và có Cancel/Confirm",AC4,High,Pending
-TA-EMAILTPL-015,Copy - cancel no new template,"Trong confirm copy bấm Cancel -> không tạo record mới, tổng số template không đổi",AC4,Medium,Pending
-TA-EMAILTPL-016,Copy - confirm creates duplicate,"Confirm copy -> tạo template mới (bản copy) giữ nguyên cấu hình (role/trigger/subject/body/status) theo spec",AC4,High,Pending
-TA-EMAILTPL-017,Enable template,"Enable template (toggle/action) -> trạng thái lưu và persist sau refresh; template hiển thị Enabled",AC7,High,Pending
-TA-EMAILTPL-018,Disable template,"Disable template -> trạng thái lưu và persist sau refresh; template hiển thị Disabled",AC7,High,Pending
-TA-EMAILTPL-019,Only enabled templates are used,"Khi template Disabled thì workflow event không được dùng template đó (sử dụng template Enabled khác nếu có; hoặc không gửi nếu không có)",AC7+AC9,High,Pending
-TA-EMAILTPL-020,Notification - submission created uses correct template,"Khi event submission created xảy ra -> hệ thống tự gửi email; subject/body match template Trigger=submission created",AC9+AC6+AC8,High,Pending
-TA-EMAILTPL-021,Notification - submission reviewed uses correct template,"Khi event submission reviewed xảy ra -> tự gửi email; chọn đúng template theo trigger reviewed (không nhầm sang created)",AC9+AC6,High,Pending
-TA-EMAILTPL-022,Notification - submission accepted uses correct template,"Khi event submission accepted xảy ra -> tự gửi email; chọn đúng template theo trigger accepted",AC9+AC6,High,Pending
-TA-EMAILTPL-023,Notification recipients follow role - Submitters,"Template Role=Submitters -> email chỉ gửi tới submitter audience theo ngữ cảnh workflow",AC5+AC9,High,Pending
-TA-EMAILTPL-024,Notification recipients follow role - Reviewers,"Template Role=Reviewers -> email gửi tới reviewer audience theo ngữ cảnh workflow",AC5+AC9,High,Pending
-TA-EMAILTPL-025,Notification recipients follow role - Committee,"Template Role=Committee members -> email gửi tới committee audience theo ngữ cảnh workflow",AC5+AC9,High,Pending
-TA-EMAILTPL-026,All users role behavior,"Template Role=All users -> email gửi tới toàn bộ đối tượng theo định nghĩa sản phẩm (verify recipient set đúng)",AC5+AC9,Medium,Pending
+TA-EMAILTPL-001,Open Email Templates page,"Verify the system displays the Email Templates management page with a templates list/grid and actions for Create, Edit, Delete, Copy, and Enable/Disable.",AC1-AC4,High,Pending
+TA-EMAILTPL-002,Create form displayed,"Verify the system displays the Create Email Template form when an administrator selects Create New Template.",AC1,High,Pending
+TA-EMAILTPL-003,Create template saved,"Verify the system allows creating a new email template when all required fields are completed correctly and saves it upon submission.",AC1,High,Pending
+TA-EMAILTPL-004,Edit form populated,"Verify the system populates the Edit Email Template form with the selected template's existing data.",AC2,High,Pending
+TA-EMAILTPL-005,Edit template saved,"Verify the system saves changes when editing an existing email template and reflects the updates after saving.",AC2,High,Pending
+TA-EMAILTPL-006,Delete confirmation shown,"Verify the system shows a deletion confirmation prompt when an administrator attempts to delete an email template.",AC3,High,Pending
+TA-EMAILTPL-007,Delete cancelled,"Verify the system does not delete the email template when the administrator cancels the deletion confirmation.",AC3,High,Pending
+TA-EMAILTPL-008,Delete confirmed,"Verify the system deletes the email template when the administrator confirms deletion and removes it from the templates list.",AC3,High,Pending
+TA-EMAILTPL-009,Copy confirmation shown,"Verify the system shows a copy confirmation prompt when an administrator attempts to copy an email template.",AC4,High,Pending
+TA-EMAILTPL-010,Copy cancelled,"Verify the system does not create a copied template when the administrator cancels the copy confirmation.",AC4,Medium,Pending
+TA-EMAILTPL-011,Copy confirmed,"Verify the system creates a copied email template when the administrator confirms copy and the new template is visible in the templates list.",AC4,High,Pending
+TA-EMAILTPL-012,Role options available,"Verify the system supports role-based templates with role options: All users, Submitters, Reviewers, and Committee members.",AC5,High,Pending
+TA-EMAILTPL-013,Role saved,"Verify the system saves the selected template role and preserves it when the template is reopened.",AC5,High,Pending
+TA-EMAILTPL-014,Trigger types available,"Verify the system provides trigger types including submission created, submission reviewed, submission accepted, and other available trigger types.",AC6,High,Pending
+TA-EMAILTPL-015,Trigger saved,"Verify the system saves the selected trigger type and preserves it when the template is reopened.",AC6,Medium,Pending
+TA-EMAILTPL-016,Enable template,"Verify the system allows enabling an email template and persists the enabled status.",AC7,High,Pending
+TA-EMAILTPL-017,Disable template,"Verify the system allows disabling an email template and persists the disabled status.",AC7,High,Pending
+TA-EMAILTPL-018,Only enabled templates used,"Verify the system uses only enabled templates for automated notifications.",AC7+AC9,High,Pending
+TA-EMAILTPL-019,Subject and body editable,"Verify the system allows entering and editing email template subject and body content.",AC8,High,Pending
+TA-EMAILTPL-020,Subject and body saved,"Verify the system saves the configured subject and body content with the template.",AC8,High,Pending
+TA-EMAILTPL-021,Automated notifications sent,"Verify the system sends notifications automatically when workflow events occur and templates are configured and enabled.",AC9,High,Pending
+TA-EMAILTPL-022,Template selected by trigger,"Verify the system selects the appropriate enabled template based on the workflow event trigger type.",AC9+AC6,High,Pending
+TA-EMAILTPL-023,Notification uses template content,"Verify the system sends notifications using the selected template's subject and body.",AC9+AC8,High,Pending
+TA-EMAILTPL-024,Role-based recipients - Submitters,"Verify the system sends notifications to the Submitters audience when the enabled template role is Submitters.",AC5+AC9,High,Pending
+TA-EMAILTPL-025,Role-based recipients - Reviewers,"Verify the system sends notifications to the Reviewers audience when the enabled template role is Reviewers.",AC5+AC9,High,Pending
+TA-EMAILTPL-026,Role-based recipients - Committee,"Verify the system sends notifications to the Committee members audience when the enabled template role is Committee members.",AC5+AC9,High,Pending
