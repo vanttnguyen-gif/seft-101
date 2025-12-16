@@ -1,0 +1,35 @@
+Activity ID,Activity Name,Description (what to test),AC / Scenario Mapping,Priority,Status
+TA-SCHED-001,Access Scheduled tab,"Verify the system allows an administrator to navigate to the Scheduled tab and displays the Scheduled Emails grid when scheduled emails exist.",Scenario 1,High,Pending
+TA-SCHED-002,Grid columns displayed,"Verify the system displays Type, Name, Scheduled For, Recipients, and Status for each scheduled email row.",Scenario 1,High,Pending
+TA-SCHED-003,Pagination supported,"Verify the system supports pagination on the Scheduled Emails grid.",Scenario 1,Medium,Pending
+TA-SCHED-004,Search supported,"Verify the system supports searching scheduled emails using the search box on the Scheduled tab.",Scenario 1,High,Pending
+TA-SCHED-005,Sorting supported for each column,"Verify the system supports sorting scheduled emails by each grid column (Type, Name, Scheduled For, Recipients, Status).",Scenario 1,High,Pending
+TA-SCHED-006,No filters present,"Verify the system does not display any filter controls on the Scheduled tab.",Scenario 1,High,Pending
+TA-SCHED-007,List view only,"Verify the system provides only list view on the Scheduled tab and does not provide other view controls.",Scenario 1,Medium,Pending
+TA-SCHED-008,No Add New button,"Verify the system does not display an Add New button on the Scheduled tab.",Scenario 1,High,Pending
+TA-SCHED-009,Sorted by scheduled date/time,"Verify the system sorts scheduled emails by Scheduled For date/time in the grid.",Scenario 1; Scenario 14,High,Pending
+TA-SCHED-010,Read-only grid when actions restricted,"Verify the system shows the scheduled emails grid without Edit/Delete actions when edit/delete are restricted by configuration or permissions.",Scenario 2,High,Pending
+TA-SCHED-011,Open scheduled email details,"Verify the system opens a details section when an administrator clicks a scheduled email row.",Scenario 3; Scenario 4,High,Pending
+TA-SCHED-012,Details show required fields,"Verify the system shows template selection, scheduled date, scheduled time, timezone, recipients information, and status in the scheduled email details.",Scenario 3; Scenario 4,High,Pending
+TA-SCHED-013,Template dropdown constrained,"Verify the system shows a template dropdown containing only enabled templates that match the scheduled email Type (User vs Submission).",Scenario 3; Scenario 5; Scenario 13,High,Pending
+TA-SCHED-014,Scheduled date uses date picker,"Verify the system displays scheduled date using a date picker in the scheduled email details.",Scenario 3; Scenario 5,Medium,Pending
+TA-SCHED-015,Scheduled time uses time picker + timezone,"Verify the system displays scheduled time using a time picker and provides a timezone selector in the scheduled email details.",Scenario 3; Scenario 5,High,Pending
+TA-SCHED-016,Status displayed in details,"Verify the system displays the correct status value in the details for the scheduled email.",Scenario 3; Scenario 4; Scenario 9; Scenario 10,Medium,Pending
+TA-SCHED-017,Sent email view-only,"Verify the system opens a scheduled email with Status = Sent in view-only mode and prevents editing any fields.",Scenario 4,High,Pending
+TA-SCHED-018,Edit allowed for Scheduled status,"Verify the system allows editing template, scheduled date, scheduled time, and timezone for a scheduled email with Status = Scheduled.",Scenario 5,High,Pending
+TA-SCHED-019,Required fields enforced on edit,"Verify the system enforces scheduled date, scheduled time, and timezone as required fields when saving a scheduled email.",Scenario 5,High,Pending
+TA-SCHED-020,Save and Delete actions available,"Verify the system displays Save and Delete actions when editing a scheduled email with Status = Scheduled.",Scenario 5,High,Pending
+TA-SCHED-021,Past time validation uses UTC,"Verify the system blocks saving if the selected scheduled date/time is in the past relative to current UTC time and displays an error message showing the UTC comparison.",Scenario 6,High,Pending
+TA-SCHED-022,Save valid edits,"Verify the system saves scheduled email updates when the scheduled date/time is in the future and a required timezone is selected.",Scenario 7,High,Pending
+TA-SCHED-023,Grid reflects updates and status recalculated,"Verify the system updates the Scheduled tab grid after saving edits (Scheduled For changes) and recalculates status based on the updated scheduled time.",Scenario 7,High,Pending
+TA-SCHED-024,Delete confirmation dialog,"Verify the system displays a confirmation dialog when an administrator clicks Delete for a scheduled email.",Scenario 8,High,Pending
+TA-SCHED-025,Delete removes from queue,"Verify the system removes the scheduled email from the sending queue after deletion is confirmed.",Scenario 8,High,Pending
+TA-SCHED-026,Deleted email removed from Scheduled tab,"Verify the system removes the scheduled email from the Scheduled tab grid after deletion is confirmed.",Scenario 8,High,Pending
+TA-SCHED-027,Status Scheduled for future,"Verify the system displays Status = 'Scheduled' when Scheduled For is in the future relative to current time.",Scenario 9,High,Pending
+TA-SCHED-028,Status Sending Now at current time,"Verify the system displays Status = 'Sending Now' when Scheduled For matches the current time.",Scenario 10,High,Pending
+TA-SCHED-029,Create scheduled email from User email action,"Verify the system creates a scheduled email entry when an administrator schedules a User email with a future date/time (validated as future) and calls /events/{eventId}/submission/emails/{templateID}/sendCustom, and the entry appears in Scheduled tab with Type = 'User' and Status = 'Scheduled'.",Scenario 11,High,Pending
+TA-SCHED-030,Create scheduled email from Submission email action,"Verify the system creates a scheduled email entry when an administrator schedules a Submission email with a future date/time (validated as future) and calls /events/{eventId}/submission/emails/{templateID}/sendCustom, and the entry appears in Scheduled tab with Type = 'Submission' and Status = 'Scheduled'.",Scenario 12,High,Pending
+TA-SCHED-031,Recipients count and breakdown displayed,"Verify the system displays recipients count and breakdown (Submitters, Reviewers, Committee) for scheduled email entries.",Scenario 11; Scenario 12,Medium,Pending
+TA-SCHED-032,No view controls beyond list view,"Verify the system does not allow switching to any view other than list view on the Scheduled tab.",Scenario 1,Low,Pending
+TA-SCHED-033,Only enabled templates selectable,"Verify the system restricts template selection to enabled templates when scheduling or editing a scheduled email.",Scenario 13,High,Pending
+TA-SCHED-034,New scheduled email visible immediately,"Verify the system shows a newly created scheduled email immediately in the Scheduled tab grid and maintains sorting by scheduled date/time.",Scenario 14,High,Pending

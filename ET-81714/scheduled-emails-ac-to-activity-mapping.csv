@@ -1,0 +1,15 @@
+AC / Scenario,Summary,Activity IDs,Coverage Status
+Scenario 1,Display Scheduled Emails grid,"TA-SCHED-001; TA-SCHED-002; TA-SCHED-003; TA-SCHED-004; TA-SCHED-005; TA-SCHED-006; TA-SCHED-007; TA-SCHED-008; TA-SCHED-009; TA-SCHED-032",Covered
+Scenario 2,Grid is read-only when actions are restricted,TA-SCHED-010,Covered
+Scenario 3,View non-sent scheduled email details,"TA-SCHED-011; TA-SCHED-012; TA-SCHED-013; TA-SCHED-014; TA-SCHED-015; TA-SCHED-016",Covered
+Scenario 4,View sent scheduled email in view-only mode,"TA-SCHED-011; TA-SCHED-012; TA-SCHED-016; TA-SCHED-017",Covered
+Scenario 5,Edit scheduled email details,"TA-SCHED-013; TA-SCHED-014; TA-SCHED-015; TA-SCHED-018; TA-SCHED-019; TA-SCHED-020",Covered
+Scenario 6,Validation when scheduled time is in the past,TA-SCHED-021,Covered
+Scenario 7,Save valid edits to scheduled email,"TA-SCHED-022; TA-SCHED-023",Covered
+Scenario 8,Delete scheduled email with confirmation,"TA-SCHED-024; TA-SCHED-025; TA-SCHED-026",Covered
+Scenario 9,Status display as 'Scheduled',"TA-SCHED-016; TA-SCHED-027",Covered
+Scenario 10,Status display as 'Sending Now',"TA-SCHED-016; TA-SCHED-028",Covered
+Scenario 11,Creation of scheduled email from user email action,"TA-SCHED-029; TA-SCHED-031",Covered
+Scenario 12,Creation of scheduled email from submission email action,"TA-SCHED-030; TA-SCHED-031",Covered
+Scenario 13,Template availability constraints,"TA-SCHED-013; TA-SCHED-033",Covered
+Scenario 14,Immediate visibility and sort order of new scheduled emails,"TA-SCHED-009; TA-SCHED-034",Covered
