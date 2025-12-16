@@ -1,0 +1,40 @@
+Activity ID,Activity Name,Description (what to test),AC Coverage,Priority,Status
+TA-EMAILTPL-001,Open Email Templates page,"Verify the system displays the Email Templates management page with a templates list/grid and actions for Create, Edit, Delete, Copy, and Enable/Disable.",AC1-AC4,High,Pending
+TA-EMAILTPL-002,Create form displayed,"Verify the system displays the Create Email Template form when an administrator selects Create New Template.",AC1,High,Pending
+TA-EMAILTPL-003,Create template saved,"Verify the system allows creating a new email template when all required fields are completed correctly and saves it upon submission.",AC1,High,Pending
+TA-EMAILTPL-004,Edit form populated,"Verify the system populates the Edit Email Template form with the selected template's existing data.",AC2,High,Pending
+TA-EMAILTPL-005,Edit template saved,"Verify the system saves changes when editing an existing email template and reflects the updates after saving.",AC2,High,Pending
+TA-EMAILTPL-006,Delete confirmation shown,"Verify the system shows a deletion confirmation prompt when an administrator attempts to delete an email template.",AC3,High,Pending
+TA-EMAILTPL-007,Delete cancelled,"Verify the system does not delete the email template when the administrator cancels the deletion confirmation.",AC3,High,Pending
+TA-EMAILTPL-008,Delete confirmed,"Verify the system deletes the email template when the administrator confirms deletion and removes it from the templates list.",AC3,High,Pending
+TA-EMAILTPL-009,Copy confirmation shown,"Verify the system shows a copy confirmation prompt when an administrator attempts to copy an email template.",AC4,High,Pending
+TA-EMAILTPL-010,Copy cancelled,"Verify the system does not create a copied template when the administrator cancels the copy confirmation.",AC4,Medium,Pending
+TA-EMAILTPL-011,Copy confirmed,"Verify the system creates a copied email template when the administrator confirms copy and the new template is visible in the templates list.",AC4,High,Pending
+TA-EMAILTPL-012,Role options available,"Verify the system supports role-based templates with role options: All users, Submitters, Reviewers, and Committee members.",AC5,High,Pending
+TA-EMAILTPL-013,Role saved,"Verify the system saves the selected template role and preserves it when the template is reopened.",AC5,High,Pending
+TA-EMAILTPL-014,Trigger types available,"Verify the system provides trigger types including submission created, submission reviewed, submission accepted, and other available trigger types.",AC6,High,Pending
+TA-EMAILTPL-015,Trigger saved,"Verify the system saves the selected trigger type and preserves it when the template is reopened.",AC6,Medium,Pending
+TA-EMAILTPL-016,Enable template,"Verify the system allows enabling an email template and persists the enabled status.",AC7,High,Pending
+TA-EMAILTPL-017,Disable template,"Verify the system allows disabling an email template and persists the disabled status.",AC7,High,Pending
+TA-EMAILTPL-018,Only enabled templates used,"Verify the system uses only enabled templates for automated notifications.",AC7+AC9,High,Pending
+TA-EMAILTPL-019,Subject and body editable,"Verify the system allows entering and editing email template subject and body content.",AC8,High,Pending
+TA-EMAILTPL-020,Subject and body saved,"Verify the system saves the configured subject and body content with the template.",AC8,High,Pending
+TA-EMAILTPL-021,Automated notifications sent,"Verify the system sends notifications automatically when workflow events occur and templates are configured and enabled.",AC9,High,Pending
+TA-EMAILTPL-022,Template selected by trigger,"Verify the system selects the appropriate enabled template based on the workflow event trigger type.",AC9+AC6,High,Pending
+TA-EMAILTPL-023,Notification uses template content,"Verify the system sends notifications using the selected template's subject and body.",AC9+AC8,High,Pending
+TA-EMAILTPL-024,Role-based recipients - Submitters,"Verify the system sends notifications to the Submitters audience when the enabled template role is Submitters.",AC5+AC9,High,Pending
+TA-EMAILTPL-025,Role-based recipients - Reviewers,"Verify the system sends notifications to the Reviewers audience when the enabled template role is Reviewers.",AC5+AC9,High,Pending
+TA-EMAILTPL-026,Role-based recipients - Committee,"Verify the system sends notifications to the Committee members audience when the enabled template role is Committee members.",AC5+AC9,High,Pending
+TA-EMAILTPL-027,Use global email settings option visible,"Verify the system provides a 'Use global email settings' option on the Create/Edit email (template) form.",Global Email Settings,High,Pending
+TA-EMAILTPL-028,Use global email settings ON,"Verify the system allows an email (template) to use global email settings when 'Use global email settings' is checked.",Global Email Settings,High,Pending
+TA-EMAILTPL-029,Uncheck global settings reveals fields,"Verify the system displays per-email configuration fields for manual input when the user unchecks 'Use global email settings'.",Global Email Settings,High,Pending
+TA-EMAILTPL-030,Manual settings fields validation,"Verify the system requires and validates the per-email settings fields (e.g., From name/email, Reply-to, SMTP/transport fields as applicable) when 'Use global email settings' is unchecked.",Global Email Settings,High,Pending
+TA-EMAILTPL-031,Manual settings saved & persisted,"Verify the system saves per-email settings entered when 'Use global email settings' is unchecked and persists them when the email/template is reopened.",Global Email Settings,High,Pending
+TA-EMAILTPL-032,Switching global setting does not lose unsaved input,"Verify the system handles toggling 'Use global email settings' on/off without unexpected loss of user-entered values before saving (per product behavior).",Global Email Settings,Medium,Pending
+TA-EMAILTPL-033,Sending uses global vs manual settings,"Verify the system sends emails using global settings when enabled, and uses the per-email settings when 'Use global email settings' is unchecked.",Global Email Settings,High,Pending
+TA-EMAILTPL-034,Admin Notification Email(s) shown for non-manual triggers,"Verify the system displays the 'Admin Notification Email(s)' field when the selected trigger is not Manual, and hides or disables this field when the trigger is Manual.",Trigger UI Rules,High,Pending
+TA-EMAILTPL-035,Include all Applicants on Applicant List option,"Verify the system provides an 'Include all Applicants on Applicant List?' option and, when selected, includes all applicants in the applicant/recipient list as defined by the workflow context.",Applicant List Options,High,Pending
+TA-EMAILTPL-036,Create email validation errors,"Verify the system shows validation errors and prevents saving when creating a new email/template with missing required fields.",AC1,High,Pending
+TA-EMAILTPL-037,Create custom view,"Verify the system allows a user to create and save a custom view for the email templates list/grid.",Views & Columns,High,Pending
+TA-EMAILTPL-038,Drag columns to reorder,"Verify the system allows a user to drag and drop columns to reorder them in the email templates list/grid view.",Views & Columns,High,Pending
+TA-EMAILTPL-039,Enabled Columns selection,"Verify the system allows a user to choose Enabled Columns for a view and updates the list/grid to show only the selected columns (and persists the selection per saved view).",Views & Columns,High,Pending

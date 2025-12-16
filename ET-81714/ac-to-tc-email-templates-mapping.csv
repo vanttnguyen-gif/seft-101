@@ -1,0 +1,11 @@
+AC,AC Summary,Test Case IDs,Coverage Status,Notes
+AC1,Create Email Templates,"TC-EMAILTPL-013; TC-EMAILTPL-014; TC-EMAILTPL-015",Covered,"Covers create form display, successful save, and missing-required-fields validation"
+AC2,Edit Email Templates,"TC-EMAILTPL-016; TC-EMAILTPL-017",Covered,"Covers edit form population and saving updates"
+AC3,Delete Email Templates,"TC-EMAILTPL-018; TC-EMAILTPL-019; TC-EMAILTPL-020",Covered,"Covers confirmation, cancel, and confirm delete"
+AC4,Copy Email Templates,"TC-EMAILTPL-021; TC-EMAILTPL-022; TC-EMAILTPL-023",Covered,"Covers confirmation, cancel, and confirm copy"
+AC5,Role-Based Templates,"TC-EMAILTPL-024; TC-EMAILTPL-033; TC-EMAILTPL-034; TC-EMAILTPL-035",Covered,"Covers role options and role-based notification recipient behavior"
+AC6,Trigger Types Configuration,"TC-EMAILTPL-025; TC-EMAILTPL-031",Covered,"Covers trigger types list and selecting template by trigger"
+AC7,Enable/Disable Templates,"TC-EMAILTPL-026; TC-EMAILTPL-027",Covered,"Covers enable/disable actions and persistence"
+AC8,Template Subject and Body,"TC-EMAILTPL-028; TC-EMAILTPL-029; TC-EMAILTPL-032",Covered,"Covers editing/saving subject+body and usage in sent notification"
+AC9,Automated Notification Usage,"TC-EMAILTPL-030; TC-EMAILTPL-031; TC-EMAILTPL-032; TC-EMAILTPL-033; TC-EMAILTPL-034; TC-EMAILTPL-035; TC-EMAILTPL-040",Covered,"TC-EMAILTPL-040 partially overlaps AC9 (sending) but also depends on global/manual settings outside AC1–AC9"
+N/A (Not in AC1–AC9),Out of scope / no AC defined,"TC-EMAILTPL-001; TC-EMAILTPL-002; TC-EMAILTPL-003; TC-EMAILTPL-004; TC-EMAILTPL-005; TC-EMAILTPL-006; TC-EMAILTPL-007; TC-EMAILTPL-008; TC-EMAILTPL-009; TC-EMAILTPL-010; TC-EMAILTPL-011; TC-EMAILTPL-012; TC-EMAILTPL-036; TC-EMAILTPL-037; TC-EMAILTPL-038; TC-EMAILTPL-039; TC-EMAILTPL-041; TC-EMAILTPL-042; TC-EMAILTPL-043; TC-EMAILTPL-044; TC-EMAILTPL-045; TC-EMAILTPL-046; TC-EMAILTPL-047; TC-EMAILTPL-048",Not Covered by AC,"These test cases require additional acceptance criteria (e.g., list UI, views/columns, global email settings, manual send/test emails, applicant list option, single/multi mode, bulk actions)"

@@ -1,0 +1,102 @@
+Test ID,Test Name,Object Type,Priority,Type,Precondition,Steps,Expected Result,Status
+TC-EMAILTPL-001,Access Email Templates Management Page,Email Templates,High,Functional,"Administrator is logged in and has permission to manage email templates.","1. Navigate to Admin > Email Templates.","- Email Templates management page is displayed
+- Existing templates list/grid is displayed
+- Actions for Create/Edit/Delete/Copy and Enable/Disable are available",Pending
+TC-EMAILTPL-002,Open Create Email Template Form,Email Templates,High,Functional,"Administrator is on Email Templates management page.","1. Click Create New Template.","- Template creation form is displayed",Pending
+TC-EMAILTPL-003,Create Template (All Users) with Trigger + Subject + Body,Email Templates,High,Functional,"Administrator is on the Create Template form.","1. Enter a template name (unique).
+2. Set Role to All users.
+3. Set Trigger Type to submission created.
+4. Enter Subject content.
+5. Enter Body content.
+6. Click Save/Submit.","- Template can be configured for role, trigger, subject, body
+- Template is saved when submitted
+- New template appears in the templates list with correct values",Pending
+TC-EMAILTPL-004,Create Template (Submitters) and Persist Role Selection,Email Templates,High,Functional,"Administrator is on the Create Template form.","1. Enter a template name (unique).
+2. Set Role to Submitters.
+3. Select any Trigger Type.
+4. Enter Subject and Body.
+5. Save.","- Template is saved
+- Saved template shows Role = Submitters",Pending
+TC-EMAILTPL-005,Create Template (Reviewers) and Persist Role Selection,Email Templates,High,Functional,"Administrator is on the Create Template form.","1. Enter a template name (unique).
+2. Set Role to Reviewers.
+3. Select any Trigger Type.
+4. Enter Subject and Body.
+5. Save.","- Template is saved
+- Saved template shows Role = Reviewers",Pending
+TC-EMAILTPL-006,Create Template (Committee Members) and Persist Role Selection,Email Templates,High,Functional,"Administrator is on the Create Template form.","1. Enter a template name (unique).
+2. Set Role to Committee members.
+3. Select any Trigger Type.
+4. Enter Subject and Body.
+5. Save.","- Template is saved
+- Saved template shows Role = Committee members",Pending
+TC-EMAILTPL-007,Trigger Types List Contains Required Values and Others,Email Templates,High,Functional,"Administrator is on Create or Edit Template form.","1. Open Trigger Type control (dropdown/list).
+2. Inspect available trigger types.","- Trigger types include: submission created
+- Trigger types include: submission reviewed
+- Trigger types include: submission accepted
+- Other trigger types are available in the list",Pending
+TC-EMAILTPL-008,Save Template and Verify Subject/Body Persistence,Email Templates,High,Functional,"Administrator is on the Create Template form.","1. Enter Subject content with distinctive text.
+2. Enter Body content with distinctive text.
+3. Save the template.
+4. Re-open the template in Edit mode.","- Subject and body are saved with the template
+- Subject and body fields are populated with the saved content",Pending
+TC-EMAILTPL-009,Open Edit Template Form and Verify Data Is Populated,Email Templates,High,Functional,"At least one email template exists.","1. From the templates list, select a template.
+2. Click Edit.","- Template edit form is displayed
+- Form is populated with existing template data (role, trigger, subject, body, enabled/disabled status)",Pending
+TC-EMAILTPL-010,Edit Template Subject and Body and Save Changes,Email Templates,High,Functional,"An email template exists and is opened in Edit mode.","1. Update Subject content.
+2. Update Body content.
+3. Click Save/Submit.","- Changes are saved when submitted
+- Updated template is reflected in the templates list and when re-opening the template",Pending
+TC-EMAILTPL-011,Edit Template Role and Save Changes,Email Templates,Medium,Functional,"An email template exists and is opened in Edit mode.","1. Change Role (e.g., from All users to Reviewers).
+2. Save.","- Role change is saved
+- Updated role is reflected in the templates list and on re-open",Pending
+TC-EMAILTPL-012,Edit Template Trigger Type and Save Changes,Email Templates,Medium,Functional,"An email template exists and is opened in Edit mode.","1. Change Trigger Type (e.g., submission created -> submission accepted).
+2. Save.","- Trigger type change is saved
+- Updated trigger type is reflected in the templates list and on re-open",Pending
+TC-EMAILTPL-013,Disable an Enabled Template and Persist Status,Email Templates,High,Functional,"At least one template exists and is currently Enabled.","1. From the templates list, disable the template (toggle/checkbox/action).
+2. Refresh the page or navigate away and back.","- Template can be disabled
+- Enabled/disabled status is saved and persists after refresh
+- Template shows status = Disabled",Pending
+TC-EMAILTPL-014,Enable a Disabled Template and Persist Status,Email Templates,High,Functional,"At least one template exists and is currently Disabled.","1. From the templates list, enable the template (toggle/checkbox/action).
+2. Refresh the page or navigate away and back.","- Template can be enabled
+- Enabled/disabled status is saved and persists after refresh
+- Template shows status = Enabled",Pending
+TC-EMAILTPL-015,Delete Template Shows Confirmation Dialog,Email Templates,High,Functional,"At least one email template exists.","1. In templates list, click Delete on a template.","- Deletion confirmation is shown",Pending
+TC-EMAILTPL-016,Cancel Delete Does Not Remove Template,Email Templates,High,Functional,"Deletion confirmation dialog is displayed for a selected template.","1. Click Cancel/No/Close on the confirmation dialog.","- Template is not removed
+- Template remains visible in the templates list",Pending
+TC-EMAILTPL-017,Confirm Delete Removes Template,Email Templates,High,Functional,"Deletion confirmation dialog is displayed for a selected template.","1. Click Confirm/Yes/Delete on the confirmation dialog.","- Template is removed after confirmation
+- Template no longer appears in the templates list",Pending
+TC-EMAILTPL-018,Copy Template Shows Confirmation Dialog,Email Templates,High,Functional,"At least one email template exists.","1. In templates list, click Copy on a template.","- Copy confirmation is shown",Pending
+TC-EMAILTPL-019,Cancel Copy Does Not Create New Template,Email Templates,Medium,Functional,"Copy confirmation dialog is displayed for a selected template.","1. Click Cancel/No/Close on the confirmation dialog.","- No new template is created
+- Templates count remains unchanged",Pending
+TC-EMAILTPL-020,Confirm Copy Creates New Template with Same Config,Email Templates,High,Functional,"Copy confirmation dialog is displayed for a selected template.","1. Click Confirm/Yes/Copy on the confirmation dialog.","- Template is copied after confirmation
+- A new template appears in the list
+- Copied template retains role, trigger, subject, and body from the original (unless product defines otherwise)",Pending
+TC-EMAILTPL-021,Automated Notification Uses Enabled Template (Submission Created),Notifications,High,Integration,"An enabled template exists with Trigger Type = submission created. Workflow event engine/email delivery is available.","1. Ensure the template is Enabled.
+2. Cause workflow event: create a submission.
+3. Observe notification delivery (email outbox/logs/inbox depending on environment).","- Notification is sent automatically when event occurs
+- Appropriate template is selected based on trigger (submission created)
+- Delivered email subject/body match the configured template content",Pending
+TC-EMAILTPL-022,Automated Notification Selects Template by Trigger (Submission Reviewed),Notifications,High,Integration,"Enabled templates exist for submission created and submission reviewed. Workflow event engine/email delivery is available.","1. Ensure template for Trigger Type = submission reviewed is Enabled.
+2. Cause workflow event: review a submission.
+3. Observe notification delivery.","- Notification is sent automatically
+- Template selected corresponds to trigger = submission reviewed (not the submission created template)",Pending
+TC-EMAILTPL-023,Automated Notification Selects Template by Trigger (Submission Accepted),Notifications,High,Integration,"An enabled template exists for Trigger Type = submission accepted. Workflow event engine/email delivery is available.","1. Ensure template for Trigger Type = submission accepted is Enabled.
+2. Cause workflow event: accept a submission.
+3. Observe notification delivery.","- Notification is sent automatically
+- Template selected corresponds to trigger = submission accepted",Pending
+TC-EMAILTPL-024,Disabled Template Is Not Used for Notifications,Notifications,High,Integration,"A template exists for a trigger (e.g., submission created) and is set to Disabled. Workflow event engine/email delivery is available.","1. Disable the template for submission created.
+2. Cause workflow event: create a submission.
+3. Observe notification delivery.","- Only enabled templates are used
+- Disabled template is not selected for sending (system uses another enabled template for that trigger if configured; otherwise no email is sent)",Pending
+TC-EMAILTPL-025,Role-Based Recipients - Submitters Template Sends to Submitter,Notifications,High,Integration,"An enabled template exists with Role = Submitters and a supported trigger (e.g., submission created). A submitter user can create submissions.","1. Ensure the Submitters template is Enabled.
+2. As a submitter, create a submission.
+3. Observe recipients of the sent notification.","- Notification is sent to Submitter audience for the event context
+- Non-submitter roles do not receive this notification (as applicable)",Pending
+TC-EMAILTPL-026,Role-Based Recipients - Reviewers Template Sends to Reviewers,Notifications,High,Integration,"An enabled template exists with Role = Reviewers and a supported trigger (e.g., submission reviewed). Reviewers exist for the submission/workflow.","1. Ensure the Reviewers template is Enabled.
+2. Cause workflow event that should notify reviewers.
+3. Observe recipients of the sent notification.","- Notification is sent to Reviewer audience for the event context
+- Users outside Reviewer audience do not receive this notification (as applicable)",Pending
+TC-EMAILTPL-027,Role-Based Recipients - Committee Template Sends to Committee Members,Notifications,High,Integration,"An enabled template exists with Role = Committee members and a supported trigger. Committee members exist for the submission/workflow.","1. Ensure the Committee members template is Enabled.
+2. Cause workflow event that should notify committee members.
+3. Observe recipients of the sent notification.","- Notification is sent to Committee member audience for the event context
+- Users outside Committee audience do not receive this notification (as applicable)",Pending
