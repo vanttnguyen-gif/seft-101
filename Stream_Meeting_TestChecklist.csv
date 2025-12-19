@@ -1,0 +1,75 @@
+"TC ID","Area","Role","Scenario / Title","Preconditions","Steps","Expected Result","Priority","Type","Status","Owner","Date","Build","Notes"
+"STREAM-001","Scheduling & Advance Testing","Host","Host can start and test a meeting up to 7 days in advance","A Stream meeting is scheduled for a future date; current date is within 7 days before the scheduled start.","1) Open the meeting from the platform/dashboard
+2) Click Start/Test meeting (advance)
+3) Enter the stream room","Host can enter a test session; stream is not publicly live to attendees unless explicitly started; UI indicates test mode if applicable.","P0","Functional","Not Run","","","",""
+"STREAM-002","Scheduling & Advance Testing","Host","Host is blocked from starting/testing earlier than 7 days in advance","A Stream meeting scheduled >7 days in the future; current date is earlier than allowed window.","1) Attempt to Start/Test meeting","System blocks the action and shows a clear message about the 7-day advance limit.","P0","Functional","Not Run","","","",""
+"STREAM-003","Start Meeting & Auto Provisioning","Host","Channel and stream are automatically created when host clicks Start meeting","Stream meeting exists; no channel/stream has been created yet for this meeting.","1) Host clicks Start meeting
+2) Observe provisioning behavior
+3) Refresh/reopen meeting page","A channel/stream is created automatically and linked to the meeting; host lands in the live/test room; reloading does not create duplicates.","P0","Functional","Not Run","","","",""
+"STREAM-004","Start Meeting & Auto Provisioning","Host","Idempotency: multiple rapid Start clicks do not create duplicate channels/streams","Stream meeting exists; host has access.","1) Host clicks Start multiple times quickly (or open in 2 tabs and click Start)
+2) Inspect meeting state","Only one channel/stream is created; host ends up in a single live session; no duplicate entries or errors.","P0","Reliability","Not Run","","","",""
+"STREAM-005","Start Meeting & Auto Provisioning","Host","Graceful error handling if auto provisioning fails","Simulate backend failure (if test environment supports) or invalid provisioning state.","1) Host clicks Start meeting
+2) Observe error handling and retry","Host sees actionable error message; retry works when backend recovers; system does not get stuck in partial state.","P0","Reliability","Not Run","","","",""
+"STREAM-006","Waiting Room","Attendee","Attendee is placed in waiting room before live streaming starts","Meeting is scheduled; host has not started the live stream yet; attendee is eligible to join.","1) Attendee attempts to join
+2) Observe UI state","Attendee cannot view live stream yet; sees waiting room UI with clear messaging (e.g., “Waiting for host to start”).","P0","Functional","Not Run","","","",""
+"STREAM-007","Waiting Room","Attendee","When host starts live stream, attendees in waiting room transition to the live stream","One or more attendees are in waiting room; host is ready to go live.","1) Host starts live
+2) Attendee observes transition
+3) Verify stream playback","Attendees are seamlessly moved from waiting room to live stream; playback starts; no manual refresh required (or a clear CTA is provided).","P0","Functional","Not Run","","","",""
+"STREAM-008","Waiting Room","Attendee","Attendee refreshes waiting room page and remains in waiting room (no bypass)","Host has not started live; attendee is in waiting room.","1) Refresh the page
+2) Observe state","Attendee remains in waiting room; cannot access live stream content before it starts.","P0","Security","Not Run","","","",""
+"STREAM-009","Webcam Stream (Up to 10)","Host","Real-time stream supports webcams for up to 10 users concurrently","At least 11 eligible users can join; permissions allow camera use.","1) Host starts meeting
+2) Have 10 users enable webcams
+3) User #11 attempts to enable webcam","System enforces the 10-webcam limit: user #11 is blocked or forced video-off with a clear message; existing 10 streams remain stable.","P0","Functional","Not Run","","","",""
+"STREAM-010","Webcam Stream (Up to 10)","Attendee","When one webcam stops, another user can start webcam (limit re-balances)","10 webcams are currently active; user A turns webcam off.","1) User A turns webcam off
+2) User B turns webcam on","User B can enable webcam; total active webcams remain <=10.","P1","Functional","Not Run","","","",""
+"STREAM-011","Webcam Stream (Up to 10)","Attendee","Join with camera permission blocked: user can still watch stream and/or join without webcam","Browser camera permission = blocked; meeting is live.","1) Join meeting
+2) Try enabling camera","User can still participate in allowed ways; clear permission guidance is shown; no crash.","P1","Functional","Not Run","","","",""
+"STREAM-012","Host On-Screen Control","Host","Host can control what content is shown on the main screen (webcams/content)","Meeting is live; at least 2 participants are present; host has control panel.","1) Host selects a participant/camera to feature
+2) Switch to shared content
+3) Switch back","Main screen updates according to host selection; attendees see the same featured content; changes apply in near real-time.","P0","Functional","Not Run","","","",""
+"STREAM-013","Host On-Screen Control","Attendee","Attendee cannot override host on-screen selection (if restricted)","Meeting is live; host has set featured content.","1) Attendee attempts to change main screen selection","Attendee cannot override host selection; UI control is hidden/disabled; no unauthorized effect.","P0","Security","Not Run","","","",""
+"STREAM-014","Host On-Screen Control","Host","User joins after host has set featured content and sees the correct current on-screen state","Host already selected a featured participant/content; new attendee joins.","1) Host sets featured content
+2) New attendee joins
+3) Observe on-screen content","Late joiner immediately sees the current featured content; no reset to defaults.","P1","Functional","Not Run","","","",""
+"STREAM-015","Content Sharing","Host","Host can share a webpage URL to the stream","Meeting is live; host has share controls.","1) Host opens share
+2) Select “Webpage/URL”
+3) Enter a valid URL
+4) Start sharing","Shared webpage is visible on main screen; attendees can see it clearly; stopping share returns to previous layout.","P0","Functional","Not Run","","","",""
+"STREAM-016","Content Sharing","Host","Host can share a video and attendees can see playback","Meeting is live; host has share controls; video source is supported.","1) Start video share
+2) Play/pause
+3) Seek (if supported)","Attendees see the shared video; playback controls behave as designed; audio/video remain in sync per policy.","P0","Functional","Not Run","","","",""
+"STREAM-017","Content Sharing","Host","Host can share a presentation (file or slide) to the stream","Meeting is live; a supported presentation is available.","1) Start presentation share
+2) Navigate slides
+3) Stop sharing","Slides render correctly; navigation updates what attendees see; stopping returns to prior view.","P0","Functional","Not Run","","","",""
+"STREAM-018","Content Sharing","Host","Invalid/blocked URL or unsupported content share shows clear error without breaking the stream","Meeting is live.","1) Attempt to share an invalid URL or unsupported file
+2) Observe error handling","Clear validation/error message; stream remains stable; user can try again.","P1","Functional","Not Run","","","",""
+"STREAM-019","Content Sharing","Attendee","Late joiner sees currently shared content (webpage/video/presentation) immediately","Host is actively sharing content; attendee joins after share started.","1) Host starts sharing
+2) Attendee joins
+3) Observe","Attendee sees the shared content upon join; no blank state; consistent with other viewers.","P0","Functional","Not Run","","","",""
+"STREAM-020","Private Chat","Attendee","Private chat between two users works during a stream meeting","Meeting is live; private chat feature enabled; two users are present.","1) User A opens private chat with User B
+2) Send message
+3) User B replies","Messages are delivered only to the intended recipient; correct author/time; no leakage to others.","P0","Functional","Not Run","","","",""
+"STREAM-021","Private Chat","Attendee","Private chat is not visible to host/others unless they are in the chat","User A and User B have private messages; Host is present.","1) Host checks chat views
+2) Verify private messages are not accessible","Host/others cannot view private messages between A and B; access is properly restricted.","P0","Security","Not Run","","","",""
+"STREAM-022","Dashboard Test Stream","Host","Host can run a test stream from the platform dashboard","Host has access to dashboard; meeting exists and is within allowed test window.","1) Go to dashboard
+2) Click Test stream
+3) Verify preview/stream status","Test stream starts successfully; host can verify audio/video/content; test does not publish to attendees unless intended.","P0","Functional","Not Run","","","",""
+"STREAM-023","Dashboard Test Stream","Attendee","Attendees cannot access dashboard test stream","Attendee account without host privileges.","1) Attempt to access dashboard test stream URL/entry point","Access denied or feature hidden; attendee cannot start/see host-only test tools.","P0","Security","Not Run","","","",""
+"STREAM-024","Recording & Playback","Host","Recording is available on demand in the platform for the stream meeting","Recording feature is enabled for the meeting; meeting has been live for some time.","1) Start recording (if manual) or confirm auto recording
+2) End/stop recording
+3) Navigate to recordings area","Recording appears in platform with correct metadata; playback works; download/view options follow permissions.","P0","Functional","Not Run","","","",""
+"STREAM-025","Recording & Playback","Attendee","Recording is available from the lobby (as specified) after processing","A recording exists and is processed; lobby shows recordings for this meeting.","1) Go to lobby
+2) Open meeting recordings
+3) Play recording","Recording is visible in lobby; playback works; attendee permissions are enforced.","P1","Functional","Not Run","","","",""
+"STREAM-026","Recording & Playback","Attendee","Recording access respects permissions (unauthorized user cannot view)","Recording exists; user is not eligible for the event or lacks access.","1) Attempt to open recording from lobby/platform","Access is denied; no content leakage; clear messaging.","P0","Security","Not Run","","","",""
+"STREAM-027","Attendance Tracking","Host","Attendance is tracked for users who join the stream meeting","Attendance tracking is enabled; at least 3 users join.","1) Host starts meeting
+2) Users join
+3) End meeting
+4) View attendance report","Report lists users who joined; join events are captured correctly.","P0","Functional","Not Run","","","",""
+"STREAM-028","Attendance Tracking","Host","Attendance report does not include dwell time (only presence/attendance)","Meeting has join/leave events; attendance report available.","1) User joins then leaves and re-joins
+2) View attendance report fields","Report does not show dwell-time metrics; fields align with “no dwell time” requirement.","P1","Functional","Not Run","","","",""
+"STREAM-029","Resilience (Join/Reconnect)","Attendee","Short network interruption during live stream: attendee can recover playback without duplicating attendance","Live stream is running; attendee is watching.","1) Disconnect network for ~20s
+2) Reconnect
+3) Observe playback and roster/attendance","Playback recovers (auto or via clear CTA); no duplicate participant entries; attendance remains correct.","P1","Reliability","Not Run","","","",""
+"STREAM-030","Access Control","Unknown/Guest","Unauthenticated/unauthorized user cannot join the stream meeting","User not logged in or not part of the event; meeting has a join entry point.","1) Attempt to access join URL
+2) Attempt to enter the meeting","User is redirected to login or shown access denied; cannot view stream content.","P0","Security","Not Run","","","",""

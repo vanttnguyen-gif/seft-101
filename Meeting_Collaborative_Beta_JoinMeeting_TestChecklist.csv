@@ -1,0 +1,114 @@
+"TC ID","Area","Role","Scenario / Title","Preconditions","Steps","Expected Result","Priority","Type","Status","Owner","Date","Build","Notes"
+"JOIN-001","Access & Timing","Host","Host can start/join the session up to 4 hours before the scheduled start time","Session type = Meeting (Collaborative) BETA; Host is assigned in Session Editor; Current time = T-4h.","1) Go to Agenda lobby page
+2) Open the session
+3) Click Start/Join","Host enters the meeting successfully; correct session title/timer is shown; not blocked by attendee open-time rules.","P0","Functional","Not Run","","","",""
+"JOIN-002","Access & Timing","Host","Host is blocked when attempting to start/join earlier than 4 hours before start time","Session type = Meeting (Collaborative) BETA; Host assigned; Current time = T-4h-1m.","1) Go to Agenda lobby page
+2) Click Start/Join","Host cannot enter; a clear message is shown (e.g., “You can start this session 4 hours before start time”).","P0","Functional","Not Run","","","",""
+"JOIN-003","Access & Timing","Attendee","Attendee cannot join before the configured attendee open time","Attendee open time is configured (e.g., 10 minutes before start); Current time is earlier than open time; Attendee is eligible for the event.","1) Go to Agenda lobby page
+2) Click Join","Attendee is blocked; a message/countdown indicates when the session opens.","P0","Functional","Not Run","","","",""
+"JOIN-004","Access & Timing","Attendee","Attendee can join starting from the configured attendee open time","Current time is within the attendee open window; Session is unlocked OR (if locked) a host is available to admit.","1) Go to Agenda lobby page
+2) Click Join
+3) Complete pre-join (if shown)","Attendee enters the meeting (or waiting room if locked); no permission/timing gating errors occur.","P0","Functional","Not Run","","","",""
+"JOIN-005","Access & Timing","Speaker","Speaker join timing follows the intended rule (speaker behaves like attendee or host)","Speaker assigned in Session Editor; Attendee open time configured; clarify expected behavior for the product (speaker uses attendee open time vs host early-start).","1) Go to Agenda lobby page
+2) Click Join","Behavior matches the intended design: speaker is allowed/blocked based on the rule.","P1","Functional","Not Run","","","","If spec is unclear, capture actual behavior and confirm with product."
+"JOIN-006","Agenda Lobby Entry","Attendee","Joining from the Agenda lobby page routes to the correct meeting session","Session is visible on Agenda; attendee is eligible; attendee open time has started.","1) Open Agenda
+2) Select the correct session
+3) Click Join","User lands in the correct session (not another one); correct title/time shown; participant count updates.","P1","Functional","Not Run","","","",""
+"JOIN-007","Agenda Lobby Entry","Unknown/Guest","Unauthenticated or unauthorized user is blocked from joining","User is not authenticated OR not part of the event; user has access to a session link (if applicable).","1) Open Agenda or join URL
+2) Attempt to Join","User is prompted to sign in or shown access denied; user cannot enter the meeting.","P0","Security","Not Run","","","",""
+"JOIN-008","Pre-join & Device Checks","Attendee","Join with microphone permission blocked","Browser mic permission = blocked; attendee open time has started.","1) Join meeting
+2) Try to enable microphone in pre-join or in-meeting","App shows clear guidance to enable permissions; mute state is correct; meeting does not crash.","P0","Functional","Not Run","","","",""
+"JOIN-009","Pre-join & Device Checks","Attendee","Join with camera permission blocked","Browser camera permission = blocked; attendee open time has started.","1) Join meeting
+2) Try to enable camera","App guides the user to enable permissions; user can still stay in meeting with video off; UI shows correct video-off indicators.","P1","Functional","Not Run","","","",""
+"JOIN-010","Pre-join & Device Checks","Attendee","Select mic/camera/speaker devices in pre-join and join successfully","Machine has multiple audio devices or virtual devices; attendee open time has started.","1) Join
+2) Select mic/camera/speaker
+3) Enter the meeting","Selected devices are applied; audio/video works; device choice is not reset upon joining.","P1","Functional","Not Run","","","",""
+"JOIN-011","Role & Permissions","Organizer","Organizer assigns Host/Speaker; users join and receive correct roles and permissions","Session type = Meeting (Collaborative) BETA; organizer assigned host + speaker; joining time window allows entry.","1) Host joins
+2) Speaker joins
+3) Verify UI/permissions per role","Host sees host controls; speaker has speaker permissions; attendee does not get host-only controls. Role badge/name labels are correct.","P0","Functional","Not Run","","","",""
+"JOIN-012","Role & Permissions","Attendee","Attendee cannot access host-only actions (lock/admit/remove/spotlight) if restricted","Attendee joined; host is present.","1) Open meeting controls/menus
+2) Look for host-only actions","Host-only actions are hidden or disabled; attendee cannot perform host-only operations via UI/API.","P0","Security","Not Run","","","",""
+"JOIN-013","Room Lock & Admit","Organizer","Organizer enables “Lock room” in Session Editor; attendee join goes to a waiting state","Lock room is enabled; host assigned; attendee open time has started.","1) Host joins
+2) Attendee joins","Attendee does not enter immediately; sees waiting/admission UI. Host sees a pending admissions list.","P0","Functional","Not Run","","","",""
+"JOIN-014","Room Lock & Admit","Host","Host admits attendees individually when room is locked","Room locked; two attendees are waiting.","1) Host opens waiting list
+2) Admit attendee A
+3) Keep attendee B waiting (or deny if supported)","Attendee A enters and appears in people roster; attendee B remains waiting; participant count updates correctly.","P0","Functional","Not Run","","","",""
+"JOIN-015","Room Lock & Admit","Host","If host locks the room in-meeting (if supported), new joiners are routed to waiting/admission flow","Host is in the meeting; room initially unlocked; attendee open time has started.","1) Host enables Lock
+2) New attendee attempts to join","New attendee does not enter directly; host sees pending admission.","P1","Functional","Not Run","","","",""
+"JOIN-016","Room Lock & Admit","Attendee","Attendee waiting for admission cannot bypass by refreshing the page","Room locked; attendee is currently waiting for admission.","1) Refresh the page
+2) Observe state","Attendee remains in waiting state; does not bypass lock; no unauthorized entry.","P0","Security","Not Run","","","",""
+"JOIN-017","Sharing Matrix","Organizer","Sharing matrix: screen share permission enforced by role after joining","Sharing matrix set so Screen Share = Host only (example).","1) Host joins and tries screen share
+2) Speaker joins and tries
+3) Attendee joins and tries","Only permitted roles can start screen share; others see control hidden/disabled and cannot share.","P0","Functional","Not Run","","","",""
+"JOIN-018","Sharing Matrix","Organizer","Sharing matrix: chat permissions (in-session/backstage) enforced by role after joining","Chat permissions configured in sharing matrix.","1) Host/Speaker/Attendee join
+2) Try sending in-session chat
+3) Try backstage chat (if available)","Chat visibility and send permissions match configuration; unauthorized roles cannot see or cannot send.","P1","Functional","Not Run","","","",""
+"JOIN-019","Audio/Video","Attendee","Join with mic ON: mute state is displayed correctly to self and others","Attendee is allowed to unmute; devices are working.","1) Join
+2) Enable mic
+3) Observe roster/tile indicators","Mute/unmute indicators are correct on roster and tiles (""Display if a user is Mute"" works).","P0","Functional","Not Run","","","",""
+"JOIN-020","Audio/Video","Attendee","Join with mic OFF: default mute state is correct","Default join behavior (if any) results in muted state; attendee open time has started.","1) Join
+2) Do not enable mic","Attendee remains muted; icon is correct; no audio is transmitted.","P1","Functional","Not Run","","","",""
+"JOIN-021","Audio/Video","Attendee","Toggle webcam after joining: tile and name label update correctly","Attendee joined; camera permission granted.","1) Turn camera on
+2) Turn camera off
+3) Turn camera on again","Video tile updates promptly; name labels remain visible; no freezing or stuck video.","P1","Functional","Not Run","","","",""
+"JOIN-022","Capacity (12 webcams)","Host","Max 12 participants can have webcams ON simultaneously; participant #13 is blocked or forced video-off per rule","At least 13 users can join the session; max webcam sharing = 12.","1) Have 12 users turn on camera
+2) User #13 attempts to turn on camera","System enforces the limit: user #13 cannot enable camera or is forced to video-off with a clear message; existing 12 are unaffected.","P0","Functional","Not Run","","","",""
+"JOIN-023","Capacity (12 webcams)","Attendee","When one of the 12 users turns camera off, another user can turn camera on","There are 12 cameras ON; one user turns camera OFF.","1) User A turns camera off
+2) User B (currently video off) turns camera on","User B can enable camera; the limit is still enforced correctly.","P1","Functional","Not Run","","","",""
+"JOIN-024","Chat & People Roster","Attendee","People list shows correct participants and participant count stays in sync","Multiple users join/leave during the test.","1) Open People
+2) Compare participant count vs roster
+3) Have a user leave
+4) Re-check","Counts are consistent and update near real-time; no ghost/duplicate users.","P1","Functional","Not Run","","","",""
+"JOIN-025","Chat & People Roster","Attendee","In-session chat send/receive works after joining","Chat is enabled in sharing matrix.","1) Attendee A sends a message
+2) Attendee B receives and replies","Messages appear in correct order; author/time metadata is correct; no leakage across sessions.","P0","Functional","Not Run","","","",""
+"JOIN-026","Chat & People Roster","Host","Host can lower raised hands via people roster","Hand raise is enabled; attendee joined.","1) Attendee raises hand
+2) Host lowers hand","Hand raise indicator is cleared for all users; attendee sees the updated state.","P1","Functional","Not Run","","","",""
+"JOIN-027","Reactions & Hand Raise","Attendee","Emoji reactions (clap and others) work after joining","Reactions are enabled.","1) Attendee sends a clap reaction
+2) Observe overlay on tile
+3) Confirm other participants can see it","Reaction UI displays correctly; does not break audio/video; rate limiting (if any) behaves correctly.","P1","Functional","Not Run","","","",""
+"JOIN-028","Spotlight & Layout (PIP)","Host","Host spotlights a participant; users who join later see the correct spotlight state","Meeting is live; host has spotlighted a speaker.","1) New attendee joins
+2) Observe layout","New attendee sees the same spotlight state; spotlight is not reset on join.","P1","Functional","Not Run","","","",""
+"JOIN-029","Spotlight & Layout (PIP)","Attendee","Dynamic PIP mode behaves correctly when joining and starting screen share (if permitted)","Sharing matrix permits user to share screen; user has joined.","1) Start screen share
+2) Observe PIP layout
+3) Stop share","PIP transitions smoothly; does not block controls; layout returns correctly after stopping share.","P1","Functional","Not Run","","","",""
+"JOIN-030","Remove User & Moderation","Host","Host removes an attendee; attendee is kicked and cannot bypass by immediate rejoin","Attendee joined; host has permission to remove.","1) Host removes attendee
+2) Attendee attempts to rejoin immediately","Attendee is removed; rejoin behavior follows policy (blocked/needs admission if locked); no bypass.","P0","Functional","Not Run","","","",""
+"JOIN-031","Recording Controls","Organizer","When “Allow session to be recorded” is OFF: no start/stop recording controls are shown while live","Session editor: recording checkbox OFF; session is live.","1) Host joins
+2) Speaker joins
+3) Attendee joins
+4) Look for recording controls","No recording controls are visible; recording cannot be started from the UI.","P0","Functional","Not Run","","","",""
+"JOIN-032","Recording Controls","Organizer","When “Allow session to be recorded” is ON: permitted roles can start/stop recording while live","Recording checkbox ON; session is live; confirm which roles are permitted to control recording.","1) Join as a permitted role
+2) Click Start Recording
+3) Verify recording state
+4) Click Stop Recording","Start/Stop works; recording state indicator is correct; joining participants are not disrupted.","P0","Functional","Not Run","","","",""
+"JOIN-033","Recording Controls","Attendee","Attendee cannot start/stop recording","Recording is enabled; attendee joined.","1) Open meeting controls
+2) Look for recording actions","Recording controls are hidden/disabled for attendee; attendee cannot start recording via UI/API.","P0","Security","Not Run","","","",""
+"JOIN-034","Localization (10 languages)","Attendee","Join meeting in a non-default UI language: strings are correct and layout is not broken","Set UI language to a supported non-default language (e.g., FR/DE/JA); attendee open time has started.","1) Join
+2) Open People/Chat/Reactions
+3) Review labels and layout","Translations are correct; no text overflow or broken layouts; join flow works without errors.","P2","Functional","Not Run","","","",""
+"JOIN-035","Resilience (reconnect)","Attendee","Short network drop (10–30s) then reconnect: no duplicate roster entries and state remains reasonable","Attendee joined; network throttling can be simulated.","1) Join
+2) Turn camera on
+3) Disable network for 20s
+4) Re-enable network
+5) Observe roster and chat","Client reconnects automatically; no duplicate/ghost users; audio/video state follows defined rules; chat still works after reconnect.","P0","Functional","Not Run","","","",""
+"JOIN-036","Resilience (reconnect)","Attendee","Refresh browser tab while in meeting: rejoin works and lock-room rules are respected","Attendee joined; room is unlocked OR locked with an admission policy.","1) Refresh the tab
+2) Observe join behavior","User returns to meeting; if room is locked the correct admission flow is applied; no crash.","P1","Functional","Not Run","","","",""
+"JOIN-037","Reporting (attendance/dwell)","Organizer","Attendance report includes dwell time: multiple joins/leaves aggregate correctly","Reporting is enabled; organizer can access attendance report.","1) Attendee joins for 5 minutes
+2) Leaves for 2 minutes
+3) Joins again for 3 minutes
+4) View/export report","Total dwell time is 8 minutes (± rounding); not double-counted.","P1","Functional","Not Run","","","",""
+"JOIN-038","Access & Timing","Attendee","Attempt to join after session ended: shows ended state and (optionally) recording CTA","Session is ended; recording may or may not be available.","1) Open Agenda
+2) Click Join","User cannot enter live meeting; ended state is shown; if recording is available, CTA to view recording is correct.","P1","Functional","Not Run","","","",""
+"JOIN-039","Agenda Lobby Entry","Attendee","Open the same join link in two tabs: policy prevents duplicate participants","Attendee already joined in Tab A.","1) Open Tab B with the same join link
+2) Observe behavior","System prevents duplicate participant sessions; behavior is clear (deny new tab or transfer session).","P1","Functional","Not Run","","","",""
+"JOIN-040","Chat & People Roster","Attendee","Name labels render correctly for Unicode (Vietnamese diacritics/CJK) when joining","User display name contains Unicode (e.g., “Nguyễn Ánh – 山田”).","1) Join
+2) Observe name label on tiles and in people roster","No encoding issues; consistent rendering; no incorrect truncation.","P2","Functional","Not Run","","","",""
+"JOIN-041","Audio/Video","Attendee","Avatar is shown when user joins with camera off (after setting an avatar)","User has set an avatar; user joins with camera off.","1) Join
+2) Ensure camera is off
+3) Observe tile","Avatar is shown as the placeholder; name label remains correct; no avatar mix-ups.","P2","Functional","Not Run","","","",""
+"JOIN-042","Chat & People Roster","Speaker","Backstage chat (if available) is only visible to permitted roles (Host/Speaker) when joining","Backstage chat enabled; at least one attendee is also in the meeting.","1) Speaker sends backstage message
+2) Host verifies receipt
+3) Attendee checks chat","Attendee cannot see backstage messages; host/speaker can.","P1","Security","Not Run","","","",""
+"JOIN-043","Sharing Matrix","Host","YouTube video share: users who join after sharing starts see correct playback/state","Host is sharing a YouTube video; sharing is permitted; attendee joins afterward.","1) Host starts YouTube share
+2) Attendee joins
+3) Observe video and audio","Late joiner sees the shared video; state (play/pause) aligns with the meeting per policy; no audio issues.","P2","Functional","Not Run","","","",""
