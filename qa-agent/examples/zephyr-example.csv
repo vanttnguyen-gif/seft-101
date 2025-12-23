@@ -1,0 +1,4 @@
+Issue Key,Test Summary,Test Description,Priority,Status,Folder,Component,Labels,Step,Test Data,Expected Result
+,"US-001-TC-001: Add a new todo item","Covers adding a new todo item via UI",High,Draft,"Todo App",UI,"US-001,todo",1,"Title=Buy milk","Todo item is added to the list"
+,"US-001-TC-001: Add a new todo item","Covers adding a new todo item via UI",High,Draft,"Todo App",UI,"US-001,todo",2,"","Input field is cleared"
+,"US-001-TC-002: Prevent empty todo item","Validation: empty input",High,Draft,"Todo App",UI,"US-001,todo",1,"Title=(empty)","Alert shown and no item added"
