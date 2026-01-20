@@ -1,0 +1,184 @@
+Test Case ID,Module/Feature,Test Case Title,Test Description,Preconditions,Test Steps,Expected Result,Test Data,Priority,Test Type,Status
+TC_FB_001,Form Builder Access,Access and edit all form types,From Form Builder select My Profile then each Submission and Review form for every stage make a small edit and verify each form is editable and changes remain on that form,"1. Admin is logged in
+2. User is on Form Builder page
+3. At least 2 stages exist","1. Open Form Builder
+2. Select My Profile in sidebar
+3. Make a small change (e.g., add heading or rename a field)
+4. Select each Submission form for every stage and make a small change
+5. Select each Review form for every stage and make a small change","1. My Profile form can be selected and edited
+2. Submission forms for all stages can be selected and edited
+3. Review forms for all stages can be selected and edited",N/A,High,Functional,Pending
+TC_FB_002,Form Options,All required component types are available,Open Form Options and verify required Static Elements and Form Elements are listed,"1. Admin is on Form Builder
+2. Any form is selected","1. Open Form Options panel
+2. Verify Static Elements list
+3. Verify Form Elements list","1. Static Elements include Heading, Content, Divider, Page break
+2. Form Elements include Text, Text Area, Checkbox, Radio, Drop-down, Auto suggest, Multi-Select, Date/time, Country, File upload, Image upload",N/A,High,Functional,Pending
+TC_FB_003,Form Canvas,Drag and drop component placement,Drag any component from Form Options to the canvas and verify it appears at the drop position and is editable,"1. Admin is on Form Builder
+2. Form Options panel is visible","1. Select any component (e.g., Text)
+2. Drag the component onto the form canvas
+3. Drop the component","1. Component appears in the form layout at the drop position
+2. Component is selectable for editing",N/A,High,Functional,Pending
+TC_FB_004,Custom Fields,Custom fields data is reported,Add a custom field to My Profile Submission and Review forms then populate as Submitter Reviewer and Committee and verify data shows in corresponding sections and reporting,"1. Admin can edit forms
+2. Submitter/Reviewer/Committee accounts exist","1. Add a custom field to My Profile form and save
+2. Add a custom field to a Submission form and save
+3. Add a custom field to a Review form and save
+4. As Submitter, populate custom fields and submit
+5. As Reviewer/Committee, populate custom fields and submit review
+6. View corresponding sections and reports","1. Custom field data appears in the correct My Profile/Submission/Review sections
+2. Custom field data is available in reporting or exports for each role",Sample custom fields,High,Functional,Pending
+TC_FB_005,Visibility Rules,Configure visibility rules with all/any conditions,Open visibility rules and verify All or Any conditions can be used with system and custom fields and operators match each field type,"1. Admin is editing a form
+2. At least one system field and one custom field exist","1. Open visibility rules for a field
+2. Choose All conditions must be met
+3. Add a condition using a system field
+4. Add a condition using a custom field
+5. Switch to Any conditions must be met
+6. Verify operator options for different field types (text, date, choice)","1. Rule builder supports both All and Any conditions
+2. Conditions can use system and custom fields
+3. Operator list matches field type (e.g., date has before/after, text has contains)",N/A,High,Functional,Pending
+TC_FB_006,My Profile,Default fields match Users section,Open My Profile in Form Builder and compare default system fields with Users section fields and verify they match,"1. Admin can access Users section
+2. Admin is on Form Builder","1. Open My Profile form in Form Builder
+2. List default system fields shown
+3. Open Users section and list user fields
+4. Compare both lists","1. Default system fields in My Profile match the fields displayed in Users section",N/A,Medium,Functional,Pending
+TC_FB_007,My Profile,Prevent deletion of default profile fields,Attempt to delete a default system field on My Profile and verify deletion is blocked and field remains,"1. My Profile form is open
+2. Default system fields are visible","1. Select a default system field
+2. Attempt to delete it","1. Delete action is blocked
+2. Warning or tooltip indicates deletion is not allowed
+3. Field remains on the form",N/A,High,Functional,Pending
+TC_FB_008,My Profile,Hide default profile fields by group,For a default system field uncheck visibility for Everyone Submitter Reviewer and Committee then save and verify field is hidden for those groups,"1. My Profile form is open
+2. User groups exist (Everyone, Submitter, Reviewer, Committee)","1. Select a default system field
+2. Uncheck Visibility for Everyone, Submitter, Reviewer, Committee
+3. Save form
+4. View My Profile as each group","1. Field is hidden for each group whose visibility is unchecked
+2. Field remains visible for groups still checked",N/A,High,Functional,Pending
+TC_FB_009,Submission Form,Default Submission fields are present,Open a Submission form and verify mandatory default Submission and Review fields are present,"1. Submission form exists for a stage
+2. Admin is on Form Builder","1. Open a Submission form
+2. Locate default system fields","1. Submission field is present
+2. Review field is present",N/A,High,Functional,Pending
+TC_FB_010,Submission Form,Mandatory Submission fields remain required,Attempt to set mandatory Submission and Review fields to optional and verify required status cannot be removed,"1. Submission form is open
+2. Mandatory fields are visible","1. Select Submission field and try to set Required to optional
+2. Select Review field and try to set Required to optional","1. Required toggle is disabled or action is rejected
+2. Fields remain required on the form",N/A,High,Functional,Pending
+TC_FB_011,Review Form,Default Review fields are present with correct types,Open a Review form and verify Conflict of Interest is Yes No radio Review is comment textbox and Score is scoring radio,"1. Review form exists for a stage
+2. Admin is on Form Builder","1. Open a Review form
+2. Verify Conflict of Interest field type
+3. Verify Review field type
+4. Verify Score field type","1. Conflict of Interest is a Yes/No radio
+2. Review is a comment or textbox
+3. Score is a special scoring radio",N/A,High,Functional,Pending
+TC_FB_012,Sidebar,Show total form count and highlight selected form,On the sidebar verify header shows total form count and selected form is highlighted,"1. Admin is on Form Builder
+2. Forms list is visible","1. Observe sidebar header
+2. Select any form
+3. Verify highlight state","1. Sidebar header shows total form count (e.g., Forms (7))
+2. Currently selected form is highlighted",N/A,Medium,UI,Pending
+TC_FB_013,Sidebar,Forms grouped by stage with type and name,In the sidebar verify forms are grouped by stage and each item shows form type and stage name,"1. Multiple stages exist
+2. Forms list is visible","1. Review sidebar groups
+2. Check each item label","1. Forms are grouped under Stage 1, Stage 2, etc.
+2. Each form item displays form type and stage name",N/A,Medium,UI,Pending
+TC_FB_014,Change Tracking,Warn when switching forms with unsaved changes,With unsaved changes click another form and verify warning appears with options to stay or switch,"1. Admin is editing a form
+2. Form has unsaved changes","1. Make a change to a form
+2. Click a different form in sidebar
+3. Observe warning dialog
+4. Choose Stay
+5. Repeat and choose Switch (discard or save)","1. Warning appears asking to save or discard changes
+2. User can stay on current form or switch
+3. Selection follows the user choice",N/A,High,Functional,Pending
+TC_FB_015,Change Tracking,Warn when navigating away with unsaved changes,With unsaved changes attempt to navigate away and verify warning prompts to stay or leave,"1. Admin is editing a form
+2. Form has unsaved changes","1. Make a change
+2. Attempt to navigate away (menu link or browser back)
+3. Observe warning prompt","1. Warning about unsaved changes is displayed
+2. User can choose to stay or leave",N/A,High,Functional,Pending
+TC_FB_016,Change Tracking,No warning when no unsaved changes,Without changes navigate away and verify no warning is shown,"1. Admin is on Form Builder
+2. No changes made","1. Navigate away from Form Builder
+2. Observe behavior","1. Navigation proceeds without warning",N/A,Medium,Functional,Pending
+TC_FB_017,Build Mode,Initial load shows Build Mode with spinner,Load Form Builder and verify first form auto loads in Build Mode with mode indicator and loading spinner then editor is visible,"1. Admin is on Form Builder page
+2. Forms exist in sidebar","1. Load the Form Builder page
+2. Observe initial form load
+3. Observe mode indicator","1. First form loads automatically and is highlighted
+2. Build Mode is default
+3. Mode indicator shows In build mode with wrench icon
+4. Loading spinner appears during load and disappears when ready
+5. Editor shows all existing fields",N/A,High,UI/Functional,Pending
+TC_FB_018,Static Elements,Add static elements to form,Drag Heading Content Divider and Page break into the form and verify each appears correctly and text elements are editable,"1. Admin is in Build Mode
+2. Form Options panel is visible","1. Drag Heading to canvas and edit text
+2. Drag Content to canvas and edit text
+3. Drag Divider to canvas
+4. Drag Page break to canvas","1. Each static element appears where dropped
+2. Heading and Content text are editable
+3. Divider and Page break render correctly",Sample text,High,Functional,Pending
+TC_FB_019,Form Elements,Add and edit text input field,Drag a Text field to the form then edit label and required state and verify updates are reflected,"1. Admin is in Build Mode
+2. Form Options panel is visible","1. Drag Text element to canvas
+2. Select the field
+3. Edit the label
+4. Toggle Required on and off","1. Single-line text field appears
+2. Label updates correctly
+3. Required status changes and displays correctly",Sample label,High,Functional,Pending
+TC_FB_020,Form Elements,Edit checkbox field options,Select a checkbox field and verify you can add remove rename and reorder options,"1. Admin is in Build Mode
+2. Checkbox field exists on form","1. Select checkbox field
+2. Add two new options
+3. Rename an option
+4. Reorder options
+5. Remove an option","1. Options can be added, renamed, reordered, and removed
+2. Option list updates correctly",Option labels A/B/C,High,Functional,Pending
+TC_FB_021,System Fields,Prevent deletion of system fields,Try to delete a system field and verify warning appears and field remains,"1. A form with system fields is open
+2. System field is visible","1. Select a system field
+2. Attempt to delete it","1. Warning indicates deletion is not allowed
+2. System field remains on the form",N/A,High,Functional,Pending
+TC_FB_022,Reordering,Reorder fields by drag and drop,Drag a field to a new position then save and reload and verify order persists,"1. Form has multiple fields
+2. Admin is in Build Mode","1. Drag a field to a new position
+2. Verify layout order
+3. Save the form
+4. Reload the form","1. Field moves to new position
+2. Other fields adjust accordingly
+3. Saved order persists after reload",N/A,High,Functional,Pending
+TC_FB_023,Reordering,Reorder multiple fields as a group,Reorder multiple selected fields together and verify order updates and unsaved state is indicated until save,"1. Form has multiple fields
+2. Multi-select reorder is supported","1. Select multiple fields for reorder
+2. Drag the selection to a new position
+3. Observe unsaved changes indicator","1. Selected fields move together in the new order
+2. Layout updates correctly
+3. Changes are marked as unsaved until saved",N/A,Medium,Functional,Pending
+TC_FB_024,Field Removal,Delete a custom field,Delete a custom field and verify it is removed and unsaved state plus Save button appears,"1. Custom field exists on the form
+2. Admin is in Build Mode","1. Select the custom field
+2. Click Delete
+3. Observe unsaved changes and Save button","1. Custom field is removed from layout
+2. Unsaved changes indicator appears
+3. Save button appears",N/A,High,Functional,Pending
+TC_FB_025,Preview Mode,Preview shows unsaved changes and validation markers,Make unsaved changes then switch to Preview and verify changes show required markers plus labels and help text display,"1. Admin is in Build Mode
+2. Form has unsaved changes","1. Update a label and help text
+2. Mark a field as required
+3. Click Preview","1. Preview shows all current changes
+2. Required fields show markers (e.g., asterisks)
+3. Labels and help text display correctly",Sample label and help text,High,Functional,Pending
+TC_FB_026,Preview Mode,Switch back to Build Mode retains changes,From Preview click Build and verify loading spinner shows and changes remain in Build Mode,"1. Admin is in Preview Mode
+2. Unsaved changes exist","1. Click Build
+2. Observe loading behavior
+3. Verify form state","1. Loading spinner shows while Build Mode loads
+2. Build Mode opens with changes intact",N/A,High,Functional,Pending
+TC_FB_027,Saving,Save success and error handling,Click Save and verify button disables during save success shows message and hides button and failure shows error and re enables button,"1. Admin is in Build Mode
+2. Form has changes","1. Click Save
+2. Observe button state during save
+3. Confirm success message and Save button disappears
+4. Simulate save failure (e.g., network error) and click Save again","1. Save button disables while saving
+2. On success, success message appears and Save button disappears
+3. On failure, error message appears and Save button re-enables",Simulated network error,High,Functional,Pending
+TC_FB_028,Field Properties,Configure text field properties,Edit text or text area properties to set help text default value and min max limits then verify in Preview,"1. Text or Text Area field exists
+2. Admin is in Build Mode","1. Open field properties
+2. Set help text
+3. Set default value
+4. Set min and max character limits
+5. Preview the form","1. Help text displays in Preview
+2. Default value is pre-filled
+3. Character limits are enforced in Preview",Help text and limits,High,Functional,Pending
+TC_FB_029,Field Properties,Configure choice defaults and ordering,For checkbox radio or drop down set a default option and reorder options then save and verify order and default persist,"1. Checkbox/Radio/Drop-down field exists
+2. Admin is in Build Mode","1. Open choice field properties
+2. Set a default selected option
+3. Reorder options by drag and drop
+4. Save the form","1. Default option is set and visible
+2. Option order updates and persists after save",Option list A/B/C,High,Functional,Pending
+TC_FB_030,Multiple Forms,Manage multiple forms independently,Edit two different forms and verify changes are isolated and each form requires its own save,"1. At least two forms exist
+2. Admin is in Build Mode","1. Edit Form A and make a change without saving
+2. Switch to Form B and make a different change
+3. Save Form B only
+4. Return to Form A","1. Form B changes are saved without affecting Form A
+2. Form A still shows its own unsaved changes
+3. Each form requires its own save action",N/A,High,Functional,Pending
